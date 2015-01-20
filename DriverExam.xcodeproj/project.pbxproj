@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		03C5CF251A679840002136E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C5CF241A679840002136E3 /* main.m */; };
 		03C5CF281A679840002136E3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C5CF271A679840002136E3 /* AppDelegate.m */; };
-		03C5CF2B1A679840002136E3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C5CF2A1A679840002136E3 /* ViewController.m */; };
 		03C5CF2E1A679840002136E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C5CF2C1A679840002136E3 /* Main.storyboard */; };
 		03C5CF301A679840002136E3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03C5CF2F1A679840002136E3 /* Images.xcassets */; };
 		03C5CF331A679840002136E3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C5CF311A679840002136E3 /* LaunchScreen.xib */; };
 		03C5CF3F1A679840002136E3 /* DriverExamTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C5CF3E1A679840002136E3 /* DriverExamTests.m */; };
+		03C5CF4F1A67C883002136E3 /* QuestionBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C5CF4E1A67C883002136E3 /* QuestionBase.m */; };
+		03DC59AD1A68C13100B30852 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DC59A71A68C13100B30852 /* AnswerViewController.m */; };
+		03DC59AE1A68C13100B30852 /* ExercisesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DC59A91A68C13100B30852 /* ExercisesViewController.m */; };
+		03DC59AF1A68C13100B30852 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DC59AB1A68C13100B30852 /* ViewController.m */; };
+		03DC59B21A68C15A00B30852 /* QuestionStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DC59B11A68C15A00B30852 /* QuestionStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +36,22 @@
 		03C5CF241A679840002136E3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		03C5CF261A679840002136E3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		03C5CF271A679840002136E3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		03C5CF291A679840002136E3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		03C5CF2A1A679840002136E3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		03C5CF2D1A679840002136E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		03C5CF2F1A679840002136E3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		03C5CF321A679840002136E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		03C5CF381A679840002136E3 /* DriverExamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DriverExamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03C5CF3D1A679840002136E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03C5CF3E1A679840002136E3 /* DriverExamTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DriverExamTests.m; sourceTree = "<group>"; };
+		03C5CF4D1A67C883002136E3 /* QuestionBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionBase.h; sourceTree = "<group>"; };
+		03C5CF4E1A67C883002136E3 /* QuestionBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionBase.m; sourceTree = "<group>"; };
+		03DC59A61A68C13100B30852 /* AnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerViewController.h; sourceTree = "<group>"; };
+		03DC59A71A68C13100B30852 /* AnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerViewController.m; sourceTree = "<group>"; };
+		03DC59A81A68C13100B30852 /* ExercisesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisesViewController.h; sourceTree = "<group>"; };
+		03DC59A91A68C13100B30852 /* ExercisesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisesViewController.m; sourceTree = "<group>"; };
+		03DC59AA1A68C13100B30852 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		03DC59AB1A68C13100B30852 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		03DC59B01A68C15A00B30852 /* QuestionStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionStore.h; sourceTree = "<group>"; };
+		03DC59B11A68C15A00B30852 /* QuestionStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +93,11 @@
 		03C5CF211A679840002136E3 /* DriverExam */ = {
 			isa = PBXGroup;
 			children = (
+				03DC59A51A68C13000B30852 /* Controller */,
+				03DC59AC1A68C13100B30852 /* Store */,
+				03C5CF4C1A67C84C002136E3 /* Entity */,
 				03C5CF261A679840002136E3 /* AppDelegate.h */,
 				03C5CF271A679840002136E3 /* AppDelegate.m */,
-				03C5CF291A679840002136E3 /* ViewController.h */,
-				03C5CF2A1A679840002136E3 /* ViewController.m */,
 				03C5CF2C1A679840002136E3 /* Main.storyboard */,
 				03C5CF2F1A679840002136E3 /* Images.xcassets */,
 				03C5CF311A679840002136E3 /* LaunchScreen.xib */,
@@ -117,6 +130,37 @@
 				03C5CF3D1A679840002136E3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		03C5CF4C1A67C84C002136E3 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				03C5CF4D1A67C883002136E3 /* QuestionBase.h */,
+				03C5CF4E1A67C883002136E3 /* QuestionBase.m */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		03DC59A51A68C13000B30852 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				03DC59A61A68C13100B30852 /* AnswerViewController.h */,
+				03DC59A71A68C13100B30852 /* AnswerViewController.m */,
+				03DC59A81A68C13100B30852 /* ExercisesViewController.h */,
+				03DC59A91A68C13100B30852 /* ExercisesViewController.m */,
+				03DC59AA1A68C13100B30852 /* ViewController.h */,
+				03DC59AB1A68C13100B30852 /* ViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		03DC59AC1A68C13100B30852 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				03DC59B01A68C15A00B30852 /* QuestionStore.h */,
+				03DC59B11A68C15A00B30852 /* QuestionStore.m */,
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,7 +263,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03C5CF2B1A679840002136E3 /* ViewController.m in Sources */,
+				03DC59AF1A68C13100B30852 /* ViewController.m in Sources */,
+				03DC59AD1A68C13100B30852 /* AnswerViewController.m in Sources */,
+				03DC59AE1A68C13100B30852 /* ExercisesViewController.m in Sources */,
+				03DC59B21A68C15A00B30852 /* QuestionStore.m in Sources */,
+				03C5CF4F1A67C883002136E3 /* QuestionBase.m in Sources */,
 				03C5CF281A679840002136E3 /* AppDelegate.m in Sources */,
 				03C5CF251A679840002136E3 /* main.m in Sources */,
 			);
@@ -344,6 +392,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DriverExam/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -354,6 +403,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DriverExam/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -412,6 +462,7 @@
 				03C5CF441A679840002136E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03C5CF451A679840002136E3 /* Build configuration list for PBXNativeTarget "DriverExamTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +471,7 @@
 				03C5CF471A679840002136E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

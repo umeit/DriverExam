@@ -77,15 +77,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaV-qH-MTH">
-                                <rect key="frame" x="130" y="319" width="61" height="30"/>
-                                <state key="normal" title="B Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectAnswer:" destination="8Ll-lk-FEa" eventType="touchUpInside" id="YcP-l5-V2Z"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6d-NE-eNB">
                                 <rect key="frame" x="130" y="357" width="62" height="30"/>
                                 <state key="normal" title="C Button">
@@ -129,11 +120,27 @@
                                     <action selector="nextQuestionButtonPress:" destination="8Ll-lk-FEa" eventType="touchUpInside" id="jka-zO-LAN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaV-qH-MTH">
+                                <rect key="frame" x="130" y="319" width="61" height="30"/>
+                                <state key="normal" title="B Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectAnswer:" destination="8Ll-lk-FEa" eventType="touchUpInside" id="YcP-l5-V2Z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="练习" id="OGC-4W-Dcr"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="answerAButon" destination="RU3-6K-P8w" id="44j-Aq-ChO"/>
+                        <outlet property="answerBButon" destination="eaV-qH-MTH" id="4h7-Zz-q4a"/>
+                        <outlet property="answerCButon" destination="w6d-NE-eNB" id="nsU-W7-r4d"/>
+                        <outlet property="answerDButon" destination="eW8-op-Th6" id="D9m-DI-xhw"/>
+                        <outlet property="questionContentTextView" destination="lPM-2e-wtz" id="ZI2-OQ-dN7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xnF-wB-LAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

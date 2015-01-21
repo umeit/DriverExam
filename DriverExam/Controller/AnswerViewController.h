@@ -10,12 +10,17 @@
 
 @class QuestionBase;
 
-
 /** 
  * 答题控制器的基类
  * 用途：展示题目、选项，判断结果
  */
 @interface AnswerViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UITextView *questionContentTextView;
+@property (weak, nonatomic) IBOutlet UIButton *answerAButon;
+@property (weak, nonatomic) IBOutlet UIButton *answerBButon;
+@property (weak, nonatomic) IBOutlet UIButton *answerCButon;
+@property (weak, nonatomic) IBOutlet UIButton *answerDButon;
 
 @property (strong, nonatomic) QuestionBase *question;
 

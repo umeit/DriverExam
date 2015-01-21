@@ -8,6 +8,8 @@
 
 #import "AnswerViewController.h"
 
+#import "QuestionBase.h"
+
 @interface AnswerViewController ()
 
 @end
@@ -51,6 +53,12 @@
 
 -(void)updateQuestionDisplay
 {
+    self.questionContentTextView.text = self.question.content;
+    
+    self.answerAButon.titleLabel.text = [self.question.answerList objectAtIndex:0];
+    self.answerBButon.titleLabel.text = [self.question.answerList objectAtIndex:1];
+    self.answerBButon.titleLabel.text = [self.question.answerList objectAtIndex:2];
+    self.answerBButon.titleLabel.text = [self.question.answerList objectAtIndex:3];
 }
 
 - (void)answerDidCorrect

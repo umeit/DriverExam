@@ -14,6 +14,11 @@
 #define CURRENT_QUESTION_INDEX @"CurrentQuestionIndex"
 
 #define QUESTION_CONTENT @"name"
+#define ANSWER_CORRECT @"answer"
+#define ANSWER_A @"answer_a"
+#define ANSWER_B @"answer_b"
+#define ANSWER_C @"answer_c"
+#define ANSWER_D @"answer_d"
 
 #define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
 
@@ -63,7 +68,13 @@ static QuestionStore *exercisesStore = nil;
     if ([result next]) {
         question = [[QuestionBase alloc] init];
         question.content = [result stringForColumn:QUESTION_CONTENT];
+        question.trueAnswerIndex = [result intForColumn:ANSWER_CORRECT];
+        question.answerList = @[[result stringForColumn:ANSWER_A],
+                                [result stringForColumn:ANSWER_B],
+                                [result stringForColumn:ANSWER_C],
+                                [result stringForColumn:ANSWER_D]];
     }
+    
     [USER_DEFAULTS setObject:@(currentQuestionIndex) forKey:CURRENT_QUESTION_INDEX];
     [self.dataBase close];
     return question;

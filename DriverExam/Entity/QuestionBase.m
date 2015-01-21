@@ -10,4 +10,26 @@
 
 @implementation QuestionBase
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self) {
+        _qustoinID = [aDecoder decodeIntegerForKey:@"qustoinID"];
+        _content = [aDecoder decodeObjectForKey:@"content"];
+        _answerList = [aDecoder decodeObjectForKey:@"answerList"];
+        _correctIndex = [aDecoder decodeIntegerForKey:@"correctIndex"];
+        _result = [aDecoder decodeIntegerForKey:@"result"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeInteger:self.qustoinID forKey:@"qustoinID"];
+    [aCoder encodeObject:self.content forKey:@"content"];
+    [aCoder encodeObject:self.answerList forKey:@"answerList"];
+    [aCoder encodeInteger:self.correctIndex forKey:@"correctIndex"];
+    [aCoder encodeInteger:self.result forKey:@"result"];
+}
+
 @end

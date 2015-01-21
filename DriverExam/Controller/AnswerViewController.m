@@ -19,7 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self nextQuestion];
+    [self showNextQuestion];
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,13 +41,13 @@
     
 }
 
-/* 判断对错 */
+/** 判断对错 */
 - (BOOL)isCorrectAnswer
 {
     return self.selectedButton.tag%2==0 ? YES : NO;
 }
 
-- (void)nextQuestion
+- (void)showNextQuestion
 {
 }
 

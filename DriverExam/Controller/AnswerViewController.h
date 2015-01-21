@@ -26,7 +26,7 @@
 
 @property (strong, nonatomic) UIButton *selectedButton;
 
-- (void)nextQuestion;
+- (void)showNextQuestion;
 
 - (void)updateQuestionDisplay;
 

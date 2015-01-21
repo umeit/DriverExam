@@ -16,9 +16,14 @@
 
 + (QuestionStore *)reinforceStore;
 
++ (QuestionStore *)answerCacheStore;
+
 - (QuestionBase *)nextQuestion;
 
-//- (void)saveQuestionResult:(QuestionBase *)qustion;
+- (QuestionBase *)questionWithID:(NSInteger)questionID;
+
+- (void)addcaCheQuestion:(QuestionBase *)question
+                  withID:(NSInteger)questionID;
 
 - (void)addQuestion:(QuestionBase *)question;
 

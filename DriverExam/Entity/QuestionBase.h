@@ -8,14 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@interface QuestionBase : NSObject
+@interface QuestionBase : NSObject <NSCoding>
+
+@property (nonatomic) NSInteger qustoinID;
 
 @property (strong, nonatomic) NSString *content;
 
 @property (strong, nonatomic) NSArray *answerList;
 
-@property (nonatomic) NSInteger trueAnswerIndex;
+@property (nonatomic) NSInteger correctIndex;
 
+/** 答题结果 */
 @property (nonatomic) NSInteger result;
 
 @end

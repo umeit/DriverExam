@@ -8,9 +8,10 @@
 
 #import "ExercisesViewController.h"
 #import "QuestionStore.h"
+#import "QuestionBase.h"
 
 @interface ExercisesViewController ()
-- (void)updateButtonColorWithCorrectColor;
+
 @end
 
 
@@ -19,7 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self nextQuestion];
+    [self showNextQuestion];
 }
 
 - (void)didReceiveMemoryWarning
@@ -30,7 +31,7 @@
 
 #pragma mark - Override
 
-- (void)nextQuestion
+- (void)showNextQuestion
 {
     NSLog(@"下一题");
     // 获取下一个练习题
@@ -39,12 +40,37 @@
     [self updateQuestionDisplay];
 }
 
+- (void)updateQuestionDisplay
+{
+    [super updateQuestionDisplay];
+    
+    QuestionBase *question = [[QuestionStore answerCacheStore] questionWithID:self.question.qustoinID];
+    if (question) {
+        if (question.result == question.correctIndex) {
+            [self showCorrectAnswer];
+        }
+        else {
+            NSInteger correctButtonTag = self.question.correctIndex;
+            self.selectedButton = (UIButton *)[self.view viewWithTag:correctButtonTag];
+            [self updateSelectedButtonFaultStatus];
+            [self showCorrectAnswer];
+        }
+    }
+}
+
 - (void)answerDidCorrect
 {
     NSLog(@"正确！");
-//    [[QuestionStore exercisesStore] saveQuestionResult:self.question];
-    [self updateButtonColorWithCorrectColor];
-    [self nextQuestion];
+    // 显示正确选项
+    [self showCorrectAnswer];
+    
+    // 记录本题的结果
+    [[QuestionStore answerCacheStore] addcaCheQuestion:self.question withID:self.question.qustoinID];
+    // 两秒后显示下一题
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
+                                 (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self showNextQuestion];
+    });
 }
 
 - (void)answerDidFault
@@ -52,6 +78,7 @@
     NSLog(@"错误！");
     // 将错题加入加强练习题库
     [[QuestionStore reinforceStore] addQuestion:self.question];
+    [self updateSelectedButtonFaultStatus];
     [self showCorrectAnswer];
 }
 
@@ -60,16 +87,20 @@
 - (IBAction)nextQuestionButtonPress:(id)sender
 {
     NSLog(@"点击下一题");
+    [self showNextQuestion];
 }
 
-- (void)updateButtonColorWithCorrectColor
+/** 将当前选中的按钮改为‘错误’状态 */
+- (void)updateSelectedButtonFaultStatus
 {
-    NSLog(@"改变正确按钮颜色");
+    self.selectedButton.titleLabel.textColor = [UIColor grayColor];
 }
 
 - (void)showCorrectAnswer
 {
-    NSLog(@"显示正确答案");
+    NSInteger correctButtonTag = self.question.correctIndex;
+    UIButton *correctButton = (UIButton *)[self.view viewWithTag:correctButtonTag];
+    correctButton.titleLabel.textColor = [UIColor redColor];
 }
 
 /*

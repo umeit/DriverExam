@@ -12,6 +12,7 @@
 #import "FMDatabase.h"
 
 #define CURRENT_QUESTION_INDEX @"CurrentQuestionIndex"
+#define ANSWER_CACHE @"AnswerCache"
 
 #define QUESTION_CONTENT @"name"
 #define ANSWER_CORRECT @"answer"
@@ -23,12 +24,12 @@
 #define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
 
 @interface QuestionStore ()
-
+- (NSString *)dbPath;
 @property (strong, nonatomic) FMDatabase *dataBase;
-
 @end
 
 static QuestionStore *exercisesStore = nil;
+static QuestionStore *answerCacheStore = nil;
 
 @implementation QuestionStore
 
@@ -40,6 +41,16 @@ static QuestionStore *exercisesStore = nil;
     });
     
     return exercisesStore;
+}
+
++ (QuestionStore *)answerCacheStore
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        answerCacheStore = [[self alloc] init];
+    });
+    
+    return answerCacheStore;
 }
 
 - (id)init
@@ -68,7 +79,7 @@ static QuestionStore *exercisesStore = nil;
     if ([result next]) {
         question = [[QuestionBase alloc] init];
         question.content = [result stringForColumn:QUESTION_CONTENT];
-        question.trueAnswerIndex = [result intForColumn:ANSWER_CORRECT];
+        question.correctIndex = [result intForColumn:ANSWER_CORRECT];
         question.answerList = @[[result stringForColumn:ANSWER_A],
                                 [result stringForColumn:ANSWER_B],
                                 [result stringForColumn:ANSWER_C],
@@ -79,6 +90,20 @@ static QuestionStore *exercisesStore = nil;
     [self.dataBase close];
     return question;
 }
+
+- (void)addcaCheQuestion:(QuestionBase *)question withID:(NSInteger)questionID
+{
+    NSMutableDictionary *answerCache = (NSMutableDictionary *)[USER_DEFAULTS dictionaryForKey:ANSWER_CACHE];
+    [answerCache setObject:question forKey:[@(questionID) stringValue]];
+}
+
+- (QuestionBase *)questionWithID:(NSInteger)questionID
+{
+    NSMutableDictionary *answerCache = (NSMutableDictionary *)[USER_DEFAULTS dictionaryForKey:ANSWER_CACHE];
+    return [answerCache objectForKey:[@(questionID) stringValue]];
+}
+
+#pragma mark - Private
 
 - (NSString *)dbPath
 {

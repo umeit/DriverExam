@@ -59,9 +59,18 @@ static QuestionStore *answerCacheStore = nil;
     self = [super init];
     if (self) {
         _dataBase = [FMDatabase databaseWithPath:[self dbPath]];
-        [USER_DEFAULTS registerDefaults:@{CURRENT_QUESTION_INDEX: @0}];
+        [USER_DEFAULTS registerDefaults:@{CURRENT_QUESTION_INDEX: @1}];
     }
     return self;
+}
+
+- (QuestionBase *)currentQuestion
+{
+    NSInteger currentQuestionIndex = [USER_DEFAULTS integerForKey:CURRENT_QUESTION_INDEX];
+    
+    QuestionBase *question = [self questionWithIDOnDB:currentQuestionIndex];
+    
+    return question;
 }
 
 - (QuestionBase *)nextQuestion

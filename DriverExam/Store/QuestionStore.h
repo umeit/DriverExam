@@ -18,6 +18,8 @@
 
 + (QuestionStore *)answerCacheStore;
 
+- (QuestionBase *)currentQuestion;
+
 - (QuestionBase *)nextQuestion;
 
 - (QuestionBase *)prevQustion;

@@ -19,7 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self showNextQuestion];
+    [self showCurrentQuestion];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,7 +44,11 @@
 /** 判断对错 */
 - (BOOL)isCorrectAnswer
 {
-    return self.selectedButton.tag%2==0 ? YES : NO;
+    return self.question.correctIndex == self.selectedButton.tag;
+}
+
+- (void)showCurrentQuestion
+{
 }
 
 - (void)showNextQuestion
@@ -55,20 +59,33 @@
 {
 }
 
--(void)updateQuestionDisplay
+- (void)updateQuestionDisplay
 {
     self.questionContentTextView.text = self.question.content;
     
-    self.answerButonA.titleLabel.text = [self.question.answerList objectAtIndex:0];
-    self.answerButonB.titleLabel.text = [self.question.answerList objectAtIndex:1];
+    [self.answerButonA setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [self.answerButonB setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [self.answerButonC setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [self.answerButonD setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    
+    
+    [self.answerButonA setTitle:[self.question.answerList objectAtIndex:0] forState:UIControlStateNormal];
+    [self.answerButonB setTitle:[self.question.answerList objectAtIndex:1] forState:UIControlStateNormal];
+
     if ([self.question.answerList count] > 2) {
         self.answerButonC.hidden = NO;
         self.answerButonD.hidden = NO;
-        self.answerButonC.titleLabel.text = [self.question.answerList objectAtIndex:2];
-        self.answerButonD.titleLabel.text = [self.question.answerList objectAtIndex:3];
+        [self.answerButonC setTitle:[self.question.answerList objectAtIndex:2] forState:UIControlStateNormal];
+        [self.answerButonD setTitle:[self.question.answerList objectAtIndex:3] forState:UIControlStateNormal];
     } else {
         self.answerButonC.hidden = YES;
         self.answerButonD.hidden = YES;
+    }
+    
+    if (self.question.qustoinID == 1) {
+        self.prevButton.hidden = YES;
+    } else {
+        self.prevButton.hidden = NO;
     }
 }
 

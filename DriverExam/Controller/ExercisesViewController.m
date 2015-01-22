@@ -30,6 +30,12 @@
 
 #pragma mark - Override
 
+- (void)showCurrentQuestion
+{
+    self.question = [[QuestionStore exercisesStore] currentQuestion];
+    [self updateQuestionDisplay];
+}
+
 - (void)showNextQuestion
 {
     // 获取下一个练习题
@@ -42,6 +48,9 @@
 {
     self.question = [[QuestionStore exercisesStore] prevQustion];
     [self updateQuestionDisplay];
+    if (self.question.qustoinID == 0) {
+        self.prevButton.hidden = YES;
+    }
 }
 
 - (void)updateQuestionDisplay
@@ -66,7 +75,6 @@
 /** 答对后的处理 */
 - (void)answerDidCorrect
 {
-    NSLog(@"正确！");
     // 显示正确选项
     [self showCorrectAnswer];
     
@@ -82,7 +90,6 @@
 /** 答错后的处理 */
 - (void)answerDidFault
 {
-    NSLog(@"错误！");
     // 将错题加入加强练习题库
     [[QuestionStore reinforceStore] addNeedReinforceQuestion:self.question];
     [self updateSelectedButtonFaultStatus];
@@ -95,29 +102,29 @@
 /** 点击下一题按钮 */
 - (IBAction)nextQuestionButtonPress:(id)sender
 {
-    NSLog(@"点击下一题");
     // 判断当前题有没有做
     [self showNextQuestion];
 }
 
 - (IBAction)prevQuestionButtonPress:(id)sender
 {
-    NSLog(@"点击上一题");
     [self showPrevQuestion];
 }
 
 
+#pragma mark - Custom
+
 /** 将当前选中的按钮改为‘错误’状态 */
 - (void)updateSelectedButtonFaultStatus
 {
-    self.selectedButton.titleLabel.textColor = [UIColor grayColor];
+    [self.selectedButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
 }
 
 - (void)showCorrectAnswer
 {
     NSInteger correctButtonTag = self.question.correctIndex;
     UIButton *correctButton = (UIButton *)[self.view viewWithTag:correctButtonTag];
-    correctButton.titleLabel.textColor = [UIColor redColor];
+    [correctButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
 }
 
 /*

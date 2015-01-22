@@ -22,14 +22,19 @@
 @property (weak, nonatomic) IBOutlet UIButton *answerButonC;
 @property (weak, nonatomic) IBOutlet UIButton *answerButonD;
 
+@property (weak, nonatomic) IBOutlet UIButton *prevButton;
+
 @property (strong, nonatomic) QuestionBase *question;
 
 @property (strong, nonatomic) UIButton *selectedButton;
+
+- (void)showCurrentQuestion;
 
 - (void)showNextQuestion;
 
 - (void)showPrevQuestion;
 
+/** 显示当前题目及选项 */
 - (void)updateQuestionDisplay;
 
 - (void)answerDidCorrect;

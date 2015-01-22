@@ -51,14 +51,25 @@
 {
 }
 
+- (void)showPrevQuestion
+{
+}
+
 -(void)updateQuestionDisplay
 {
     self.questionContentTextView.text = self.question.content;
     
-    self.answerAButon.titleLabel.text = [self.question.answerList objectAtIndex:0];
-    self.answerBButon.titleLabel.text = [self.question.answerList objectAtIndex:1];
-    self.answerBButon.titleLabel.text = [self.question.answerList objectAtIndex:2];
-    self.answerBButon.titleLabel.text = [self.question.answerList objectAtIndex:3];
+    self.answerButonA.titleLabel.text = [self.question.answerList objectAtIndex:0];
+    self.answerButonB.titleLabel.text = [self.question.answerList objectAtIndex:1];
+    if ([self.question.answerList count] > 2) {
+        self.answerButonC.hidden = NO;
+        self.answerButonD.hidden = NO;
+        self.answerButonC.titleLabel.text = [self.question.answerList objectAtIndex:2];
+        self.answerButonD.titleLabel.text = [self.question.answerList objectAtIndex:3];
+    } else {
+        self.answerButonC.hidden = YES;
+        self.answerButonD.hidden = YES;
+    }
 }
 
 - (void)answerDidCorrect

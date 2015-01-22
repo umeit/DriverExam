@@ -14,7 +14,7 @@
 
 @property (strong, nonatomic) NSString *content;
 
-@property (strong, nonatomic) NSArray *answerList;
+@property (strong, nonatomic) NSMutableArray *answerList;
 
 @property (nonatomic) NSInteger correctIndex;
 

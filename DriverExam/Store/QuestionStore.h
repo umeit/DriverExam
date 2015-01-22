@@ -20,11 +20,13 @@
 
 - (QuestionBase *)nextQuestion;
 
+- (QuestionBase *)prevQustion;
+
 - (QuestionBase *)questionWithID:(NSInteger)questionID;
 
 - (void)addcaCheQuestion:(QuestionBase *)question
                   withID:(NSInteger)questionID;
 
-- (void)addQuestion:(QuestionBase *)question;
+- (void)addNeedReinforceQuestion:(QuestionBase *)question;
 
 @end

@@ -20,7 +20,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self showNextQuestion];
 }
 
 - (void)didReceiveMemoryWarning
@@ -33,10 +32,15 @@
 
 - (void)showNextQuestion
 {
-    NSLog(@"下一题");
     // 获取下一个练习题
     self.question = [[QuestionStore exercisesStore] nextQuestion];
     // 更新题目显示
+    [self updateQuestionDisplay];
+}
+
+- (void)showPrevQuestion
+{
+    self.question = [[QuestionStore exercisesStore] prevQustion];
     [self updateQuestionDisplay];
 }
 
@@ -44,6 +48,7 @@
 {
     [super updateQuestionDisplay];
     
+    // 显示最近做过的结果
     QuestionBase *question = [[QuestionStore answerCacheStore] questionWithID:self.question.qustoinID];
     if (question) {
         if (question.result == question.correctIndex) {
@@ -58,6 +63,7 @@
     }
 }
 
+/** 答对后的处理 */
 - (void)answerDidCorrect
 {
     NSLog(@"正确！");
@@ -73,22 +79,33 @@
     });
 }
 
+/** 答错后的处理 */
 - (void)answerDidFault
 {
     NSLog(@"错误！");
     // 将错题加入加强练习题库
-    [[QuestionStore reinforceStore] addQuestion:self.question];
+    [[QuestionStore reinforceStore] addNeedReinforceQuestion:self.question];
     [self updateSelectedButtonFaultStatus];
     [self showCorrectAnswer];
 }
 
 
-#pragma mark - Custom
+#pragma mark - Action
+
+/** 点击下一题按钮 */
 - (IBAction)nextQuestionButtonPress:(id)sender
 {
     NSLog(@"点击下一题");
+    // 判断当前题有没有做
     [self showNextQuestion];
 }
+
+- (IBAction)prevQuestionButtonPress:(id)sender
+{
+    NSLog(@"点击上一题");
+    [self showPrevQuestion];
+}
+
 
 /** 将当前选中的按钮改为‘错误’状态 */
 - (void)updateSelectedButtonFaultStatus

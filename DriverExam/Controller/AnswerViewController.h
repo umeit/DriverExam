@@ -17,16 +17,18 @@
 @interface AnswerViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextView *questionContentTextView;
-@property (weak, nonatomic) IBOutlet UIButton *answerAButon;
-@property (weak, nonatomic) IBOutlet UIButton *answerBButon;
-@property (weak, nonatomic) IBOutlet UIButton *answerCButon;
-@property (weak, nonatomic) IBOutlet UIButton *answerDButon;
+@property (weak, nonatomic) IBOutlet UIButton *answerButonA;
+@property (weak, nonatomic) IBOutlet UIButton *answerButonB;
+@property (weak, nonatomic) IBOutlet UIButton *answerButonC;
+@property (weak, nonatomic) IBOutlet UIButton *answerButonD;
 
 @property (strong, nonatomic) QuestionBase *question;
 
 @property (strong, nonatomic) UIButton *selectedButton;
 
 - (void)showNextQuestion;
+
+- (void)showPrevQuestion;
 
 - (void)updateQuestionDisplay;
 

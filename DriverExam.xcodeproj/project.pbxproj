@@ -19,6 +19,7 @@
 		03DC59AF1A68C13100B30852 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DC59AB1A68C13100B30852 /* ViewController.m */; };
 		03DC59B21A68C15A00B30852 /* QuestionStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DC59B11A68C15A00B30852 /* QuestionStore.m */; };
 		224877991A6FB60A004C5B31 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 224877981A6FB60A004C5B31 /* libsqlite3.0.dylib */; };
+		225884911A724B3200B70FAA /* ReinforceMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 225884901A724B3200B70FAA /* ReinforceMainViewController.m */; };
 		228D0AF31A6F4CB200FDD577 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 228D0AE91A6F4CB200FDD577 /* FMDatabase.m */; };
 		228D0AF41A6F4CB200FDD577 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 228D0AEB1A6F4CB200FDD577 /* FMDatabaseAdditions.m */; };
 		228D0AF51A6F4CB200FDD577 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 228D0AED1A6F4CB200FDD577 /* FMDatabasePool.m */; };
@@ -60,6 +61,8 @@
 		03DC59B01A68C15A00B30852 /* QuestionStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionStore.h; sourceTree = "<group>"; };
 		03DC59B11A68C15A00B30852 /* QuestionStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionStore.m; sourceTree = "<group>"; };
 		224877981A6FB60A004C5B31 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		2258848F1A724B3200B70FAA /* ReinforceMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReinforceMainViewController.h; sourceTree = "<group>"; };
+		225884901A724B3200B70FAA /* ReinforceMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReinforceMainViewController.m; sourceTree = "<group>"; };
 		228D0AE81A6F4CB200FDD577 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		228D0AE91A6F4CB200FDD577 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		228D0AEA1A6F4CB200FDD577 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -174,6 +177,8 @@
 				03DC59A91A68C13100B30852 /* ExercisesViewController.m */,
 				03DC59AA1A68C13100B30852 /* ViewController.h */,
 				03DC59AB1A68C13100B30852 /* ViewController.m */,
+				2258848F1A724B3200B70FAA /* ReinforceMainViewController.h */,
+				225884901A724B3200B70FAA /* ReinforceMainViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -326,6 +331,7 @@
 				03DC59AD1A68C13100B30852 /* AnswerViewController.m in Sources */,
 				03DC59AE1A68C13100B30852 /* ExercisesViewController.m in Sources */,
 				03DC59B21A68C15A00B30852 /* QuestionStore.m in Sources */,
+				225884911A724B3200B70FAA /* ReinforceMainViewController.m in Sources */,
 				03C5CF4F1A67C883002136E3 /* QuestionBase.m in Sources */,
 				228D0AF41A6F4CB200FDD577 /* FMDatabaseAdditions.m in Sources */,
 				228D0AF71A6F4CB200FDD577 /* FMResultSet.m in Sources */,

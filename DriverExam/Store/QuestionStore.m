@@ -130,8 +130,21 @@ static QuestionStore *reinforceStore = nil;
     if (![self.dataBase open]) {
         return;
     }
+    
+    [self reinforceQustionWithQuestionID:question.qustoinID];
+    
     [self.dataBase executeUpdate:@"INSERT INTO tbl_reinforce VALUES (?, ?, ?, ?)", nil, @(question.qustoinID), @(question.result), @(0)];
     [self.dataBase close];
+}
+
+- (QuestionBase *)reinforceQustionWithQuestionID:(NSInteger)questionID
+{
+    if (![self.dataBase open]) {
+        return nil;
+    }
+    
+    FMResultSet *result = [self.dataBase executeQuery:@"SELECT * FROM tbl_reinforce WHERE question_id = (?)", questionID];
+    
 }
 
 - (NSInteger)faultQuestionCount

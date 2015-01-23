@@ -10,4 +10,12 @@
 
 @interface ReinforceQuestion : NSObject
 
+@property (nonatomic) NSInteger reinforceID;
+
+@property (nonatomic) NSInteger questionID;
+
+@property (nonatomic) NSInteger result;
+
+@property (nonatomic) NSInteger status;
+
 @end

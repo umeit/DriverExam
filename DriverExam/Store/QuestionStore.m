@@ -8,7 +8,7 @@
 
 #import "QuestionStore.h"
 #import "QuestionBase.h"
-
+#import "ReinforceQuestion.h"
 #import "FMDatabase.h"
 
 #define CURRENT_QUESTION_INDEX @"CurrentQuestionIndex"
@@ -21,6 +21,11 @@
 #define ANSWER_B @"answer_b"
 #define ANSWER_C @"answer_c"
 #define ANSWER_D @"answer_d"
+
+#define REINFORCE_ID @"id"
+#define QUESTION_ID_IN_REINFORCE @"question_id"
+#define RESULT @"result"
+#define STATUS @"status"
 
 #define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
 
@@ -137,14 +142,23 @@ static QuestionStore *reinforceStore = nil;
     [self.dataBase close];
 }
 
-- (QuestionBase *)reinforceQustionWithQuestionID:(NSInteger)questionID
+- (ReinforceQuestion *)reinforceQustionWithQuestionID:(NSInteger)questionID
 {
     if (![self.dataBase open]) {
         return nil;
     }
     
     FMResultSet *result = [self.dataBase executeQuery:@"SELECT * FROM tbl_reinforce WHERE question_id = (?)", questionID];
-    
+    ReinforceQuestion *question = nil;
+    if ([result next]) {
+        question = [[ReinforceQuestion alloc] init];
+        question.reinforceID = [result intForColumn:REINFORCE_ID];
+        question.questionID = [result intForColumn:QUESTION_ID_IN_REINFORCE];
+        question.result = [result intForColumn:RESULT];
+        question.status = [result intForColumn:STATUS];
+    }
+    [self.dataBase close];
+    return question;
 }
 
 - (NSInteger)faultQuestionCount

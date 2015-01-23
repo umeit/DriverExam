@@ -134,6 +134,35 @@ static QuestionStore *reinforceStore = nil;
     [self.dataBase close];
 }
 
+- (NSInteger)faultQuestionCount
+{
+    if (![self.dataBase open]) {
+        return 0;
+    }
+    
+    FMResultSet *result = [self.dataBase executeQuery:@"SELECT COUNT(*) FROM tbl_reinforce WHERE status = 0 AND result <> 0"];
+    while ([result next]) {
+        return [result intForColumnIndex:0];
+    }
+    
+    return 0;
+}
+
+- (NSInteger)missQuestionCount
+{
+    if (![self.dataBase open]) {
+        return 0;
+    }
+    
+    FMResultSet *result = [self.dataBase executeQuery:@"SELECT COUNT(*) FROM tbl_reinforce WHERE status = 0 AND result = 0"];
+    while ([result next]) {
+        return [result intForColumnIndex:0];
+    }
+    
+    return 0;
+}
+
+
 #pragma mark - Private
 
 - (QuestionBase *)questionWithIDOnDB:(NSInteger)questionID

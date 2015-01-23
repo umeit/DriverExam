@@ -26,6 +26,10 @@
 
 - (QuestionBase *)questionWithID:(NSInteger)questionID;
 
+- (NSInteger)faultQuestionCount;
+
+- (NSInteger)missQuestionCount;
+
 - (void)addcaCheQuestion:(QuestionBase *)question;
 
 - (void)addNeedReinforceQuestion:(QuestionBase *)question;

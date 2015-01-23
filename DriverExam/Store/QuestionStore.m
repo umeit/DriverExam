@@ -22,6 +22,8 @@
 #define ANSWER_C @"answer_c"
 #define ANSWER_D @"answer_d"
 
+#define DB_INIT @"DBInit"
+
 #define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
 
 @interface QuestionStore ()
@@ -31,6 +33,7 @@
 
 static QuestionStore *exercisesStore = nil;
 static QuestionStore *answerCacheStore = nil;
+static QuestionStore *reinforceStore = nil;
 
 @implementation QuestionStore
 
@@ -42,6 +45,20 @@ static QuestionStore *answerCacheStore = nil;
     });
     
     return exercisesStore;
+}
+
++ (QuestionStore *)reinforceStore
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        reinforceStore = [[self alloc] init];
+        if (![USER_DEFAULTS boolForKey:DB_INIT]) {
+            [reinforceStore initReinforceTable];
+            [USER_DEFAULTS setBool:YES forKey:DB_INIT];
+        }
+    });
+    
+    return reinforceStore;
 }
 
 + (QuestionStore *)answerCacheStore
@@ -62,6 +79,25 @@ static QuestionStore *answerCacheStore = nil;
         [USER_DEFAULTS registerDefaults:@{CURRENT_QUESTION_INDEX: @1}];
     }
     return self;
+}
+
+- (void)initReinforceTable
+{
+    if (![self.dataBase open]) {
+        return;
+    }
+    
+    NSString *createTableSQL =
+    @"CREATE TABLE IF NOT EXISTS tbl_reinforce" \
+    "(id INTEGER PRIMARY KEY AUTOINCREMENT," \
+    " question_id INTEGER, " \
+    " result INTEGER, " \
+    " status INTEGER" \
+    ")";
+    
+    [self.dataBase executeUpdate:createTableSQL];
+    
+    [self.dataBase close];
 }
 
 - (QuestionBase *)currentQuestion
@@ -116,7 +152,7 @@ static QuestionStore *answerCacheStore = nil;
         return;
     }
     
-    [self.dataBase executeUpdate:@"INSERT INTO tbl_reinforce VALUES (?, ?)", question.qustoinID, question.result];
+    [self.dataBase executeUpdate:@"INSERT INTO tbl_reinforce VALUES (?, ?, ?, ?)", nil, @(question.qustoinID), @(question.result), @(0)];
     
     [self.dataBase close];
 }

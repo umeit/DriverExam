@@ -18,6 +18,8 @@
 
 + (QuestionStore *)answerCacheStore;
 
+- (void)initReinforceTable;
+
 - (QuestionBase *)currentQuestion;
 
 - (QuestionBase *)nextQuestion;

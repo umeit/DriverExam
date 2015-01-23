@@ -66,6 +66,7 @@ static QuestionStore *reinforceStore = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         answerCacheStore = [[self alloc] init];
+        [USER_DEFAULTS registerDefaults:@{ANSWER_CACHE: @{}}];
     });
     
     return answerCacheStore;
@@ -134,16 +135,19 @@ static QuestionStore *reinforceStore = nil;
 }
 
 - (void)addcaCheQuestion:(QuestionBase *)question
-                  withID:(NSInteger)questionID
 {
-    NSMutableDictionary *answerCache = (NSMutableDictionary *)[USER_DEFAULTS dictionaryForKey:ANSWER_CACHE];
-    [answerCache setObject:question forKey:[@(questionID) stringValue]];
+    NSMutableDictionary *dic = [self answerCacheDic];
+    [dic setObject:[NSKeyedArchiver archivedDataWithRootObject:question] forKey:[@(question.qustoinID) stringValue]];
+    [USER_DEFAULTS setObject:dic forKey:ANSWER_CACHE];
 }
 
 - (QuestionBase *)questionWithID:(NSInteger)questionID
 {
-    NSMutableDictionary *answerCache = (NSMutableDictionary *)[USER_DEFAULTS dictionaryForKey:ANSWER_CACHE];
-    return [answerCache objectForKey:[@(questionID) stringValue]];
+    NSData *data = [[self answerCacheDic] objectForKey:[@(questionID) stringValue]];
+    if (data) {
+        return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    }
+    return nil;
 }
 
 - (void)addNeedReinforceQuestion:(QuestionBase *)question
@@ -151,9 +155,7 @@ static QuestionStore *reinforceStore = nil;
     if (![self.dataBase open]) {
         return;
     }
-    
     [self.dataBase executeUpdate:@"INSERT INTO tbl_reinforce VALUES (?, ?, ?, ?)", nil, @(question.qustoinID), @(question.result), @(0)];
-    
     [self.dataBase close];
 }
 
@@ -199,6 +201,11 @@ static QuestionStore *reinforceStore = nil;
         dbPath = [[NSBundle mainBundle] pathForResource:@"km1" ofType:@"db"];
     }
     return dbPath;
+}
+
+- (NSMutableDictionary *)answerCacheDic
+{
+    return [NSMutableDictionary dictionaryWithDictionary:[USER_DEFAULTS dictionaryForKey:ANSWER_CACHE]];
 }
 
 @end

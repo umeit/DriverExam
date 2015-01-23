@@ -28,8 +28,7 @@
 
 - (QuestionBase *)questionWithID:(NSInteger)questionID;
 
-- (void)addcaCheQuestion:(QuestionBase *)question
-                  withID:(NSInteger)questionID;
+- (void)addcaCheQuestion:(QuestionBase *)question;
 
 - (void)addNeedReinforceQuestion:(QuestionBase *)question;
 

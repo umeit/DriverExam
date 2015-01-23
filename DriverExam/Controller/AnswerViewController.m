@@ -30,6 +30,7 @@
 - (IBAction)selectAnswer:(UIButton *)sender
 {
     self.selectedButton = sender;
+    self.question.result = self.selectedButton.tag;
     // 答对
     if ([self isCorrectAnswer]) {
         [self answerDidCorrect];  // 子类实现

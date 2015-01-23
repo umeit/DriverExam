@@ -64,7 +64,7 @@
             [self showCorrectAnswer];
         }
         else {
-            NSInteger correctButtonTag = self.question.correctIndex;
+            NSInteger correctButtonTag = question.result;
             self.selectedButton = (UIButton *)[self.view viewWithTag:correctButtonTag];
             [self updateSelectedButtonFaultStatus];
             [self showCorrectAnswer];
@@ -75,11 +75,12 @@
 /** 答对后的处理 */
 - (void)answerDidCorrect
 {
+    // 记录本题的结果
+    [[QuestionStore answerCacheStore] addcaCheQuestion:self.question];
+    
     // 显示正确选项
     [self showCorrectAnswer];
     
-    // 记录本题的结果
-    [[QuestionStore answerCacheStore] addcaCheQuestion:self.question withID:self.question.qustoinID];
     // 两秒后显示下一题
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
                                  (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -90,8 +91,13 @@
 /** 答错后的处理 */
 - (void)answerDidFault
 {
+    // 记录本题的结果
+    [[QuestionStore answerCacheStore] addcaCheQuestion:self.question];
+    
     // 将错题加入加强练习题库
     [[QuestionStore reinforceStore] addNeedReinforceQuestion:self.question];
+    
+    // 显示错误/正确结果
     [self updateSelectedButtonFaultStatus];
     [self showCorrectAnswer];
 }

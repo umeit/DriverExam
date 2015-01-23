@@ -60,11 +60,12 @@
     // 显示最近做过的结果
     QuestionBase *question = [[QuestionStore answerCacheStore] questionWithID:self.question.qustoinID];
     if (question) {
-        if (question.result == question.correctIndex) {
+        self.question = question;
+        if (self.question.result == self.question.correctIndex) {
             [self showCorrectAnswer];
         }
         else {
-            NSInteger correctButtonTag = question.result;
+            NSInteger correctButtonTag = self.question.result;
             self.selectedButton = (UIButton *)[self.view viewWithTag:correctButtonTag];
             [self updateSelectedButtonFaultStatus];
             [self showCorrectAnswer];
@@ -108,7 +109,11 @@
 /** 点击下一题按钮 */
 - (IBAction)nextQuestionButtonPress:(id)sender
 {
-    // 判断当前题有没有做
+    // 如当前题没做，记入强化练习
+    if (!self.question.result) {
+        [[QuestionStore reinforceStore] addNeedReinforceQuestion:self.question];
+    }
+    
     [self showNextQuestion];
 }
 

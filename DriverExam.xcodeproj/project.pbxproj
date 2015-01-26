@@ -27,6 +27,7 @@
 		228D0AF61A6F4CB200FDD577 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 228D0AEF1A6F4CB200FDD577 /* FMDatabaseQueue.m */; };
 		228D0AF71A6F4CB200FDD577 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 228D0AF21A6F4CB200FDD577 /* FMResultSet.m */; };
 		228D0AFA1A6F4E9200FDD577 /* km1.db in Resources */ = {isa = PBXBuildFile; fileRef = 228D0AF91A6F4E9200FDD577 /* km1.db */; };
+		22A631CD1A7647EA0086F526 /* ReinforceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A631CC1A7647EA0086F526 /* ReinforceViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,8 @@
 		228D0AF11A6F4CB200FDD577 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		228D0AF21A6F4CB200FDD577 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		228D0AF91A6F4E9200FDD577 /* km1.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = km1.db; sourceTree = "<group>"; };
+		22A631CB1A7647EA0086F526 /* ReinforceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReinforceViewController.h; sourceTree = "<group>"; };
+		22A631CC1A7647EA0086F526 /* ReinforceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReinforceViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +187,8 @@
 				03DC59AB1A68C13100B30852 /* ViewController.m */,
 				2258848F1A724B3200B70FAA /* ReinforceMainViewController.h */,
 				225884901A724B3200B70FAA /* ReinforceMainViewController.m */,
+				22A631CB1A7647EA0086F526 /* ReinforceViewController.h */,
+				22A631CC1A7647EA0086F526 /* ReinforceViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -338,6 +343,7 @@
 				03DC59AE1A68C13100B30852 /* ExercisesViewController.m in Sources */,
 				03DC59B21A68C15A00B30852 /* QuestionStore.m in Sources */,
 				225884911A724B3200B70FAA /* ReinforceMainViewController.m in Sources */,
+				22A631CD1A7647EA0086F526 /* ReinforceViewController.m in Sources */,
 				03C5CF4F1A67C883002136E3 /* QuestionBase.m in Sources */,
 				228D0AF41A6F4CB200FDD577 /* FMDatabaseAdditions.m in Sources */,
 				228D0AF71A6F4CB200FDD577 /* FMResultSet.m in Sources */,

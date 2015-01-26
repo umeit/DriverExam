@@ -27,6 +27,9 @@
     [super didReceiveMemoryWarning];
 }
 
+
+#pragma mark - Action
+
 - (IBAction)selectAnswer:(UIButton *)sender
 {
     self.selectedButton = sender;
@@ -34,30 +37,26 @@
     // 答对
     if ([self isCorrectAnswer]) {
         [self answerDidCorrect];  // 子类实现
-        
     // 答错
     } else {
         [self answerDidFault];  // 子类实现
     }
-    
+}
+
+- (IBAction)nextQuestionButtonPress:(id)sender
+{
+    [self procNextQuestionButtonPress];
+}
+
+- (IBAction)prevQuestionButtonPress:(id)sender
+{
+    [self procPrevQuestionButtonPress];
 }
 
 /** 判断对错 */
 - (BOOL)isCorrectAnswer
 {
     return self.question.correctIndex == self.selectedButton.tag;
-}
-
-- (void)showCurrentQuestion
-{
-}
-
-- (void)showNextQuestion
-{
-}
-
-- (void)showPrevQuestion
-{
 }
 
 - (void)updateQuestionDisplay
@@ -90,6 +89,26 @@
     }
 }
 
+- (void)procPrevQuestionButtonPress
+{
+}
+
+- (void)procNextQuestionButtonPress
+{
+}
+
+- (void)showCurrentQuestion
+{
+}
+
+- (void)showNextQuestion
+{
+}
+
+- (void)showPrevQuestion
+{
+}
+
 - (void)answerDidCorrect
 {
 }
@@ -97,15 +116,5 @@
 - (void)answerDidFault
 {
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

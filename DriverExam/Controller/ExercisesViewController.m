@@ -30,6 +30,21 @@
 
 #pragma mark - Override
 
+- (void)procNextQuestionButtonPress
+{
+    // 如当前题没做，记入强化练习
+    if (!self.question.result) {
+        [[QuestionStore reinforceStore] addNeedReinforceQuestion:self.question];
+    }
+    
+    [self showNextQuestion];
+}
+
+- (void)procPrevQuestionButtonPress
+{
+    [self showPrevQuestion];
+}
+
 - (void)showCurrentQuestion
 {
     self.question = [[QuestionStore exercisesStore] currentQuestion];
@@ -101,25 +116,6 @@
     // 显示错误/正确结果
     [self updateSelectedButtonFaultStatus];
     [self showCorrectAnswer];
-}
-
-
-#pragma mark - Action
-
-/** 点击下一题按钮 */
-- (IBAction)nextQuestionButtonPress:(id)sender
-{
-    // 如当前题没做，记入强化练习
-    if (!self.question.result) {
-        [[QuestionStore reinforceStore] addNeedReinforceQuestion:self.question];
-    }
-    
-    [self showNextQuestion];
-}
-
-- (IBAction)prevQuestionButtonPress:(id)sender
-{
-    [self showPrevQuestion];
 }
 
 

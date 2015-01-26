@@ -23,10 +23,17 @@
 @property (weak, nonatomic) IBOutlet UIButton *answerButonD;
 
 @property (weak, nonatomic) IBOutlet UIButton *prevButton;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
 
 @property (strong, nonatomic) QuestionBase *question;
 
 @property (strong, nonatomic) UIButton *selectedButton;
+
+/** 需要子类实现 */
+
+- (void)procNextQuestionButtonPress;
+
+- (void)procPrevQuestionButtonPress;
 
 - (void)showCurrentQuestion;
 
@@ -34,7 +41,6 @@
 
 - (void)showPrevQuestion;
 
-/** 显示当前题目及选项 */
 - (void)updateQuestionDisplay;
 
 - (void)answerDidCorrect;

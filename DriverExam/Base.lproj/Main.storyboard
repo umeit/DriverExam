@@ -120,7 +120,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="nextQuestionButtonPress:" destination="8Ll-lk-FEa" eventType="touchUpInside" id="jka-zO-LAN"/>
+                                    <action selector="nextQuestionButtonPress:" destination="8Ll-lk-FEa" eventType="touchUpInside" id="269-VU-R5N"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaV-qH-MTH">
@@ -138,7 +138,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="prevQuestionButtonPress:" destination="8Ll-lk-FEa" eventType="touchUpInside" id="hcP-MB-pjJ"/>
+                                    <action selector="prevQuestionButtonPress:" destination="8Ll-lk-FEa" eventType="touchUpInside" id="ecd-lU-eDe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -151,6 +151,7 @@
                         <outlet property="answerButonB" destination="eaV-qH-MTH" id="U5y-nu-0om"/>
                         <outlet property="answerButonC" destination="w6d-NE-eNB" id="Gb2-EM-zCE"/>
                         <outlet property="answerButonD" destination="eW8-op-Th6" id="Y1C-DB-MRq"/>
+                        <outlet property="nextButton" destination="ZxB-8V-KKR" id="6mj-gU-2ZO"/>
                         <outlet property="prevButton" destination="vd5-pS-ySJ" id="oCe-Q2-kbb"/>
                         <outlet property="questionContentTextView" destination="lPM-2e-wtz" id="ZI2-OQ-dN7"/>
                     </connections>
@@ -212,6 +213,9 @@
                                 <state key="normal" title="开始强化">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="hb1-Fb-ReS" kind="push" id="zMV-Wb-wYP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRc-9Z-nt6">
                                 <rect key="frame" x="145" y="430" width="30" height="30"/>
@@ -259,6 +263,98 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mDz-xa-VeT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="782" y="634"/>
+        </scene>
+        <!--Reinforce View Controller-->
+        <scene sceneID="bs0-s5-EAJ">
+            <objects>
+                <viewController id="hb1-Fb-ReS" customClass="ReinforceViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FCC-k7-IGs"/>
+                        <viewControllerLayoutGuide type="bottom" id="JSE-To-Fpq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aOD-tv-Dfo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3S-mI-E7t">
+                                <rect key="frame" x="131" y="345" width="62" height="30"/>
+                                <state key="normal" title="C Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectAnswer:" destination="hb1-Fb-ReS" eventType="touchUpInside" id="ZIB-aN-kZp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ze-7o-SND">
+                                <rect key="frame" x="130" y="383" width="61" height="30"/>
+                                <state key="normal" title="D Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectAnswer:" destination="hb1-Fb-ReS" eventType="touchUpInside" id="jGD-do-73m"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wET-yJ-m2R">
+                                <rect key="frame" x="41" y="81" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Np-gp-HJS">
+                                <rect key="frame" x="131" y="269" width="61" height="30"/>
+                                <state key="normal" title="A Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectAnswer:" destination="hb1-Fb-ReS" eventType="touchUpInside" id="OB2-S6-LYF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCV-II-21x">
+                                <rect key="frame" x="259" y="457" width="45" height="30"/>
+                                <state key="normal" title="下一题">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextQuestionButtonPress:" destination="hb1-Fb-ReS" eventType="touchUpInside" id="ecZ-sP-HTn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YRQ-zV-Vj0">
+                                <rect key="frame" x="131" y="307" width="61" height="30"/>
+                                <state key="normal" title="B Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectAnswer:" destination="hb1-Fb-ReS" eventType="touchUpInside" id="3VM-4i-gvq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXW-eA-dyU">
+                                <rect key="frame" x="17" y="457" width="45" height="30"/>
+                                <state key="normal" title="上一题">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="prevQuestionButtonPress:" destination="hb1-Fb-ReS" eventType="touchUpInside" id="7x2-2t-UUn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="tj2-rK-GjP"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="answerButonA" destination="4Np-gp-HJS" id="ff5-cp-dwI"/>
+                        <outlet property="answerButonB" destination="YRQ-zV-Vj0" id="K0N-pa-8eM"/>
+                        <outlet property="answerButonC" destination="I3S-mI-E7t" id="HVR-Qc-B7T"/>
+                        <outlet property="answerButonD" destination="0ze-7o-SND" id="4RG-fY-PW5"/>
+                        <outlet property="nextButton" destination="iCV-II-21x" id="hSZ-Gy-W6S"/>
+                        <outlet property="prevButton" destination="dXW-eA-dyU" id="Xf8-zH-3cS"/>
+                        <outlet property="questionContentTextView" destination="wET-yJ-m2R" id="GcI-px-HHh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uxU-eZ-Wlk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1177" y="634"/>
         </scene>
     </scenes>
 </document>

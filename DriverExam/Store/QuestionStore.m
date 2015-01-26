@@ -132,14 +132,24 @@ static QuestionStore *reinforceStore = nil;
 
 - (void)addNeedReinforceQuestion:(QuestionBase *)question
 {
-    if (![self.dataBase open]) {
-        return;
+    ReinforceQuestion *rQuestion = [self reinforceQustionWithQuestionID:question.qustoinID];
+
+    if (rQuestion) {
+        // 上次‘未做’该题，这次为‘做错’
+        if (rQuestion.result == 0 && question.result != 0) {
+            if (![self.dataBase open]) {
+                return;
+            }
+            [self.dataBase executeUpdate:@"UPDATE tbl_reinforce SET result = (?) WHERE question_id = (?)", @(question.result), @(rQuestion.questionID)];
+            [self.dataBase close];
+        }
+    } else {
+        if (![self.dataBase open]) {
+            return;
+        }
+        [self.dataBase executeUpdate:@"INSERT INTO tbl_reinforce VALUES (?, ?, ?, ?)", nil, @(question.qustoinID), @(question.result), @(0)];
+        [self.dataBase close];
     }
-    
-    [self reinforceQustionWithQuestionID:question.qustoinID];
-    
-    [self.dataBase executeUpdate:@"INSERT INTO tbl_reinforce VALUES (?, ?, ?, ?)", nil, @(question.qustoinID), @(question.result), @(0)];
-    [self.dataBase close];
 }
 
 - (ReinforceQuestion *)reinforceQustionWithQuestionID:(NSInteger)questionID
@@ -148,7 +158,7 @@ static QuestionStore *reinforceStore = nil;
         return nil;
     }
     
-    FMResultSet *result = [self.dataBase executeQuery:@"SELECT * FROM tbl_reinforce WHERE question_id = (?)", questionID];
+    FMResultSet *result = [self.dataBase executeQuery:@"SELECT * FROM tbl_reinforce WHERE question_id = (?)", @(questionID)];
     ReinforceQuestion *question = nil;
     if ([result next]) {
         question = [[ReinforceQuestion alloc] init];

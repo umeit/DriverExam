@@ -27,11 +27,8 @@
 #define RESULT @"result"
 #define STATUS @"status"
 
-#define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
-
 @interface QuestionStore ()
-- (NSString *)dbPath;
-@property (strong, nonatomic) FMDatabase *dataBase;
+
 @end
 
 static QuestionStore *exercisesStore = nil;

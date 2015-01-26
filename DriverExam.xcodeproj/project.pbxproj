@@ -28,6 +28,7 @@
 		228D0AF71A6F4CB200FDD577 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 228D0AF21A6F4CB200FDD577 /* FMResultSet.m */; };
 		228D0AFA1A6F4E9200FDD577 /* km1.db in Resources */ = {isa = PBXBuildFile; fileRef = 228D0AF91A6F4E9200FDD577 /* km1.db */; };
 		22A631CD1A7647EA0086F526 /* ReinforceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A631CC1A7647EA0086F526 /* ReinforceViewController.m */; };
+		22A631D01A764EE00086F526 /* ReinforceQuestionStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A631CF1A764EE00086F526 /* ReinforceQuestionStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		228D0AF91A6F4E9200FDD577 /* km1.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = km1.db; sourceTree = "<group>"; };
 		22A631CB1A7647EA0086F526 /* ReinforceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReinforceViewController.h; sourceTree = "<group>"; };
 		22A631CC1A7647EA0086F526 /* ReinforceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReinforceViewController.m; sourceTree = "<group>"; };
+		22A631CE1A764EE00086F526 /* ReinforceQuestionStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReinforceQuestionStore.h; sourceTree = "<group>"; };
+		22A631CF1A764EE00086F526 /* ReinforceQuestionStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReinforceQuestionStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +201,8 @@
 			children = (
 				03DC59B01A68C15A00B30852 /* QuestionStore.h */,
 				03DC59B11A68C15A00B30852 /* QuestionStore.m */,
+				22A631CE1A764EE00086F526 /* ReinforceQuestionStore.h */,
+				22A631CF1A764EE00086F526 /* ReinforceQuestionStore.m */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 				03DC59AD1A68C13100B30852 /* AnswerViewController.m in Sources */,
 				03DC59AE1A68C13100B30852 /* ExercisesViewController.m in Sources */,
 				03DC59B21A68C15A00B30852 /* QuestionStore.m in Sources */,
+				22A631D01A764EE00086F526 /* ReinforceQuestionStore.m in Sources */,
 				225884911A724B3200B70FAA /* ReinforceMainViewController.m in Sources */,
 				22A631CD1A7647EA0086F526 /* ReinforceViewController.m in Sources */,
 				03C5CF4F1A67C883002136E3 /* QuestionBase.m in Sources */,

@@ -8,9 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+#define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
+
 @class QuestionBase;
+@class FMDatabase;
 
 @interface QuestionStore : NSObject
+
+@property (strong, nonatomic) FMDatabase *dataBase;
+
+- (NSString *)dbPath;
 
 + (QuestionStore *)exercisesStore;
 

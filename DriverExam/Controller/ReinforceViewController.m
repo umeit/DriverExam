@@ -8,6 +8,7 @@
 
 #import "ReinforceViewController.h"
 #import "ReinforceQuestionStore.h"
+#import "QuestionBase.h"
 
 @interface ReinforceViewController ()
 
@@ -40,7 +41,10 @@
     // 显示正确选项
     [self showCorrectAnswer];
     
-    // 两秒后显示下一题
+    // 标记为已强化
+    [[ReinforceQuestionStore reinforceStore] questionDidReinforced:self.question];
+    
+    // 自动显示下一题
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
                                  (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self showNextQuestion];

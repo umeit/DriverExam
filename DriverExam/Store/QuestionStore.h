@@ -34,6 +34,6 @@
 
 - (void)addcaCheQuestion:(QuestionBase *)question;
 
-
+- (QuestionBase *)questionWithIDOnDB:(NSInteger)questionID;
 
 @end

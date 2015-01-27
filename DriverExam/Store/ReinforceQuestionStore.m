@@ -16,6 +16,9 @@
 #define RESULT @"result"
 #define STATUS @"status"
 
+#define REINFORCED @1
+#define REINFORCE  @0
+
 #define CURRENT_QUESTION_INDEX_FOR_REINFORCE @"CurrentQuestionIndexForReinforce"
 
 static ReinforceQuestionStore *reinforceStore = nil;
@@ -58,9 +61,18 @@ static ReinforceQuestionStore *reinforceStore = nil;
         if (![self.dataBase open]) {
             return;
         }
-        [self.dataBase executeUpdate:@"INSERT INTO tbl_reinforce VALUES (?, ?, ?, ?)", nil, @(question.qustoinID), @(question.result), @(0)];
+        [self.dataBase executeUpdate:@"INSERT INTO tbl_reinforce VALUES (?, ?, ?, ?)", nil, @(question.qustoinID), @(question.result), REINFORCE];
         [self.dataBase close];
     }
+}
+
+- (void)questionDidReinforced:(QuestionBase *)question
+{
+    if (![self.dataBase open]) {
+        return;
+    }
+    [self.dataBase executeUpdate:@"UPDATE tbl_reinforce SET status = (?) WHERE question_id = (?)", REINFORCED, @(question.qustoinID)];
+    [self.dataBase close];
 }
 
 - (ReinforceQuestion *)reinforceQustionWithQuestionID:(NSInteger)questionID
@@ -106,6 +118,20 @@ static ReinforceQuestionStore *reinforceStore = nil;
     return 0;
 }
 
+- (NSInteger)reinforcedQuestionCount
+{
+    if (![self.dataBase open]) {
+        return 0;
+    }
+    
+    FMResultSet *result = [self.dataBase executeQuery:@"SELECT COUNT(*) FROM tbl_reinforce WHERE status = 1"];
+    while ([result next]) {
+        return [result intForColumnIndex:0];
+    }
+    
+    return 0;
+}
+
 
 #pragma mark - Override
 
@@ -116,7 +142,7 @@ static ReinforceQuestionStore *reinforceStore = nil;
     ReinforceQuestion *question = nil;
     if ([result next]) {
         question = [self reinforceQuestionWithResult:result];
-        return [[QuestionStore exercisesStore] questionWithID:question.questionID];
+        return [[QuestionStore exercisesStore] questionWithIDOnDB:question.questionID];
     }
     return nil;
 }

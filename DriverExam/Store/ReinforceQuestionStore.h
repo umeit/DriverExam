@@ -14,8 +14,12 @@
 
 - (void)addNeedReinforceQuestion:(QuestionBase *)question;
 
+- (void)questionDidReinforced:(QuestionBase *)question;
+
 - (NSInteger)faultQuestionCount;
 
 - (NSInteger)missQuestionCount;
+
+- (NSInteger)reinforcedQuestionCount;
 
 @end

@@ -7,8 +7,7 @@
 //
 
 #import "ReinforceMainViewController.h"
-
-#import "QuestionStore.h"
+#import "ReinforceQuestionStore.h"
 
 @interface ReinforceMainViewController ()
 
@@ -18,8 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.faultQuestionCountLabel.text = [@([[QuestionStore reinforceStore] faultQuestionCount]) stringValue];
-    self.missQuestionCountLabel.text = [@([[QuestionStore reinforceStore] missQuestionCount]) stringValue];
+    self.faultQuestionCountLabel.text = [@([[ReinforceQuestionStore reinforceStore] faultQuestionCount]) stringValue];
+    self.missQuestionCountLabel.text = [@([[ReinforceQuestionStore reinforceStore] missQuestionCount]) stringValue];
 }
 
 - (void)didReceiveMemoryWarning {

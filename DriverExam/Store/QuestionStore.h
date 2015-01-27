@@ -12,6 +12,7 @@
 
 @class QuestionBase;
 @class FMDatabase;
+@class ReinforceQuestionStore;
 
 @interface QuestionStore : NSObject
 
@@ -20,8 +21,6 @@
 - (NSString *)dbPath;
 
 + (QuestionStore *)exercisesStore;
-
-+ (QuestionStore *)reinforceStore;
 
 + (QuestionStore *)answerCacheStore;
 
@@ -33,12 +32,8 @@
 
 - (QuestionBase *)questionWithID:(NSInteger)questionID;
 
-- (NSInteger)faultQuestionCount;
-
-- (NSInteger)missQuestionCount;
-
 - (void)addcaCheQuestion:(QuestionBase *)question;
 
-- (void)addNeedReinforceQuestion:(QuestionBase *)question;
+
 
 @end

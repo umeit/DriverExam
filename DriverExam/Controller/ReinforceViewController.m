@@ -7,6 +7,7 @@
 //
 
 #import "ReinforceViewController.h"
+#import "ReinforceQuestionStore.h"
 
 @interface ReinforceViewController ()
 
@@ -22,5 +23,42 @@
 }
 
 
+#pragma mark - Override
+
+- (void)showCurrentQuestion
+{
+    self.question = [[ReinforceQuestionStore reinforceStore] currentQuestion];
+    [self updateQuestionDisplay];
+}
+
+/** 答对后的处理 */
+- (void)answerDidCorrect
+{
+    // 记录本题的结果
+//    [[QuestionStore answerCacheStore] addcaCheQuestion:self.question];
+    
+    // 显示正确选项
+    [self showCorrectAnswer];
+    
+    // 两秒后显示下一题
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
+                                 (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self showNextQuestion];
+    });
+}
+
+/** 答错后的处理 */
+- (void)answerDidFault
+{
+    // 记录本题的结果
+    [[QuestionStore answerCacheStore] addcaCheQuestion:self.question];
+    
+    // 将错题加入加强练习题库
+//    [[ReinforceQuestionStore reinforceStore] addNeedReinforceQuestion:self.question];
+    
+    // 显示错误/正确结果
+    [self updateSelectedButtonFaultStatus];
+    [self showCorrectAnswer];
+}
 
 @end

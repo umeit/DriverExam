@@ -10,4 +10,12 @@
 
 @interface ReinforceQuestionStore : QuestionStore
 
++ (ReinforceQuestionStore *)reinforceStore;
+
+- (void)addNeedReinforceQuestion:(QuestionBase *)question;
+
+- (NSInteger)faultQuestionCount;
+
+- (NSInteger)missQuestionCount;
+
 @end

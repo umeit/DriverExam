@@ -8,7 +8,6 @@
 
 #import "QuestionStore.h"
 #import "QuestionBase.h"
-#import "ReinforceQuestion.h"
 #import "FMDatabase.h"
 
 #define CURRENT_QUESTION_INDEX @"CurrentQuestionIndex"
@@ -22,18 +21,12 @@
 #define ANSWER_C @"answer_c"
 #define ANSWER_D @"answer_d"
 
-#define REINFORCE_ID @"id"
-#define QUESTION_ID_IN_REINFORCE @"question_id"
-#define RESULT @"result"
-#define STATUS @"status"
-
 @interface QuestionStore ()
 
 @end
 
 static QuestionStore *exercisesStore = nil;
 static QuestionStore *answerCacheStore = nil;
-static QuestionStore *reinforceStore = nil;
 
 @implementation QuestionStore
 
@@ -45,16 +38,6 @@ static QuestionStore *reinforceStore = nil;
     });
     
     return exercisesStore;
-}
-
-+ (QuestionStore *)reinforceStore
-{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        reinforceStore = [[self alloc] init];
-    });
-    
-    return reinforceStore;
 }
 
 + (QuestionStore *)answerCacheStore
@@ -126,76 +109,6 @@ static QuestionStore *reinforceStore = nil;
     }
     return nil;
 }
-
-- (void)addNeedReinforceQuestion:(QuestionBase *)question
-{
-    ReinforceQuestion *rQuestion = [self reinforceQustionWithQuestionID:question.qustoinID];
-
-    if (rQuestion) {
-        // 上次‘未做’该题，这次为‘做错’
-        if (rQuestion.result == 0 && question.result != 0) {
-            if (![self.dataBase open]) {
-                return;
-            }
-            [self.dataBase executeUpdate:@"UPDATE tbl_reinforce SET result = (?) WHERE question_id = (?)", @(question.result), @(rQuestion.questionID)];
-            [self.dataBase close];
-        }
-    } else {
-        if (![self.dataBase open]) {
-            return;
-        }
-        [self.dataBase executeUpdate:@"INSERT INTO tbl_reinforce VALUES (?, ?, ?, ?)", nil, @(question.qustoinID), @(question.result), @(0)];
-        [self.dataBase close];
-    }
-}
-
-- (ReinforceQuestion *)reinforceQustionWithQuestionID:(NSInteger)questionID
-{
-    if (![self.dataBase open]) {
-        return nil;
-    }
-    
-    FMResultSet *result = [self.dataBase executeQuery:@"SELECT * FROM tbl_reinforce WHERE question_id = (?)", @(questionID)];
-    ReinforceQuestion *question = nil;
-    if ([result next]) {
-        question = [[ReinforceQuestion alloc] init];
-        question.reinforceID = [result intForColumn:REINFORCE_ID];
-        question.questionID = [result intForColumn:QUESTION_ID_IN_REINFORCE];
-        question.result = [result intForColumn:RESULT];
-        question.status = [result intForColumn:STATUS];
-    }
-    [self.dataBase close];
-    return question;
-}
-
-- (NSInteger)faultQuestionCount
-{
-    if (![self.dataBase open]) {
-        return 0;
-    }
-    
-    FMResultSet *result = [self.dataBase executeQuery:@"SELECT COUNT(*) FROM tbl_reinforce WHERE status = 0 AND result <> 0"];
-    while ([result next]) {
-        return [result intForColumnIndex:0];
-    }
-    
-    return 0;
-}
-
-- (NSInteger)missQuestionCount
-{
-    if (![self.dataBase open]) {
-        return 0;
-    }
-    
-    FMResultSet *result = [self.dataBase executeQuery:@"SELECT COUNT(*) FROM tbl_reinforce WHERE status = 0 AND result = 0"];
-    while ([result next]) {
-        return [result intForColumnIndex:0];
-    }
-    
-    return 0;
-}
-
 
 #pragma mark - Private
 

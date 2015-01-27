@@ -29,6 +29,12 @@
 
 @property (strong, nonatomic) UIButton *selectedButton;
 
+/** 将当前选中的按钮改为‘错误’状态 */
+- (void)updateSelectedButtonFaultStatus;
+
+/** 显示正确答案 */
+- (void)showCorrectAnswer;
+
 /** 需要子类实现 */
 
 - (void)procNextQuestionButtonPress;

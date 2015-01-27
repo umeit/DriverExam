@@ -89,6 +89,18 @@
     }
 }
 
+- (void)updateSelectedButtonFaultStatus
+{
+    [self.selectedButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+}
+
+- (void)showCorrectAnswer
+{
+    NSInteger correctButtonTag = self.question.correctIndex;
+    UIButton *correctButton = (UIButton *)[self.view viewWithTag:correctButtonTag];
+    [correctButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+}
+
 - (void)procPrevQuestionButtonPress
 {
 }

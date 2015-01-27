@@ -7,8 +7,8 @@
 //
 
 #import "ExercisesViewController.h"
-#import "QuestionStore.h"
 #import "QuestionBase.h"
+#import "ReinforceQuestionStore.h"
 
 @interface ExercisesViewController ()
 
@@ -34,7 +34,7 @@
 {
     // 如当前题没做，记入强化练习
     if (!self.question.result) {
-        [[QuestionStore reinforceStore] addNeedReinforceQuestion:self.question];
+        [[ReinforceQuestionStore reinforceStore] addNeedReinforceQuestion:self.question];
     }
     
     [self showNextQuestion];
@@ -111,37 +111,11 @@
     [[QuestionStore answerCacheStore] addcaCheQuestion:self.question];
     
     // 将错题加入加强练习题库
-    [[QuestionStore reinforceStore] addNeedReinforceQuestion:self.question];
+    [[ReinforceQuestionStore reinforceStore] addNeedReinforceQuestion:self.question];
     
     // 显示错误/正确结果
     [self updateSelectedButtonFaultStatus];
     [self showCorrectAnswer];
 }
-
-
-#pragma mark - Custom
-
-/** 将当前选中的按钮改为‘错误’状态 */
-- (void)updateSelectedButtonFaultStatus
-{
-    [self.selectedButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-}
-
-- (void)showCorrectAnswer
-{
-    NSInteger correctButtonTag = self.question.correctIndex;
-    UIButton *correctButton = (UIButton *)[self.view viewWithTag:correctButtonTag];
-    [correctButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

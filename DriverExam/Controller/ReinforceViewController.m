@@ -55,10 +55,12 @@
 - (void)answerDidFault
 {
     // 记录本题的结果
-    [[QuestionStore answerCacheStore] addcaCheQuestion:self.question];
+//    [[QuestionStore answerCacheStore] addcaCheQuestion:self.question];
     
     // 将错题加入加强练习题库
 //    [[ReinforceQuestionStore reinforceStore] addNeedReinforceQuestion:self.question];
+    
+    [[ReinforceQuestionStore reinforceStore] addNeedReinforceQuestion:self.question];
     
     // 显示错误/正确结果
     [self updateSelectedButtonFaultStatus];

@@ -36,4 +36,6 @@
 
 - (QuestionBase *)questionWithIDOnDB:(NSInteger)questionID;
 
+- (NSInteger)questionCuont;
+
 @end

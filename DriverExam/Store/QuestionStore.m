@@ -117,6 +117,12 @@ static QuestionStore *answerCacheStore = nil;
     return nil;
 }
 
+- (NSInteger)questionCuont
+{
+    return LAST_INDEX;
+}
+
+
 #pragma mark - Private
 
 /** 按 ID 获取题目 */

@@ -24,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *answerButonC;
 @property (weak, nonatomic) IBOutlet UIButton *answerButonD;
 
+@property (weak, nonatomic) IBOutlet UILabel *questionNumberLabel;
+
 @property (weak, nonatomic) IBOutlet UIButton *prevButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 

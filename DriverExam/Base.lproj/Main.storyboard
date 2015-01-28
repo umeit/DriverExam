@@ -102,12 +102,6 @@
                             <imageView userInteractionEnabled="NO" tag="202" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zc0-ie-FQs">
                                 <rect key="frame" x="27" y="133" width="267" height="128"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="题目内容" lineBreakMode="characterWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0r-oo-tRg">
-                                <rect key="frame" x="20" y="72" width="281" height="61"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6d-NE-eNB">
                                 <rect key="frame" x="40" y="358" width="240" height="30"/>
                                 <state key="normal" title="C Button">
@@ -144,6 +138,18 @@
                                     <action selector="selectAnswer:" destination="8Ll-lk-FEa" eventType="touchUpInside" id="YcP-l5-V2Z"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="题目内容" lineBreakMode="characterWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0r-oo-tRg">
+                                <rect key="frame" x="20" y="72" width="281" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="页码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNk-Ed-1eg">
+                                <rect key="frame" x="125" y="522" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -164,6 +170,7 @@
                         <outlet property="prevButton" destination="vd5-pS-ySJ" id="oCe-Q2-kbb"/>
                         <outlet property="questionContentLabel" destination="j0r-oo-tRg" id="RQz-BG-Xb7"/>
                         <outlet property="questionImageView" destination="zc0-ie-FQs" id="uu3-Ac-WH8"/>
+                        <outlet property="questionNumberLabel" destination="FNk-Ed-1eg" id="dKx-jv-USu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xnF-wB-LAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -331,15 +338,6 @@
                                     <action selector="selectAnswer:" destination="hb1-Fb-ReS" eventType="touchUpInside" id="3VM-4i-gvq"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" tag="202" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yS6-6S-2W3">
-                                <rect key="frame" x="28" y="133" width="267" height="128"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="题目内容" lineBreakMode="characterWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lG1-AS-u5O">
-                                <rect key="frame" x="21" y="72" width="281" height="61"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXW-eA-dyU">
                                 <rect key="frame" x="16" y="518" width="45" height="30"/>
                                 <state key="normal" title="上一题">
@@ -349,6 +347,21 @@
                                     <action selector="prevQuestionButtonPress:" destination="hb1-Fb-ReS" eventType="touchUpInside" id="7x2-2t-UUn"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" tag="202" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yS6-6S-2W3">
+                                <rect key="frame" x="28" y="133" width="267" height="128"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="题目内容" lineBreakMode="characterWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lG1-AS-u5O">
+                                <rect key="frame" x="21" y="72" width="281" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="页码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kse-VS-4WJ">
+                                <rect key="frame" x="143" y="522" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -363,6 +376,7 @@
                         <outlet property="prevButton" destination="dXW-eA-dyU" id="Xf8-zH-3cS"/>
                         <outlet property="questionContentLabel" destination="lG1-AS-u5O" id="jQ5-T4-fgb"/>
                         <outlet property="questionImageView" destination="yS6-6S-2W3" id="poQ-5E-B9u"/>
+                        <outlet property="questionNumberLabel" destination="Kse-VS-4WJ" id="9tp-7v-iGf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uxU-eZ-Wlk" userLabel="First Responder" sceneMemberID="firstResponder"/>

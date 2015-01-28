@@ -78,6 +78,8 @@
         self.prevButton.hidden = NO;
     }
     
+    self.questionNumberLabel.text = [NSString stringWithFormat:@"%d / %d", self.question.qustoinID, [[QuestionStore exercisesStore] questionCuont]];
+    
     // 显示最近做过的结果
     QuestionBase *question = [[QuestionStore answerCacheStore] questionWithID:self.question.qustoinID];
     if (question) {

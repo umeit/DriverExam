@@ -12,6 +12,8 @@
 
 @property (nonatomic) NSInteger qustoinID;
 
+@property (strong, nonatomic) NSString *order;
+
 @property (strong, nonatomic) NSString *content;
 
 @property (strong, nonatomic) NSMutableArray *answerList;

@@ -14,12 +14,15 @@
 #define ANSWER_CACHE @"AnswerCache"
 
 #define QUESTION_ID @"id"
+#define QUESTION_ORDER @"order"
 #define QUESTION_CONTENT @"name"
 #define ANSWER_CORRECT @"answer"
 #define ANSWER_A @"answer_a"
 #define ANSWER_B @"answer_b"
 #define ANSWER_C @"answer_c"
 #define ANSWER_D @"answer_d"
+
+#define LAST_INDEX 1074
 
 @interface QuestionStore ()
 
@@ -73,6 +76,10 @@ static QuestionStore *answerCacheStore = nil;
 - (QuestionBase *)nextQuestion
 {
     NSInteger currentQuestionIndex = [USER_DEFAULTS integerForKey:CURRENT_QUESTION_INDEX];
+    // 已经是最后一题
+    if (currentQuestionIndex == LAST_INDEX) {
+        return nil;
+    }
     currentQuestionIndex++;
     
     QuestionBase *question = [self questionWithIDOnDB:currentQuestionIndex];
@@ -112,6 +119,7 @@ static QuestionStore *answerCacheStore = nil;
 
 #pragma mark - Private
 
+/** 按 ID 获取题目 */
 - (QuestionBase *)questionWithIDOnDB:(NSInteger)questionID
 {
     if (![self.dataBase open]) {
@@ -125,6 +133,7 @@ static QuestionStore *answerCacheStore = nil;
     if ([result next]) {
         question = [[QuestionBase alloc] init];
         question.qustoinID = [result intForColumn:QUESTION_ID];
+        question.order = [result stringForColumn:QUESTION_ORDER];
         question.content = [result stringForColumn:QUESTION_CONTENT];
         question.correctIndex = [result intForColumn:ANSWER_CORRECT];
         question.answerList = [[NSMutableArray alloc] init];

@@ -16,7 +16,9 @@
  */
 @interface AnswerViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UITextView *questionContentTextView;
+//@property (weak, nonatomic) IBOutlet UITextView *questionContentTextView;
+@property (weak, nonatomic) IBOutlet UILabel *questionContentLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *questionImageView;
 @property (weak, nonatomic) IBOutlet UIButton *answerButonA;
 @property (weak, nonatomic) IBOutlet UIButton *answerButonB;
 @property (weak, nonatomic) IBOutlet UIButton *answerButonC;

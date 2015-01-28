@@ -27,7 +27,6 @@
     [super didReceiveMemoryWarning];
 }
 
-
 #pragma mark - Action
 
 - (IBAction)selectAnswer:(UIButton *)sender
@@ -61,7 +60,15 @@
 
 - (void)updateQuestionDisplay
 {
-    self.questionContentTextView.text = self.question.content;
+    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg", self.question.order]];
+    if (image) {
+        self.questionImageView.hidden = NO;
+        self.questionImageView.image = image;
+    } else {
+        self.questionImageView.hidden = YES;
+    }
+
+    self.questionContentLabel.text = self.question.content;
     
     [self.answerButonA setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [self.answerButonB setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
@@ -87,6 +94,16 @@
     } else {
         self.prevButton.hidden = NO;
     }
+    
+//    if (self.questionImageView.hidden) {
+//        CGRect frame = self.questionContentTextView.frame;
+//        frame.origin.y = 72;
+//        self.questionContentTextView.bounds = frame;
+//    } else {
+//        CGRect frame = self.questionContentTextView.frame;
+//        frame.origin.y = 192;
+//        self.questionContentTextView.bounds = frame;
+//    }
 }
 
 - (void)updateSelectedButtonFaultStatus

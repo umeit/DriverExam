@@ -2,7 +2,7 @@
 //  ReinforceViewController.m
 //  DriverExam
 //
-//  Created by 沈 湛 on 15/1/26.
+//  Created by Liu Feng on 15/1/26.
 //  Copyright (c) 2015年 Baisika. All rights reserved.
 //
 
@@ -13,10 +13,14 @@
 @interface ReinforceViewController ()
 
 @end
+
 @implementation ReinforceViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // 隐藏上一题下一题按钮
+    self.nextButton.hidden = YES;
+    self.prevButton.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {

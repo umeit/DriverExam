@@ -51,7 +51,7 @@
     // 自动显示下一题
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
                                  (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self showNextQuestion];
+        [self showNextQuestionWhenLastQuestionWsaCorrect];
     });
 }
 
@@ -75,6 +75,12 @@
                                  (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self showNextQuestion];
     });
+}
+
+- (void)showNextQuestionWhenLastQuestionWsaCorrect
+{
+    self.question = [[ReinforceQuestionStore reinforceStore] nextQuestionWhenLastQuestionWsaCorrect];
+    [self updateQuestionDisplay];
 }
 
 

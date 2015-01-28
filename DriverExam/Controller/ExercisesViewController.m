@@ -72,6 +72,12 @@
 {
     [super updateQuestionDisplay];
     
+    if (self.question.qustoinID == 1) {
+        self.prevButton.hidden = YES;
+    } else {
+        self.prevButton.hidden = NO;
+    }
+    
     // 显示最近做过的结果
     QuestionBase *question = [[QuestionStore answerCacheStore] questionWithID:self.question.qustoinID];
     if (question) {

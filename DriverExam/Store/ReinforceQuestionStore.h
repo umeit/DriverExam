@@ -22,4 +22,6 @@
 
 - (NSInteger)reinforcedQuestionCount;
 
+- (QuestionBase *)nextQuestionWhenLastQuestionWsaCorrect;
+
 @end

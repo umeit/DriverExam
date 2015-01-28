@@ -69,6 +69,7 @@
     }
 
     self.questionContentLabel.text = self.question.content;
+    NSLog(@"%d", self.question.qustoinID);
     
     [self.answerButonA setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [self.answerButonB setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
@@ -89,11 +90,11 @@
         self.answerButonD.hidden = YES;
     }
     
-    if (self.question.qustoinID == 1) {
-        self.prevButton.hidden = YES;
-    } else {
-        self.prevButton.hidden = NO;
-    }
+//    if (self.question.qustoinID == 1) {
+//        self.prevButton.hidden = YES;
+//    } else {
+//        self.prevButton.hidden = NO;
+//    }
     
 //    if (self.questionImageView.hidden) {
 //        CGRect frame = self.questionContentTextView.frame;

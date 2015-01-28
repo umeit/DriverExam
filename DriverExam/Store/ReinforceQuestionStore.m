@@ -132,31 +132,58 @@ static ReinforceQuestionStore *reinforceStore = nil;
     return 0;
 }
 
+- (QuestionBase *)nextQuestionWhenLastQuestionWsaCorrect
+{
+    if (![self.dataBase open]) {
+        return 0;
+    }
+    NSInteger index = [USER_DEFAULTS integerForKey:CURRENT_QUESTION_INDEX_FOR_REINFORCE];
+    FMResultSet *result = [self.dataBase executeQuery:@"SELECT * FROM tbl_reinforce WHERE status = 0 LIMIT 1 OFFSET (?)", @(--index)];
+    ReinforceQuestion *question = nil;
+    if ([result next]) {
+        question = [self reinforceQuestionWithResult:result];
+        [USER_DEFAULTS setInteger:++index forKey:CURRENT_QUESTION_INDEX_FOR_REINFORCE];
+        [self.dataBase close];
+        return [[QuestionStore exercisesStore] questionWithIDOnDB:question.questionID];
+    }
+    [self.dataBase close];
+    return nil;
+}
 
 #pragma mark - Override
 
 - (QuestionBase *)currentQuestion
 {
+    if (![self.dataBase open]) {
+        return 0;
+    }
     FMResultSet *result = [self.dataBase executeQuery:@"SELECT * FROM tbl_reinforce WHERE status = 0 LIMIT 1 OFFSET 0"];
     [USER_DEFAULTS setInteger:1 forKey:CURRENT_QUESTION_INDEX_FOR_REINFORCE];
     ReinforceQuestion *question = nil;
     if ([result next]) {
         question = [self reinforceQuestionWithResult:result];
+        [self.dataBase close];
         return [[QuestionStore exercisesStore] questionWithIDOnDB:question.questionID];
     }
+    [self.dataBase close];
     return nil;
 }
 
 - (QuestionBase *)nextQuestion
 {
+    if (![self.dataBase open]) {
+        return 0;
+    }
     NSInteger index = [USER_DEFAULTS integerForKey:CURRENT_QUESTION_INDEX_FOR_REINFORCE];
-    FMResultSet *result = [self.dataBase executeQuery:@"SELECT * FROM tbl_reinforce WHERE status = 0 LIMIT 1 OFFSET (?)", index];
+    FMResultSet *result = [self.dataBase executeQuery:@"SELECT * FROM tbl_reinforce WHERE status = 0 LIMIT 1 OFFSET (?)", @(index)];
     ReinforceQuestion *question = nil;
     if ([result next]) {
         question = [self reinforceQuestionWithResult:result];
         [USER_DEFAULTS setInteger:++index forKey:CURRENT_QUESTION_INDEX_FOR_REINFORCE];
+        [self.dataBase close];
         return [[QuestionStore exercisesStore] questionWithIDOnDB:question.questionID];
     }
+    [self.dataBase close];
     return nil;
 }
 

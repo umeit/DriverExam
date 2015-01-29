@@ -215,13 +215,16 @@
                                 <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="时间" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nq-H5-fuD">
+                                <rect key="frame" x="271" y="72" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="科目一考试" id="TH4-5O-edw">
-                        <barButtonItem key="leftBarButtonItem" enabled="NO" title="时间" id="5mM-JQ-IBi">
-                            <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="交卷" id="PNP-QP-IG2">
                             <connections>
                                 <segue destination="KjP-9n-ryV" kind="push" id="B6K-HJ-IBy"/>
@@ -234,7 +237,7 @@
                         <outlet property="answerButonB" destination="W5w-Ac-N4d" id="Amh-Qa-S3K"/>
                         <outlet property="answerButonC" destination="gzY-Zf-E4v" id="S3h-QH-Z7z"/>
                         <outlet property="answerButonD" destination="VJE-Ft-BEq" id="fIm-a2-ZdO"/>
-                        <outlet property="examTimeItem" destination="5mM-JQ-IBi" id="pES-C7-lho"/>
+                        <outlet property="examTimeLabel" destination="7nq-H5-fuD" id="wOz-b2-Moq"/>
                         <outlet property="nextButton" destination="DOQ-My-8v5" id="YMS-ge-JfN"/>
                         <outlet property="prevButton" destination="xgn-WJ-PUC" id="box-Cp-wqw"/>
                         <outlet property="questionContentLabel" destination="wdd-yD-iWW" id="vnR-tI-KIQ"/>

@@ -9,6 +9,6 @@
 #import "AnswerViewController.h"
 
 @interface ExamViewController : AnswerViewController
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *examTimeItem;
+@property (weak, nonatomic) IBOutlet UILabel *examTimeLabel;
 
 @end

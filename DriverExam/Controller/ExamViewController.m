@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.examTimeItem setTitle:@"45:00"];
+    self.examTimeLabel.text = @"45:00";
     
     self.secondsCountDown = 45 * 60; //倒计时
     self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES];
@@ -31,10 +31,12 @@
 - (void)timeFireMethod {
     self.secondsCountDown--;
     NSInteger m = self.secondsCountDown / 60;
-    [self.examTimeItem setTitle:[NSString stringWithFormat:@"%@:%@", [@(m) stringValue], [@(self.secondsCountDown - (m * 60)) stringValue]]];
-
-    if(self.secondsCountDown==0){
+    self.examTimeLabel.text = [NSString stringWithFormat:@"%@:%@",
+                               [@(m) stringValue], [@(self.secondsCountDown - (m * 60)) stringValue]];
+    if(!self.secondsCountDown){
         [self.countDownTimer invalidate];
+        
+        // 交卷
     }
 }
 @end

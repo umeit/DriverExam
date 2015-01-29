@@ -219,7 +219,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="科目一考试" id="TH4-5O-edw">
-                        <barButtonItem key="leftBarButtonItem" title="时间" id="5mM-JQ-IBi"/>
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" title="时间" id="5mM-JQ-IBi">
+                            <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="交卷" id="PNP-QP-IG2">
                             <connections>
                                 <segue destination="KjP-9n-ryV" kind="push" id="B6K-HJ-IBy"/>
@@ -232,6 +234,7 @@
                         <outlet property="answerButonB" destination="W5w-Ac-N4d" id="Amh-Qa-S3K"/>
                         <outlet property="answerButonC" destination="gzY-Zf-E4v" id="S3h-QH-Z7z"/>
                         <outlet property="answerButonD" destination="VJE-Ft-BEq" id="fIm-a2-ZdO"/>
+                        <outlet property="examTimeItem" destination="5mM-JQ-IBi" id="pES-C7-lho"/>
                         <outlet property="nextButton" destination="DOQ-My-8v5" id="YMS-ge-JfN"/>
                         <outlet property="prevButton" destination="xgn-WJ-PUC" id="box-Cp-wqw"/>
                         <outlet property="questionContentLabel" destination="wdd-yD-iWW" id="vnR-tI-KIQ"/>
@@ -241,7 +244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="28O-K1-MEn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="782" y="1276"/>
+            <point key="canvasLocation" x="782" y="1258"/>
         </scene>
         <!--考试结束-->
         <scene sceneID="hOC-9N-tWT">
@@ -302,7 +305,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eES-TR-ZWu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1740" y="1044"/>
+            <point key="canvasLocation" x="1177" y="1258"/>
         </scene>
         <!--练习-->
         <scene sceneID="Nko-pQ-1eV">

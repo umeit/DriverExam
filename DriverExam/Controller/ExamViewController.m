@@ -9,29 +9,32 @@
 #import "ExamViewController.h"
 
 @interface ExamViewController ()
-
+@property (nonatomic)  NSInteger secondsCountDown;
+@property (strong, nonatomic) NSTimer *countDownTimer;
 @end
 
 @implementation ExamViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self.examTimeItem setTitle:@"45:00"];
+    
+    self.secondsCountDown = 45 * 60; //倒计时
+    self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+- (void)timeFireMethod {
+    self.secondsCountDown--;
+    NSInteger m = self.secondsCountDown / 60;
+    [self.examTimeItem setTitle:[NSString stringWithFormat:@"%@:%@", [@(m) stringValue], [@(self.secondsCountDown - (m * 60)) stringValue]]];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if(self.secondsCountDown==0){
+        [self.countDownTimer invalidate];
+    }
 }
-*/
-
 @end

@@ -135,6 +135,13 @@ static QuestionStore *answerCacheStore = nil;
     FMResultSet *result = [self.dataBase executeQuery:@"SELECT * FROM tbl_library_general WHERE id = (?)",
                            @(questionID)];
     
+    QuestionBase *question = [self questionWithResult:result];
+    [self.dataBase close];
+    return question;
+}
+
+- (QuestionBase *)questionWithResult:(FMResultSet *)result
+{
     QuestionBase *question = nil;
     if ([result next]) {
         question = [[QuestionBase alloc] init];
@@ -156,7 +163,6 @@ static QuestionStore *answerCacheStore = nil;
             [question.answerList addObject:[result stringForColumn:ANSWER_D]];
         }
     }
-    [self.dataBase close];
     return question;
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "ExamViewController.h"
+#import "ExamQuestionStore.h"
 
 @interface ExamViewController ()
 @property (nonatomic)  NSInteger secondsCountDown;
@@ -19,13 +20,23 @@
     [super viewDidLoad];
     self.examTimeLabel.text = @"45:00";
     
-    self.secondsCountDown = 45 * 60; //倒计时
-    self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES];
-    
+    self.secondsCountDown = 45 * 60; // 倒计时
+    self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                           target:self
+                                                         selector:@selector(timeFireMethod)
+                                                         userInfo:nil repeats:YES];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+
+#pragma mark - Override
+
+- (void)showCurrentQuestion
+{
+    [[ExamQuestionStore examQuestionStore] initNewExam];
 }
 
 - (void)timeFireMethod {

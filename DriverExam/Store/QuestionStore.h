@@ -38,4 +38,5 @@
 
 - (NSInteger)questionCuont;
 
+- (QuestionBase *)questionWithResult:(FMResultSet *)result;
 @end

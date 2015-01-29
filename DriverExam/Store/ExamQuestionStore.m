@@ -9,11 +9,14 @@
 #import "ExamQuestionStore.h"
 #import "FMDatabase.h"
 
+#define QUESTION_TYPE_TFNG 1   // 判断题
+#define QUESTION_TYPE_CQ   2   // 选择题
+
 static ExamQuestionStore *examQuestionStore = nil;
 
 @interface ExamQuestionStore ()
 
-@property (strong, nonatomic) NSArray *questionList;
+@property (strong, nonatomic) NSMutableArray *questionList;
 
 @end
 
@@ -30,33 +33,60 @@ static ExamQuestionStore *examQuestionStore = nil;
 
 - (void)initNewExam
 {
+    self.questionList = [[NSMutableArray alloc] init];
+    // 第1章
+    // 判断题14题
+    [self.questionList addObjectsFromArray:[self questListWithSection:1 type:QUESTION_TYPE_TFNG count:14]];
+    // 选择题21题
+    [self.questionList addObjectsFromArray:[self questListWithSection:1 type:QUESTION_TYPE_CQ count:21]];
     
+    // 第2章
+    // 判断题14题
+    [self.questionList addObjectsFromArray:[self questListWithSection:2 type:QUESTION_TYPE_TFNG count:14]];
+    // 选择题21题
+    [self.questionList addObjectsFromArray:[self questListWithSection:2 type:QUESTION_TYPE_CQ count:21]];
     
-    [self questListWithSection:1 type:1 count:14];
-    
-    
-    
-    
+    // 第3章
+    // 判断题6题
+    [self.questionList addObjectsFromArray:[self questListWithSection:3 type:QUESTION_TYPE_TFNG count:6]];
+    // 选择题9题
+    [self.questionList addObjectsFromArray:[self questListWithSection:3 type:QUESTION_TYPE_CQ count:9]];
+
+    // 第4章
+    // 判断题6题
+    [self.questionList addObjectsFromArray:[self questListWithSection:4 type:QUESTION_TYPE_TFNG count:6]];
+    // 选择题9题
+    [self.questionList addObjectsFromArray:[self questListWithSection:4 type:QUESTION_TYPE_CQ count:9]];
 }
 
 
 #pragma mark - Private
 
-- (NSArray *)questListWithSection:(NSInteger)section type:(NSInteger)type count:(NSInteger)count
+- (NSMutableArray *)questListWithSection:(NSInteger)section type:(NSInteger)type count:(NSInteger)count
 {
     if (![self.dataBase open]) {
         return nil;
     }
     
+    NSMutableArray *questionList = [[NSMutableArray alloc] init];
+    FMResultSet *result;
+    
     // 判断题
-    FMResultSet *result = [self.dataBase executeQuery:@"SELECT * FROM tbl_library_general WHERE  `order` LIKE '(?).%' AND answer_c is null AND answer_a IS NOT null ORDER BY RANDOM() LIMIT (?)", @(section), @(count)];
+    if (type == QUESTION_TYPE_TFNG) {
+        result = [self.dataBase executeQuery:@"SELECT * FROM tbl_library_general WHERE  `order` LIKE '(?).%' AND answer_c is null AND answer_a IS NOT null ORDER BY RANDOM() LIMIT (?)", @(section), @(count)];
+    
+    // 选择题
+    } else if (type == QUESTION_TYPE_CQ) {
+        result = [self.dataBase executeQuery:@"SELECT * FROM tbl_library_general WHERE  `order` LIKE '(?).%' AND answer_c is Not null OR answer_a is null ORDER BY RANDOM() LIMIT (?)", @(section), @(count)];
+    }
     
     while ([result next]) {
         QuestionBase *question = [self questionWithResult:result];
+        [questionList addObject:question];
     }
     
     [self.dataBase close];
-    return nil;
+    return questionList;
 }
 
 @end

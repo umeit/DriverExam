@@ -13,6 +13,7 @@
 @class QuestionBase;
 @class FMDatabase;
 @class ReinforceQuestionStore;
+@class FMResultSet;
 
 @interface QuestionStore : NSObject
 

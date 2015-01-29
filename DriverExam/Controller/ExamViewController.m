@@ -37,6 +37,8 @@
 - (void)showCurrentQuestion
 {
     [[ExamQuestionStore examQuestionStore] initNewExam];
+    self.question = [[ExamQuestionStore examQuestionStore] nextQuestion];
+    [self updateQuestionDisplay];
 }
 
 - (void)timeFireMethod {

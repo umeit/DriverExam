@@ -135,33 +135,33 @@ static QuestionStore *answerCacheStore = nil;
     FMResultSet *result = [self.dataBase executeQuery:@"SELECT * FROM tbl_library_general WHERE id = (?)",
                            @(questionID)];
     
-    QuestionBase *question = [self questionWithResult:result];
+    QuestionBase *question = nil;
+    if ([result next]) {
+        question = [self questionWithResult:result];
+    }
     [self.dataBase close];
     return question;
 }
 
 - (QuestionBase *)questionWithResult:(FMResultSet *)result
 {
-    QuestionBase *question = nil;
-    if ([result next]) {
-        question = [[QuestionBase alloc] init];
-        question.qustoinID = [result intForColumn:QUESTION_ID];
-        question.order = [result stringForColumn:QUESTION_ORDER];
-        question.content = [result stringForColumn:QUESTION_CONTENT];
-        question.correctIndex = [result intForColumn:ANSWER_CORRECT];
-        question.answerList = [[NSMutableArray alloc] init];
-        if ([result stringForColumn:ANSWER_A]) {
-            [question.answerList addObject:[result stringForColumn:ANSWER_A]];
-        }
-        if ([result stringForColumn:ANSWER_B]) {
-            [question.answerList addObject:[result stringForColumn:ANSWER_B]];
-        }
-        if ([result stringForColumn:ANSWER_C]) {
-            [question.answerList addObject:[result stringForColumn:ANSWER_C]];
-        }
-        if ([result stringForColumn:ANSWER_D]) {
-            [question.answerList addObject:[result stringForColumn:ANSWER_D]];
-        }
+    QuestionBase *question = [[QuestionBase alloc] init];
+    question.qustoinID = [result intForColumn:QUESTION_ID];
+    question.order = [result stringForColumn:QUESTION_ORDER];
+    question.content = [result stringForColumn:QUESTION_CONTENT];
+    question.correctIndex = [result intForColumn:ANSWER_CORRECT];
+    question.answerList = [[NSMutableArray alloc] init];
+    if ([result stringForColumn:ANSWER_A]) {
+        [question.answerList addObject:[result stringForColumn:ANSWER_A]];
+    }
+    if ([result stringForColumn:ANSWER_B]) {
+        [question.answerList addObject:[result stringForColumn:ANSWER_B]];
+    }
+    if ([result stringForColumn:ANSWER_C]) {
+        [question.answerList addObject:[result stringForColumn:ANSWER_C]];
+    }
+    if ([result stringForColumn:ANSWER_D]) {
+        [question.answerList addObject:[result stringForColumn:ANSWER_D]];
     }
     return question;
 }

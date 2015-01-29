@@ -12,6 +12,8 @@
 #define QUESTION_TYPE_TFNG 1   // 判断题
 #define QUESTION_TYPE_CQ   2   // 选择题
 
+#define EXAM_QUESTION_INDEX_KEY @"ExamQuestionIndexKey"
+
 static ExamQuestionStore *examQuestionStore = nil;
 
 @interface ExamQuestionStore ()
@@ -34,6 +36,7 @@ static ExamQuestionStore *examQuestionStore = nil;
 - (void)initNewExam
 {
     self.questionList = [[NSMutableArray alloc] init];
+    
     // 第1章
     // 判断题14题
     [self.questionList addObjectsFromArray:[self questListWithSection:1 type:QUESTION_TYPE_TFNG count:14]];
@@ -57,8 +60,15 @@ static ExamQuestionStore *examQuestionStore = nil;
     [self.questionList addObjectsFromArray:[self questListWithSection:4 type:QUESTION_TYPE_TFNG count:6]];
     // 选择题9题
     [self.questionList addObjectsFromArray:[self questListWithSection:4 type:QUESTION_TYPE_CQ count:9]];
+    
+    [USER_DEFAULTS setInteger:0 forKey:EXAM_QUESTION_INDEX_KEY];
 }
 
+- (QuestionBase *)nextQuestion
+{
+    NSInteger i = [USER_DEFAULTS integerForKey:EXAM_QUESTION_INDEX_KEY];
+    return i >= self.questionList.count ? nil : [self.questionList objectAtIndex:i];
+}
 
 #pragma mark - Private
 
@@ -73,11 +83,15 @@ static ExamQuestionStore *examQuestionStore = nil;
     
     // 判断题
     if (type == QUESTION_TYPE_TFNG) {
-        result = [self.dataBase executeQuery:@"SELECT * FROM tbl_library_general WHERE  `order` LIKE '(?).%' AND answer_c is null AND answer_a IS NOT null ORDER BY RANDOM() LIMIT (?)", @(section), @(count)];
+        NSString *sql = [NSString stringWithFormat:@"SELECT * FROM tbl_library_general WHERE  `order` LIKE '%d.%%' AND answer_c is null AND answer_a IS NOT null ORDER BY RANDOM() LIMIT %d", section, count];
+//        result = [self.dataBase executeQuery:@"SELECT * FROM tbl_library_general WHERE  `order` LIKE '(?).%' AND answer_c is null AND answer_a IS NOT null ORDER BY RANDOM() LIMIT (?)", @(section), @(count)];
+        result = [self.dataBase executeQuery:sql];
     
     // 选择题
     } else if (type == QUESTION_TYPE_CQ) {
-        result = [self.dataBase executeQuery:@"SELECT * FROM tbl_library_general WHERE  `order` LIKE '(?).%' AND answer_c is Not null OR answer_a is null ORDER BY RANDOM() LIMIT (?)", @(section), @(count)];
+        NSString *sql = [NSString stringWithFormat:@"SELECT * FROM tbl_library_general WHERE  `order` LIKE '%d.%%' AND answer_c is Not null OR answer_a is null ORDER BY RANDOM() LIMIT %d", section, count];
+//        result = [self.dataBase executeQuery:@"SELECT * FROM tbl_library_general WHERE  `order` LIKE '(?).%' AND answer_c is Not null OR answer_a is null ORDER BY RANDOM() LIMIT (?)", @(section), @(count)];
+        result = [self.dataBase executeQuery:sql];
     }
     
     while ([result next]) {

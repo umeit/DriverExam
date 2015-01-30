@@ -8,6 +8,7 @@
 
 #import "ExamViewController.h"
 #import "ExamQuestionStore.h"
+#import "QuestionBase.h"
 
 @interface ExamViewController ()
 @property (nonatomic)  NSInteger secondsCountDown;
@@ -33,6 +34,16 @@
 
 
 #pragma mark - Override
+
+- (void)updateQuestionDisplay
+{
+    [super updateQuestionDisplay];
+    
+    if (self.question.result) {
+        UIButton *selectedButton = (UIButton *)[self.view viewWithTag:self.question.result];
+        [selectedButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    }
+}
 
 - (void)showCurrentQuestion
 {
@@ -60,6 +71,19 @@
     // 更新题目显示
     [self updateQuestionDisplay];
 }
+
+- (void)procNextQuestionButtonPress
+{
+    self.question = [[ExamQuestionStore examQuestionStore] nextQuestion];
+    [self updateQuestionDisplay];
+}
+
+- (void)procPrevQuestionButtonPress
+{
+    self.question = [[ExamQuestionStore examQuestionStore] prevQustion];
+    [self updateQuestionDisplay];
+}
+
 
 - (void)timeFireMethod {
     self.secondsCountDown--;

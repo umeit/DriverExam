@@ -76,6 +76,16 @@ static ExamQuestionStore *examQuestionStore = nil;
     return q;
 }
 
+- (QuestionBase *)prevQustion
+{
+    NSInteger i = [USER_DEFAULTS integerForKey:EXAM_QUESTION_INDEX_KEY];
+    i--;
+    i--;
+    QuestionBase *q = i >= self.questionList.count ? nil : [self.questionList objectAtIndex:i];
+    [USER_DEFAULTS setInteger:++i forKey:EXAM_QUESTION_INDEX_KEY];
+    return q;
+}
+
 - (void)saveExamRusult:(QuestionBase *)question
 {
     [self.questionList replaceObjectAtIndex:[self.questionList indexOfObject:question]
@@ -117,13 +127,11 @@ static ExamQuestionStore *examQuestionStore = nil;
     // 判断题
     if (type == QUESTION_TYPE_TFNG) {
         NSString *sql = [NSString stringWithFormat:@"SELECT * FROM tbl_library_general WHERE  `order` LIKE '%d.%%' AND answer_c is null AND answer_a IS NOT null ORDER BY RANDOM() LIMIT %d", section, count];
-//        result = [self.dataBase executeQuery:@"SELECT * FROM tbl_library_general WHERE  `order` LIKE '(?).%' AND answer_c is null AND answer_a IS NOT null ORDER BY RANDOM() LIMIT (?)", @(section), @(count)];
         result = [self.dataBase executeQuery:sql];
     
     // 选择题
     } else if (type == QUESTION_TYPE_CQ) {
         NSString *sql = [NSString stringWithFormat:@"SELECT * FROM tbl_library_general WHERE  `order` LIKE '%d.%%' AND answer_c is Not null OR answer_a is null ORDER BY RANDOM() LIMIT %d", section, count];
-//        result = [self.dataBase executeQuery:@"SELECT * FROM tbl_library_general WHERE  `order` LIKE '(?).%' AND answer_c is Not null OR answer_a is null ORDER BY RANDOM() LIMIT (?)", @(section), @(count)];
         result = [self.dataBase executeQuery:sql];
     }
     

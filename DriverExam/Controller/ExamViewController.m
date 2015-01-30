@@ -41,6 +41,11 @@
     [self updateQuestionDisplay];
 }
 
+- (void)answerDidCorrect
+{
+    [[ExamQuestionStore examQuestionStore] saveExamRusult:self.question];
+}
+
 - (void)timeFireMethod {
     self.secondsCountDown--;
     NSInteger m = self.secondsCountDown / 60;

@@ -14,4 +14,6 @@
 
 - (void)initNewExam;
 
+- (void)saveExamRusult:(QuestionBase *)question;
+
 @end

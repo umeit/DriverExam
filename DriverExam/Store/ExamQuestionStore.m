@@ -70,6 +70,13 @@ static ExamQuestionStore *examQuestionStore = nil;
     return i >= self.questionList.count ? nil : [self.questionList objectAtIndex:i];
 }
 
+- (void)saveExamRusult:(QuestionBase *)question
+{
+    [self.questionList replaceObjectAtIndex:[self.questionList indexOfObject:question]
+                                 withObject:question];
+}
+
+
 #pragma mark - Private
 
 - (NSMutableArray *)questListWithSection:(NSInteger)section type:(NSInteger)type count:(NSInteger)count

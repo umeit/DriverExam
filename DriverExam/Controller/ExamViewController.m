@@ -44,6 +44,21 @@
 - (void)answerDidCorrect
 {
     [[ExamQuestionStore examQuestionStore] saveExamRusult:self.question];
+    [self showNextQuestion];
+}
+
+- (void)answerDidFault
+{
+    [[ExamQuestionStore examQuestionStore] saveExamRusult:self.question];
+    [self showNextQuestion];
+}
+
+- (void)showNextQuestion
+{
+    // 获取下一个练习题
+    self.question = [[ExamQuestionStore examQuestionStore] nextQuestion];
+    // 更新题目显示
+    [self updateQuestionDisplay];
 }
 
 - (void)timeFireMethod {

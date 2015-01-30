@@ -152,7 +152,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="selectAnswer:" destination="hb1-Fb-ReS" eventType="touchUpInside" id="HdA-5v-Uzz"/>
+                                    <action selector="selectAnswer:" destination="0OW-tz-AFK" eventType="touchUpInside" id="gvV-7j-Lg6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJE-Ft-BEq">
@@ -161,7 +161,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="selectAnswer:" destination="hb1-Fb-ReS" eventType="touchUpInside" id="Iqf-xl-klf"/>
+                                    <action selector="selectAnswer:" destination="0OW-tz-AFK" eventType="touchUpInside" id="Jyh-Bt-udp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0o-uI-5CU">
@@ -170,7 +170,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="selectAnswer:" destination="hb1-Fb-ReS" eventType="touchUpInside" id="u55-I1-VQl"/>
+                                    <action selector="selectAnswer:" destination="0OW-tz-AFK" eventType="touchUpInside" id="TOQ-rR-D21"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOQ-My-8v5">
@@ -179,7 +179,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="nextQuestionButtonPress:" destination="hb1-Fb-ReS" eventType="touchUpInside" id="6l3-u5-7zE"/>
+                                    <action selector="nextQuestionButtonPress:" destination="0OW-tz-AFK" eventType="touchUpInside" id="Wjv-5K-AZX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5w-Ac-N4d">
@@ -188,7 +188,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="selectAnswer:" destination="hb1-Fb-ReS" eventType="touchUpInside" id="EPz-jo-ksF"/>
+                                    <action selector="selectAnswer:" destination="0OW-tz-AFK" eventType="touchUpInside" id="Qnu-wj-dB4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgn-WJ-PUC">
@@ -197,7 +197,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="prevQuestionButtonPress:" destination="hb1-Fb-ReS" eventType="touchUpInside" id="C7O-wH-ZoQ"/>
+                                    <action selector="prevQuestionButtonPress:" destination="0OW-tz-AFK" eventType="touchUpInside" id="Y8b-hW-8oP"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" tag="202" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wqk-ZW-6L3">

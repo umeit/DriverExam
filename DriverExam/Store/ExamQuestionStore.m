@@ -8,11 +8,13 @@
 
 #import "ExamQuestionStore.h"
 #import "FMDatabase.h"
+#import "QuestionBase.h"
 
 #define QUESTION_TYPE_TFNG 1   // 判断题
 #define QUESTION_TYPE_CQ   2   // 选择题
 
 #define EXAM_QUESTION_INDEX_KEY @"ExamQuestionIndexKey"
+#define ANSWER_CACHE_FOR_EXAM @"AnswerCacheForExam"
 
 static ExamQuestionStore *examQuestionStore = nil;
 
@@ -62,12 +64,16 @@ static ExamQuestionStore *examQuestionStore = nil;
     [self.questionList addObjectsFromArray:[self questListWithSection:4 type:QUESTION_TYPE_CQ count:9]];
     
     [USER_DEFAULTS setInteger:0 forKey:EXAM_QUESTION_INDEX_KEY];
+    
+    [USER_DEFAULTS registerDefaults:@{ANSWER_CACHE_FOR_EXAM: @{}}];
 }
 
 - (QuestionBase *)nextQuestion
 {
     NSInteger i = [USER_DEFAULTS integerForKey:EXAM_QUESTION_INDEX_KEY];
-    return i >= self.questionList.count ? nil : [self.questionList objectAtIndex:i];
+    QuestionBase *q = i >= self.questionList.count ? nil : [self.questionList objectAtIndex:i];
+    [USER_DEFAULTS setInteger:++i forKey:EXAM_QUESTION_INDEX_KEY];
+    return q;
 }
 
 - (void)saveExamRusult:(QuestionBase *)question
@@ -76,8 +82,28 @@ static ExamQuestionStore *examQuestionStore = nil;
                                  withObject:question];
 }
 
+- (void)addcaCheQuestion:(QuestionBase *)question
+{
+    NSMutableDictionary *dic = [self answerCacheDic];
+    [dic setObject:[NSKeyedArchiver archivedDataWithRootObject:question] forKey:[@(question.qustoinID) stringValue]];
+    [USER_DEFAULTS setObject:dic forKey:ANSWER_CACHE_FOR_EXAM];
+}
+
+- (QuestionBase *)questionWithIDOnCache:(NSInteger)questionID
+{
+    NSData *data = [[self answerCacheDic] objectForKey:[@(questionID) stringValue]];
+    if (data) {
+        return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    }
+    return nil;
+}
 
 #pragma mark - Private
+
+- (NSMutableDictionary *)answerCacheDic
+{
+    return [NSMutableDictionary dictionaryWithDictionary:[USER_DEFAULTS dictionaryForKey:ANSWER_CACHE_FOR_EXAM]];
+}
 
 - (NSMutableArray *)questListWithSection:(NSInteger)section type:(NSInteger)type count:(NSInteger)count
 {

@@ -16,6 +16,7 @@
 #define QUESTION_TYPE_CQ   2   // 选择题
 
 #define EXAM_QUESTION_INDEX_KEY @"ExamQuestionIndexKey"
+#define EXAM_QUESTION_FAULT_INDEX_KEY @"ExamQuestionFaultIndexKey"
 #define ANSWER_CACHE_FOR_EXAM @"AnswerCacheForExam"
 
 static ExamQuestionStore *examQuestionStore = nil;
@@ -23,6 +24,8 @@ static ExamQuestionStore *examQuestionStore = nil;
 @interface ExamQuestionStore ()
 
 @property (strong, nonatomic) NSMutableArray *questionList;
+
+@property (strong, nonatomic) NSMutableArray *questionFaultList;
 
 @end
 
@@ -73,11 +76,14 @@ static ExamQuestionStore *examQuestionStore = nil;
 - (void)examClear
 {
     self.questionList = nil;
+    self.questionFaultList = nil;
 }
 
 - (void)examFinish
 {
     NSInteger score = 0;
+    
+    self.questionFaultList = [[NSMutableArray alloc] init];
     
     for (QuestionBase *question in self.questionList) {
         if (question.result == question.correctIndex) {
@@ -86,6 +92,9 @@ static ExamQuestionStore *examQuestionStore = nil;
         else {
             // 将错题加入强化题库
             [[ReinforceQuestionStore reinforceStore] addNeedReinforceQuestion:question];
+            
+            // 将错题加入错题回顾
+            [self.questionFaultList addObject:question];
         }
     }
     
@@ -177,6 +186,24 @@ static ExamQuestionStore *examQuestionStore = nil;
     i--;
     QuestionBase *q = i >= self.questionList.count ? nil : [self.questionList objectAtIndex:i];
     [USER_DEFAULTS setInteger:++i forKey:EXAM_QUESTION_INDEX_KEY];
+    return q;
+}
+
+- (QuestionBase *)nextFaultQuestion
+{
+    NSInteger i = [USER_DEFAULTS integerForKey:EXAM_QUESTION_FAULT_INDEX_KEY];
+    QuestionBase *q = [self.questionFaultList objectAtIndex:i];
+    [USER_DEFAULTS setInteger:++i forKey:EXAM_QUESTION_FAULT_INDEX_KEY];
+    return q;
+}
+
+- (QuestionBase *)prevFaultQuestion
+{
+    NSInteger i = [USER_DEFAULTS integerForKey:EXAM_QUESTION_FAULT_INDEX_KEY];
+    i--;
+    i--;
+    QuestionBase *q = [self.questionFaultList objectAtIndex:i];
+    [USER_DEFAULTS setInteger:++i forKey:EXAM_QUESTION_FAULT_INDEX_KEY];
     return q;
 }
 

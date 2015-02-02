@@ -30,4 +30,9 @@
 - (NSInteger)examCount;
 
 - (double)average;
+
+- (QuestionBase *)nextFaultQuestion;
+
+- (QuestionBase *)prevFaultQuestion;
+
 @end

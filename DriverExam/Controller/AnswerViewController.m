@@ -60,7 +60,9 @@
 
 - (void)updateQuestionDisplay
 {
-    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg", self.question.order]];
+    NSString *imageName = [NSString stringWithFormat:@"%@.jpg", [self.question.order stringByTrimmingCharactersInSet:
+                           [NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+    UIImage *image = [UIImage imageNamed:imageName];
     if (image) {
         self.questionImageView.hidden = NO;
         self.questionImageView.image = image;

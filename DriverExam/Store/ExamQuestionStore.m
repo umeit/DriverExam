@@ -197,6 +197,7 @@ static ExamQuestionStore *examQuestionStore = nil;
     return nil;
 }
 
+
 #pragma mark - Private
 
 - (NSMutableDictionary *)answerCacheDic

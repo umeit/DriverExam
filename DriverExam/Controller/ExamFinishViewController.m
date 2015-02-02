@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.hidesBackButton = YES;
+    
     self.scoreLabel.text = [@([ExamQuestionStore examQuestionStore].lastScore) stringValue];
     self.examCountLabel.text = [@([[ExamQuestionStore examQuestionStore] examCount]) stringValue];
     self.averageLabel.text = [@([[ExamQuestionStore examQuestionStore] average]) stringValue];

@@ -9,6 +9,7 @@
 #import "ExamViewController.h"
 #import "ExamQuestionStore.h"
 #import "QuestionBase.h"
+#import "UIViewController+GViewController.h"
 
 @interface ExamViewController ()
 @property (nonatomic)  NSInteger secondsCountDown;
@@ -37,7 +38,9 @@
 
 - (IBAction)submitButtonPress:(id)sender
 {
-    [self examFinish];
+    [self showCustomTextAlert:@"确定交卷吗？" withOKButtonPressed:^{
+        [self examFinish];
+    }];
 }
 
 
@@ -116,7 +119,9 @@
     if(!self.secondsCountDown){
         [self.countDownTimer invalidate];
         
-        [self examFinish];
+        [self showCustomTextAlert:@"考试时间到，考试结束。" withBlock:^{
+            [self examFinish];
+        }];
     }
 }
 @end

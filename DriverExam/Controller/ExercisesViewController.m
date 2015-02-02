@@ -12,6 +12,8 @@
 
 @interface ExercisesViewController ()
 
+@property (nonatomic) BOOL isShowAnswer;
+
 @end
 
 
@@ -26,6 +28,31 @@
 {
     [super didReceiveMemoryWarning];
 }
+
+
+#pragma mark - Action
+/**
+ * 显示答案
+ */
+- (IBAction)showAnswerButtonPress:(id)sender
+{
+    if (self.isShowAnswer) {
+        [self.showAnswerButton setTitle:@"显示答案"];
+        
+        self.isShowAnswer = NO;
+        
+        [self updateQuestionDisplay];
+    }
+    else {
+        [self.showAnswerButton setTitle:@"隐藏答案"];
+        
+        self.isShowAnswer = YES;
+        
+        [self updateQuestionDisplay];
+    }
+    
+}
+
 
 
 #pragma mark - Override
@@ -80,18 +107,29 @@
     
     self.questionNumberLabel.text = [NSString stringWithFormat:@"%d / %d", self.question.qustoinID, [[QuestionStore exercisesStore] questionCuont]];
     
-    // 显示最近做过的结果
-    QuestionBase *question = [[QuestionStore answerCacheStore] questionWithID:self.question.qustoinID];
-    if (question) {
-        self.question = question;
-        if (self.question.result == self.question.correctIndex) {
-            [self showCorrectAnswer];
-        }
-        else {
-            NSInteger correctButtonTag = self.question.result;
-            self.selectedButton = (UIButton *)[self.view viewWithTag:correctButtonTag];
-            [self updateSelectedButtonFaultStatus];
-            [self showCorrectAnswer];
+    // 显示答案
+    if (self.isShowAnswer) {
+        [self showCorrectAnswer];
+        // 显示答案模式下不可答题
+        self.answerButonA.userInteractionEnabled = NO;
+        self.answerButonB.userInteractionEnabled = NO;
+        self.answerButonC.userInteractionEnabled = NO;
+        self.answerButonD.userInteractionEnabled = NO;
+    }
+    else {
+        // 显示最近做过的结果
+        QuestionBase *question = [[QuestionStore answerCacheStore] questionWithID:self.question.qustoinID];
+        if (question) {
+            self.question = question;
+            if (self.question.result == self.question.correctIndex) {
+                [self showCorrectAnswer];
+            }
+            else {
+                NSInteger correctButtonTag = self.question.result;
+                self.selectedButton = (UIButton *)[self.view viewWithTag:correctButtonTag];
+                [self updateSelectedButtonFaultStatus];
+                [self showCorrectAnswer];
+            }
         }
     }
 }

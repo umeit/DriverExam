@@ -12,5 +12,5 @@
  * 全面练习控制器
  */
 @interface ExercisesViewController : AnswerViewController
-
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *showAnswerButton;
 @end

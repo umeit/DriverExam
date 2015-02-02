@@ -423,7 +423,13 @@
                             <constraint firstItem="CcK-Yx-BhB" firstAttribute="top" secondItem="vd5-pS-ySJ" secondAttribute="bottom" constant="20" id="otP-qt-U56"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="练习" id="OGC-4W-Dcr"/>
+                    <navigationItem key="navigationItem" title="练习" id="OGC-4W-Dcr">
+                        <barButtonItem key="rightBarButtonItem" title="显示答案" id="aUW-id-ytz">
+                            <connections>
+                                <action selector="showAnswerButtonPress:" destination="8Ll-lk-FEa" id="0sh-ig-u6s"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="answerButonA" destination="RU3-6K-P8w" id="TP4-x3-Xls"/>
@@ -435,6 +441,7 @@
                         <outlet property="questionContentLabel" destination="j0r-oo-tRg" id="RQz-BG-Xb7"/>
                         <outlet property="questionImageView" destination="zc0-ie-FQs" id="uu3-Ac-WH8"/>
                         <outlet property="questionNumberLabel" destination="FNk-Ed-1eg" id="dKx-jv-USu"/>
+                        <outlet property="showAnswerButton" destination="aUW-id-ytz" id="l9i-7S-uNb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xnF-wB-LAl" userLabel="First Responder" sceneMemberID="firstResponder"/>

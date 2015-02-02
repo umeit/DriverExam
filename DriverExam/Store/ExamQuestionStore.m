@@ -10,6 +10,7 @@
 #import "FMDatabase.h"
 #import "QuestionBase.h"
 #import "FMResultSet.h"
+#import "ReinforceQuestionStore.h"
 
 #define QUESTION_TYPE_TFNG 1   // 判断题
 #define QUESTION_TYPE_CQ   2   // 选择题
@@ -81,6 +82,10 @@ static ExamQuestionStore *examQuestionStore = nil;
     for (QuestionBase *question in self.questionList) {
         if (question.result == question.correctIndex) {
             score += 1;
+        }
+        else {
+            // 将错题加入强化题库
+            [[ReinforceQuestionStore reinforceStore] addNeedReinforceQuestion:question];
         }
     }
     

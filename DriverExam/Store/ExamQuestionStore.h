@@ -16,4 +16,6 @@
 
 - (void)saveExamRusult:(QuestionBase *)question;
 
+- (NSInteger)currentQuestionIndex;
+
 @end

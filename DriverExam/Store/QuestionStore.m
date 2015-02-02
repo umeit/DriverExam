@@ -132,7 +132,7 @@ static QuestionStore *answerCacheStore = nil;
         return nil;
     }
     
-    FMResultSet *result = [self.dataBase executeQuery:@"SELECT * FROM tbl_library_general WHERE id = (?)",
+    FMResultSet *result = [self.dataBase executeQuery:@"SELECT * FROM tbl_question WHERE id = (?)",
                            @(questionID)];
     
     QuestionBase *question = nil;

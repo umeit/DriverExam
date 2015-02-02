@@ -39,6 +39,8 @@
 {
     [super updateQuestionDisplay];
     
+    self.questionNumberLabel.text = [NSString stringWithFormat:@"%d / %d", [[ExamQuestionStore examQuestionStore] currentQuestionIndex], [[ExamQuestionStore examQuestionStore] questionCuont]];
+    
     if (self.question.result) {
         UIButton *selectedButton = (UIButton *)[self.view viewWithTag:self.question.result];
         [selectedButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];

@@ -272,6 +272,9 @@
                                 <state key="normal" title="查看错题">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="3MX-qK-LKi" kind="push" id="7mH-Kh-3pz"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s08-WA-VnC">
                                 <rect key="frame" x="260" y="180" width="52" height="21"/>
@@ -332,6 +335,96 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eES-TR-ZWu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1177" y="1258"/>
+        </scene>
+        <!--Review View Controller-->
+        <scene sceneID="AJD-F1-EuH">
+            <objects>
+                <viewController id="3MX-qK-LKi" customClass="ReviewViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pUf-4W-6VK"/>
+                        <viewControllerLayoutGuide type="bottom" id="GkO-bN-AmM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ICR-m2-dzc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfW-t9-zCm">
+                                <rect key="frame" x="28" y="345" width="267" height="30"/>
+                                <state key="normal" title="C Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sho-Bi-AcL">
+                                <rect key="frame" x="28" y="383" width="267" height="30"/>
+                                <state key="normal" title="D Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IrG-ee-AMO">
+                                <rect key="frame" x="28" y="269" width="267" height="30"/>
+                                <state key="normal" title="A Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82v-TF-iws">
+                                <rect key="frame" x="259" y="518" width="45" height="30"/>
+                                <state key="normal" title="下一题">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextQuestionButtonPress:" destination="3MX-qK-LKi" eventType="touchUpInside" id="Guz-vz-6tL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RC-Uf-wAI">
+                                <rect key="frame" x="28" y="307" width="267" height="30"/>
+                                <state key="normal" title="B Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKq-9P-IbD">
+                                <rect key="frame" x="16" y="518" width="45" height="30"/>
+                                <state key="normal" title="上一题">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="prevQuestionButtonPress:" destination="3MX-qK-LKi" eventType="touchUpInside" id="Kms-RJ-9Nz"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" tag="202" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="liI-DM-w1n">
+                                <rect key="frame" x="28" y="133" width="267" height="128"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="题目内容" lineBreakMode="characterWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Tw-go-gae">
+                                <rect key="frame" x="21" y="72" width="281" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="页码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQg-sx-AJu">
+                                <rect key="frame" x="143" y="522" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="opi-1R-RJn"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="answerButonA" destination="IrG-ee-AMO" id="Bgz-h3-fL3"/>
+                        <outlet property="answerButonB" destination="0RC-Uf-wAI" id="uu0-cn-Mdb"/>
+                        <outlet property="answerButonC" destination="bfW-t9-zCm" id="HoZ-85-mmN"/>
+                        <outlet property="answerButonD" destination="sho-Bi-AcL" id="5DY-VO-9dE"/>
+                        <outlet property="nextButton" destination="82v-TF-iws" id="1jP-Bv-Fjs"/>
+                        <outlet property="prevButton" destination="jKq-9P-IbD" id="B28-WH-ha6"/>
+                        <outlet property="questionContentLabel" destination="5Tw-go-gae" id="C0D-xh-Hos"/>
+                        <outlet property="questionImageView" destination="liI-DM-w1n" id="JIf-aZ-Vk3"/>
+                        <outlet property="questionNumberLabel" destination="oQg-sx-AJu" id="HQK-u5-QbW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F6o-i6-GhM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1573" y="1258"/>
         </scene>
         <!--练习-->
         <scene sceneID="Nko-pQ-1eV">

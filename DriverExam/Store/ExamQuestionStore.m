@@ -9,6 +9,7 @@
 #import "ExamQuestionStore.h"
 #import "FMDatabase.h"
 #import "QuestionBase.h"
+#import "FMResultSet.h"
 
 #define QUESTION_TYPE_TFNG 1   // 判断题
 #define QUESTION_TYPE_CQ   2   // 选择题
@@ -67,6 +68,84 @@ static ExamQuestionStore *examQuestionStore = nil;
     
     [USER_DEFAULTS registerDefaults:@{ANSWER_CACHE_FOR_EXAM: @{}}];
 }
+
+- (void)examClear
+{
+    self.questionList = nil;
+}
+
+- (void)examFinish
+{
+    NSInteger score = 0;
+    
+    for (QuestionBase *question in self.questionList) {
+        if (question.result == question.correctIndex) {
+            score += 1;
+        }
+    }
+    
+    if (![self.dataBase open]) {
+        return;
+    }
+    
+    [self.dataBase executeUpdate:@"INSERT INTO tbl_exam VALUES (?, ?)", nil, @(score)];
+    
+    [self.dataBase close];
+    
+    self.lastScore = score;
+}
+
+- (NSInteger)examCount
+{
+    NSInteger count = 0;
+    
+    if (![self.dataBase open]) {
+        return count;
+    }
+    
+    FMResultSet *result = [self.dataBase executeQuery:@"SELECT COUNT(*) FROM tbl_exam"];
+    
+    while ([result next]) {
+        count = [result intForColumnIndex:0];
+    }
+    
+    [self.dataBase close];
+    
+    return count;
+}
+
+- (double)average
+{
+    double score = .0;
+    
+    if (![self.dataBase open]) {
+        return score;
+    }
+    
+    FMResultSet *result = [self.dataBase executeQuery:@"SELECT AVG(score) FROM tbl_exam"];
+    while ([result next]) {
+        score = [result intForColumnIndex:0];
+    }
+    
+    [self.dataBase close];
+    
+    return score;
+}
+
+
+//- (NSInteger)lastScore
+//{
+//    NSInteger score = 0;
+//    if (![self.dataBase open]) {
+//        return score;
+//    }
+//    
+//    [self.dataBase executeUpdate:@"INSERT INTO tbl_exam VALUES (?, ?)", nil, @(score)];
+//    
+//    [self.dataBase close];
+//    
+//    return score;
+//}
 
 - (NSInteger)questionCuont
 {

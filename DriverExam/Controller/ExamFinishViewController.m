@@ -7,6 +7,7 @@
 //
 
 #import "ExamFinishViewController.h"
+#import "ExamQuestionStore.h"
 
 @interface ExamFinishViewController ()
 
@@ -16,16 +17,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.scoreLabel.text = [@([ExamQuestionStore examQuestionStore].lastScore) stringValue];
+    self.examCountLabel.text = [@([[ExamQuestionStore examQuestionStore] examCount]) stringValue];
+    self.averageLabel.text = [@([[ExamQuestionStore examQuestionStore] average]) stringValue];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)finishButtonPress:(id)sender
 {
+    [[ExamQuestionStore examQuestionStore] examClear];
+    
+    // 回到科目主页面
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

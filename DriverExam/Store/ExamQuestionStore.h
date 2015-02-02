@@ -10,6 +10,8 @@
 
 @interface ExamQuestionStore : QuestionStore
 
+@property (nonatomic) NSInteger lastScore;
+
 + (ExamQuestionStore *)examQuestionStore;
 
 - (void)initNewExam;
@@ -18,4 +20,14 @@
 
 - (NSInteger)currentQuestionIndex;
 
+//- (NSInteger)lastScore;
+
+/** 完成考试，保存考试成绩 */
+- (void)examFinish;
+
+- (void)examClear;
+
+- (NSInteger)examCount;
+
+- (double)average;
 @end

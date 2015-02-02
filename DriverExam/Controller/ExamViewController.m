@@ -33,6 +33,14 @@
 }
 
 
+#pragma mark - Action
+
+- (IBAction)submitButtonPress:(id)sender
+{
+    [self examFinish];
+}
+
+
 #pragma mark - Override
 
 - (void)updateQuestionDisplay
@@ -87,7 +95,20 @@
 }
 
 
-- (void)timeFireMethod {
+#pragma mark - Custom
+
+/** */
+- (void)examFinish
+{
+    [[ExamQuestionStore examQuestionStore] examFinish];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UIViewController *examFinishVC = [storyboard instantiateViewControllerWithIdentifier:@"ExamFinishViewController"];
+    [self.navigationController pushViewController:examFinishVC animated:YES];
+}
+
+- (void)timeFireMethod
+{
     self.secondsCountDown--;
     NSInteger m = self.secondsCountDown / 60;
     self.examTimeLabel.text = [NSString stringWithFormat:@"%@:%@",
@@ -95,7 +116,7 @@
     if(!self.secondsCountDown){
         [self.countDownTimer invalidate];
         
-        // 交卷
+        [self examFinish];
     }
 }
 @end

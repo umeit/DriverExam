@@ -96,12 +96,15 @@ static ReinforceQuestionStore *reinforceStore = nil;
         return 0;
     }
     
+    NSInteger count = 0;
+    
     FMResultSet *result = [self.dataBase executeQuery:@"SELECT COUNT(*) FROM tbl_reinforce WHERE status = 0 AND result <> 0"];
     while ([result next]) {
-        return [result intForColumnIndex:0];
+        count = [result intForColumnIndex:0];
     }
     
-    return 0;
+    [self.dataBase close];
+    return count;
 }
 
 - (NSInteger)missQuestionCount
@@ -110,12 +113,15 @@ static ReinforceQuestionStore *reinforceStore = nil;
         return 0;
     }
     
+    NSInteger count = 0;
+    
     FMResultSet *result = [self.dataBase executeQuery:@"SELECT COUNT(*) FROM tbl_reinforce WHERE status = 0 AND result = 0"];
     while ([result next]) {
-        return [result intForColumnIndex:0];
+        count = [result intForColumnIndex:0];
     }
     
-    return 0;
+    [self.dataBase close];
+    return count;
 }
 
 - (NSInteger)reinforcedQuestionCount
@@ -124,12 +130,15 @@ static ReinforceQuestionStore *reinforceStore = nil;
         return 0;
     }
     
+    NSInteger count = 0;
+    
     FMResultSet *result = [self.dataBase executeQuery:@"SELECT COUNT(*) FROM tbl_reinforce WHERE status = 1"];
     while ([result next]) {
-        return [result intForColumnIndex:0];
+        count =  [result intForColumnIndex:0];
     }
     
-    return 0;
+    [self.dataBase close];
+    return count;
 }
 
 - (QuestionBase *)nextQuestionWhenLastQuestionWsaCorrect

@@ -19,6 +19,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if (self.question.correctIndexs) {
+        self.okButton.hidden = NO;
+    } else {
+        self.okButton.hidden = YES;
+    }
     [self showCurrentQuestion];
 }
 

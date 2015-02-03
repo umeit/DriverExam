@@ -146,21 +146,6 @@ static ExamQuestionStore *examQuestionStore = nil;
     return score;
 }
 
-
-//- (NSInteger)lastScore
-//{
-//    NSInteger score = 0;
-//    if (![self.dataBase open]) {
-//        return score;
-//    }
-//    
-//    [self.dataBase executeUpdate:@"INSERT INTO tbl_exam VALUES (?, ?)", nil, @(score)];
-//    
-//    [self.dataBase close];
-//    
-//    return score;
-//}
-
 - (NSInteger)questionCuont
 {
     return [self.questionList count];
@@ -229,6 +214,15 @@ static ExamQuestionStore *examQuestionStore = nil;
     return nil;
 }
 
+- (NSInteger)currentFaultQuestionIndex
+{
+    return [USER_DEFAULTS integerForKey:EXAM_QUESTION_FAULT_INDEX_KEY];
+}
+
+- (NSInteger)faultquestionCuont
+{
+    return [self.questionFaultList count];
+}
 
 #pragma mark - Private
 

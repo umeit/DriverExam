@@ -20,19 +20,27 @@
 
 - (NSInteger)currentQuestionIndex;
 
-//- (NSInteger)lastScore;
-
-/** 完成考试，保存考试成绩 */
+/** 完成考试，保存考试成绩，生成错题回顾 */
 - (void)examFinish;
 
 - (void)examClear;
+
+
+/* 用于统计 */
 
 - (NSInteger)examCount;
 
 - (double)average;
 
+
+/* 用于错题回顾 */
+
 - (QuestionBase *)nextFaultQuestion;
 
 - (QuestionBase *)prevFaultQuestion;
+
+- (NSInteger)currentFaultQuestionIndex;
+
+- (NSInteger)faultquestionCuont;
 
 @end

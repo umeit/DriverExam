@@ -61,7 +61,7 @@
 
 - (IBAction)okButtonPress:(id)sender
 {
-    if (self.selectButtons.count != self.question.results.count) {
+    if (self.selectButtons.count != self.question.correctIndexs.count) {
         // 答错
         [self answerDidFault];  // 子类实现
         return;
@@ -151,9 +151,19 @@
 
 - (void)showCorrectAnswer
 {
-    NSInteger correctButtonTag = self.question.correctIndex;
-    UIButton *correctButton = (UIButton *)[self.view viewWithTag:correctButtonTag];
-    [correctButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    // 多选
+    if (self.question.correctIndexs) {
+        for (NSNumber *tag in self.question.results) {
+            UIButton *correctButton = (UIButton *)[self.view viewWithTag:[tag integerValue]];
+            [correctButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        }
+    }
+    // 单选、判断
+    else {
+        NSInteger correctButtonTag = self.question.correctIndex;
+        UIButton *correctButton = (UIButton *)[self.view viewWithTag:correctButtonTag];
+        [correctButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    }
 }
 
 - (void)procPrevQuestionButtonPress

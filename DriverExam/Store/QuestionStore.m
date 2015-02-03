@@ -149,7 +149,7 @@ static QuestionStore *answerCacheStore = nil;
     question.qustoinID = [result intForColumn:QUESTION_ID];
     question.order = [result stringForColumn:QUESTION_ORDER];
     question.content = [result stringForColumn:QUESTION_CONTENT];
-    question.correctIndex = [result intForColumn:ANSWER_CORRECT];
+    [self parseCorrectIndex:question withResult:result];
     question.answerList = [[NSMutableArray alloc] init];
     if ([result stringForColumn:ANSWER_A]) {
         [question.answerList addObject:[result stringForColumn:ANSWER_A]];
@@ -164,6 +164,21 @@ static QuestionStore *answerCacheStore = nil;
         [question.answerList addObject:[result stringForColumn:ANSWER_D]];
     }
     return question;
+}
+
+- (void)parseCorrectIndex:(QuestionBase *)question withResult:(FMResultSet *)result
+{
+    NSInteger index = [result intForColumn:ANSWER_CORRECT];
+    if (index / 10 == 0) {
+        question.correctIndex = index;
+    }
+    else {
+        NSMutableSet *set = [[NSMutableSet alloc] init];
+        NSString *str = [result stringForColumn:ANSWER_CORRECT];
+        for(int i=0; i<str.length; i++){
+            [set addObject:[NSNumber numberWithUnsignedChar:[str characterAtIndex:i]]];
+        }
+    }
 }
 
 - (NSString *)dbPath

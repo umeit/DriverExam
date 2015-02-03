@@ -221,6 +221,16 @@
                                 <color key="textColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPl-BX-Tvf">
+                                <rect key="frame" x="135" y="433" width="52" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="确定">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="okButtonPress:" destination="8Ll-lk-FEa" eventType="touchUpInside" id="pRo-KB-rcK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -239,6 +249,7 @@
                         <outlet property="answerButonD" destination="VJE-Ft-BEq" id="fIm-a2-ZdO"/>
                         <outlet property="examTimeLabel" destination="7nq-H5-fuD" id="wOz-b2-Moq"/>
                         <outlet property="nextButton" destination="DOQ-My-8v5" id="YMS-ge-JfN"/>
+                        <outlet property="okButton" destination="OPl-BX-Tvf" id="ouN-AC-btG"/>
                         <outlet property="prevButton" destination="xgn-WJ-PUC" id="box-Cp-wqw"/>
                         <outlet property="questionContentLabel" destination="wdd-yD-iWW" id="vnR-tI-KIQ"/>
                         <outlet property="questionImageView" destination="Wqk-ZW-6L3" id="zgc-kI-2xQ"/>
@@ -507,6 +518,16 @@
                                 <color key="textColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRh-32-67c">
+                                <rect key="frame" x="134" y="448" width="52" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="确定">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="okButtonPress:" destination="8Ll-lk-FEa" eventType="touchUpInside" id="Sdq-BK-eVB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -530,6 +551,7 @@
                         <outlet property="answerButonC" destination="w6d-NE-eNB" id="Gb2-EM-zCE"/>
                         <outlet property="answerButonD" destination="eW8-op-Th6" id="Y1C-DB-MRq"/>
                         <outlet property="nextButton" destination="ZxB-8V-KKR" id="6mj-gU-2ZO"/>
+                        <outlet property="okButton" destination="XRh-32-67c" id="lsg-hM-Rwe"/>
                         <outlet property="prevButton" destination="vd5-pS-ySJ" id="oCe-Q2-kbb"/>
                         <outlet property="questionContentLabel" destination="j0r-oo-tRg" id="RQz-BG-Xb7"/>
                         <outlet property="questionImageView" destination="zc0-ie-FQs" id="uu3-Ac-WH8"/>
@@ -726,6 +748,16 @@
                                 <color key="textColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LwH-WV-Ufe">
+                                <rect key="frame" x="134" y="455" width="52" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="确定">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="okButtonPress:" destination="8Ll-lk-FEa" eventType="touchUpInside" id="ecA-LH-2PY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -737,6 +769,7 @@
                         <outlet property="answerButonC" destination="I3S-mI-E7t" id="HVR-Qc-B7T"/>
                         <outlet property="answerButonD" destination="0ze-7o-SND" id="4RG-fY-PW5"/>
                         <outlet property="nextButton" destination="iCV-II-21x" id="hSZ-Gy-W6S"/>
+                        <outlet property="okButton" destination="LwH-WV-Ufe" id="R0S-0R-mWa"/>
                         <outlet property="prevButton" destination="dXW-eA-dyU" id="Xf8-zH-3cS"/>
                         <outlet property="questionContentLabel" destination="lG1-AS-u5O" id="jQ5-T4-fgb"/>
                         <outlet property="questionImageView" destination="yS6-6S-2W3" id="poQ-5E-B9u"/>

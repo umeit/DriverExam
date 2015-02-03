@@ -7,10 +7,5 @@
 //
 
 #import <UIKit/UIKit.h>
-
-#define KM1 1
-#define KM4 4
-
 @interface KMMainViewController : UIViewController
-@property (nonatomic) NSInteger kmType;
 @end

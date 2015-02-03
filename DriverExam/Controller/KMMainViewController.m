@@ -7,6 +7,7 @@
 //
 
 #import "KMMainViewController.h"
+#define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
 
 @interface KMMainViewController ()
 
@@ -17,10 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if (self.kmType == KM1) {
+    if ([[USER_DEFAULTS objectForKey:@"KM"] isEqualToString:@"1"]) {
         self.navigationItem.title = @"科目一";
     }
-    else if (self.kmType == KM4) {
+    else if ([[USER_DEFAULTS objectForKey:@"KM"] isEqualToString:@"4"]) {
         self.navigationItem.title = @"科目四";
     }
     

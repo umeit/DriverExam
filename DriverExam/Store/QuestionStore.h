@@ -10,6 +10,9 @@
 
 #define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
 
+#define KM1DB @"km1"
+#define KM4DB @"km4"
+
 @class QuestionBase;
 @class FMDatabase;
 @class ReinforceQuestionStore;
@@ -19,9 +22,9 @@
 
 @property (strong, nonatomic) FMDatabase *dataBase;
 
-- (NSString *)dbPathWithName:(NSString *)name;
+- (NSString *)dbPath;
 
-- (void)resetDB:(NSString *)dbName;
+//- (void)resetDB:(NSString *)dbName;
 
 + (QuestionStore *)exercisesStore;
 

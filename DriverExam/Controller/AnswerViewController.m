@@ -7,7 +7,7 @@
 //
 
 #import "AnswerViewController.h"
-
+#import "QuestionStore.h"
 #import "QuestionBase.h"
 
 @interface AnswerViewController ()

@@ -10,6 +10,9 @@
 #import "QuestionBase.h"
 #import "FMDatabase.h"
 
+#define IS_KM1 [[USER_DEFAULTS objectForKey:@"KM"] isEqualToString:@"1"]
+#define IS_KM4 [[USER_DEFAULTS objectForKey:@"KM"] isEqualToString:@"4"]
+
 #define CURRENT_QUESTION_INDEX @"CurrentQuestionIndex"
 #define ANSWER_CACHE @"AnswerCache"
 
@@ -22,10 +25,8 @@
 #define ANSWER_C @"answer_c"
 #define ANSWER_D @"answer_d"
 
-#define KM1DB @"km1"
-#define KM4DB @"km4"
-
-#define LAST_INDEX 1074
+#define LAST_INDEX_KM1 1074
+#define LAST_INDEX_KM4 899
 
 @interface QuestionStore ()
 
@@ -53,7 +54,7 @@ static QuestionStore *answerCacheStore = nil;
         answerCacheStore = [[self alloc] init];
         [USER_DEFAULTS registerDefaults:@{ANSWER_CACHE: @{}}];
     });
-    
+
     return answerCacheStore;
 }
 
@@ -61,14 +62,10 @@ static QuestionStore *answerCacheStore = nil;
 {
     self = [super init];
     if (self) {
+        _dataBase = [FMDatabase databaseWithPath:[self dbPath]];
         [USER_DEFAULTS registerDefaults:@{CURRENT_QUESTION_INDEX: @1}];
     }
     return self;
-}
-
-- (void)resetDB:(NSString *)dbName
-{
-    self.dataBase = [FMDatabase databaseWithPath:[self dbPathWithName:dbName]];
 }
 
 - (QuestionBase *)currentQuestion
@@ -83,10 +80,18 @@ static QuestionStore *answerCacheStore = nil;
 - (QuestionBase *)nextQuestion
 {
     NSInteger currentQuestionIndex = [USER_DEFAULTS integerForKey:CURRENT_QUESTION_INDEX];
-    // 已经是最后一题
-    if (currentQuestionIndex == LAST_INDEX) {
-        return nil;
+    if (IS_KM1) {
+        // 已经是最后一题
+        if (currentQuestionIndex == LAST_INDEX_KM1) {
+            return nil;
+        }
+    } else if (IS_KM4) {
+        // 已经是最后一题
+        if (currentQuestionIndex == LAST_INDEX_KM4) {
+            return nil;
+        }
     }
+    
     currentQuestionIndex++;
     
     QuestionBase *question = [self questionWithIDOnDB:currentQuestionIndex];
@@ -126,7 +131,13 @@ static QuestionStore *answerCacheStore = nil;
 
 - (NSInteger)questionCuont
 {
-    return LAST_INDEX;
+    if (IS_KM1) {
+        return LAST_INDEX_KM1;
+    }
+    else if (IS_KM4) {
+        return LAST_INDEX_KM4;
+    }
+    return 0;
 }
 
 
@@ -188,11 +199,17 @@ static QuestionStore *answerCacheStore = nil;
     }
 }
 
-- (NSString *)dbPathWithName:(NSString *)name
+- (NSString *)dbPath
 {
     static NSString *dbPath;
     if (!dbPath) {
-        dbPath = [[NSBundle mainBundle] pathForResource:name ofType:@"db"];
+        if (IS_KM1) {
+            dbPath = [[NSBundle mainBundle] pathForResource:KM1DB ofType:@"db"];
+        }
+        else if (IS_KM4) {
+            dbPath = [[NSBundle mainBundle] pathForResource:KM4DB ofType:@"db"];
+        }
+        
     }
     return dbPath;
 }

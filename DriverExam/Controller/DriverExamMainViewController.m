@@ -7,10 +7,7 @@
 //
 
 #import "DriverExamMainViewController.h"
-#import "KMMainViewController.h"
-//#import "QuestionStore.h"
-//#import "ReinforceQuestionStore.h"
-//#import "ExamQuestionStore.h"
+#define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
 
 @interface DriverExamMainViewController ()
 
@@ -35,27 +32,25 @@
 
 - (IBAction)toKM1:(id)sender
 {
+    [USER_DEFAULTS setObject:@"1" forKey:@"KM"];
     // 进入科目界面
-    KMMainViewController *vc = [self kmMainVC];
-    vc.kmType = KM1;
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController pushViewController:[self kmMainVC] animated:YES];
 }
 
 - (IBAction)toKM2:(id)sender
 {
+    [USER_DEFAULTS setObject:@"4" forKey:@"KM"];
     // 进入科目界面
-    KMMainViewController *vc = [self kmMainVC];
-    vc.kmType = KM4;
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController pushViewController:[self kmMainVC] animated:YES];
 }
 
 
 #pragma mark - Private
 
-- (KMMainViewController *)kmMainVC
+- (UIViewController *)kmMainVC
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    KMMainViewController *vc = (KMMainViewController *)[storyboard instantiateViewControllerWithIdentifier:@"KMMainViewController"];
+    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"KMMainViewController"];
     return vc;
 }
 

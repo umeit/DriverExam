@@ -21,7 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.backBarButtonItem.title = @"返回";
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    backItem.title = @"返回";
+    self.navigationItem.backBarButtonItem = backItem;
 }
 
 - (void)didReceiveMemoryWarning {

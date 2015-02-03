@@ -17,6 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (self.kmType == KM1) {
+        self.navigationItem.title = @"科目一";
+    }
+    else if (self.kmType == KM4) {
+        self.navigationItem.title = @"科目四";
+    }
+    
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
     backItem.title = @"返回";
     self.navigationItem.backBarButtonItem = backItem;

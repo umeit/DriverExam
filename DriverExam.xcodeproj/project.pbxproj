@@ -16,7 +16,6 @@
 		03C5CF4F1A67C883002136E3 /* QuestionBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C5CF4E1A67C883002136E3 /* QuestionBase.m */; };
 		03DC59AD1A68C13100B30852 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DC59A71A68C13100B30852 /* AnswerViewController.m */; };
 		03DC59AE1A68C13100B30852 /* ExercisesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DC59A91A68C13100B30852 /* ExercisesViewController.m */; };
-		03DC59AF1A68C13100B30852 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DC59AB1A68C13100B30852 /* ViewController.m */; };
 		03DC59B21A68C15A00B30852 /* QuestionStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DC59B11A68C15A00B30852 /* QuestionStore.m */; };
 		224877991A6FB60A004C5B31 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 224877981A6FB60A004C5B31 /* libsqlite3.0.dylib */; };
 		225884911A724B3200B70FAA /* ReinforceMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 225884901A724B3200B70FAA /* ReinforceMainViewController.m */; };
@@ -25,6 +24,7 @@
 		226A5A8D1A79E162007BDAC5 /* ExamFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226A5A8C1A79E162007BDAC5 /* ExamFinishViewController.m */; };
 		226A5A901A7A0FF4007BDAC5 /* ExamQuestionStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 226A5A8F1A7A0FF4007BDAC5 /* ExamQuestionStore.m */; };
 		226EFC211A80A26F0098330E /* KMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226EFC201A80A26F0098330E /* KMMainViewController.m */; };
+		226EFC241A80D2150098330E /* DriverExamMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226EFC231A80D2150098330E /* DriverExamMainViewController.m */; };
 		227E57201A7F655500472A74 /* UIViewController+GViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227E571C1A7F655500472A74 /* UIViewController+GViewController.m */; };
 		227E57211A7F655500472A74 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 227E571F1A7F655500472A74 /* MBProgressHUD.m */; };
 		228686E61A7F903B00AD056D /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228686E51A7F903B00AD056D /* ReviewViewController.m */; };
@@ -620,8 +620,6 @@
 		03DC59A71A68C13100B30852 /* AnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerViewController.m; sourceTree = "<group>"; };
 		03DC59A81A68C13100B30852 /* ExercisesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisesViewController.h; sourceTree = "<group>"; };
 		03DC59A91A68C13100B30852 /* ExercisesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisesViewController.m; sourceTree = "<group>"; };
-		03DC59AA1A68C13100B30852 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		03DC59AB1A68C13100B30852 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		03DC59B01A68C15A00B30852 /* QuestionStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionStore.h; sourceTree = "<group>"; };
 		03DC59B11A68C15A00B30852 /* QuestionStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionStore.m; sourceTree = "<group>"; };
 		224877981A6FB60A004C5B31 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -637,6 +635,8 @@
 		226A5A8F1A7A0FF4007BDAC5 /* ExamQuestionStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamQuestionStore.m; sourceTree = "<group>"; };
 		226EFC1F1A80A26F0098330E /* KMMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMMainViewController.h; sourceTree = "<group>"; };
 		226EFC201A80A26F0098330E /* KMMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMMainViewController.m; sourceTree = "<group>"; };
+		226EFC221A80D2150098330E /* DriverExamMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverExamMainViewController.h; sourceTree = "<group>"; };
+		226EFC231A80D2150098330E /* DriverExamMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriverExamMainViewController.m; sourceTree = "<group>"; };
 		227E571B1A7F655500472A74 /* UIViewController+GViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GViewController.h"; sourceTree = "<group>"; };
 		227E571C1A7F655500472A74 /* UIViewController+GViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GViewController.m"; sourceTree = "<group>"; };
 		227E571E1A7F655500472A74 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -1318,8 +1318,6 @@
 				03DC59A71A68C13100B30852 /* AnswerViewController.m */,
 				03DC59A81A68C13100B30852 /* ExercisesViewController.h */,
 				03DC59A91A68C13100B30852 /* ExercisesViewController.m */,
-				03DC59AA1A68C13100B30852 /* ViewController.h */,
-				03DC59AB1A68C13100B30852 /* ViewController.m */,
 				2258848F1A724B3200B70FAA /* ReinforceMainViewController.h */,
 				225884901A724B3200B70FAA /* ReinforceMainViewController.m */,
 				22A631CB1A7647EA0086F526 /* ReinforceViewController.h */,
@@ -1332,6 +1330,8 @@
 				228686E51A7F903B00AD056D /* ReviewViewController.m */,
 				226EFC1F1A80A26F0098330E /* KMMainViewController.h */,
 				226EFC201A80A26F0098330E /* KMMainViewController.m */,
+				226EFC221A80D2150098330E /* DriverExamMainViewController.h */,
+				226EFC231A80D2150098330E /* DriverExamMainViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2619,7 +2619,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				22995C341A78CB25002FD99F /* QuestionMainView.m in Sources */,
-				03DC59AF1A68C13100B30852 /* ViewController.m in Sources */,
 				226A5A901A7A0FF4007BDAC5 /* ExamQuestionStore.m in Sources */,
 				225884941A72669800B70FAA /* ReinforceQuestion.m in Sources */,
 				03DC59AD1A68C13100B30852 /* AnswerViewController.m in Sources */,
@@ -2632,6 +2631,7 @@
 				227E57201A7F655500472A74 /* UIViewController+GViewController.m in Sources */,
 				228686E61A7F903B00AD056D /* ReviewViewController.m in Sources */,
 				03C5CF4F1A67C883002136E3 /* QuestionBase.m in Sources */,
+				226EFC241A80D2150098330E /* DriverExamMainViewController.m in Sources */,
 				228D0AF41A6F4CB200FDD577 /* FMDatabaseAdditions.m in Sources */,
 				228D0AF71A6F4CB200FDD577 /* FMResultSet.m in Sources */,
 				03C5CF281A679840002136E3 /* AppDelegate.m in Sources */,

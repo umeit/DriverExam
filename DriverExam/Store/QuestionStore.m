@@ -22,6 +22,9 @@
 #define ANSWER_C @"answer_c"
 #define ANSWER_D @"answer_d"
 
+#define KM1DB @"km1"
+#define KM4DB @"km4"
+
 #define LAST_INDEX 1074
 
 @interface QuestionStore ()
@@ -58,10 +61,14 @@ static QuestionStore *answerCacheStore = nil;
 {
     self = [super init];
     if (self) {
-        _dataBase = [FMDatabase databaseWithPath:[self dbPath]];
         [USER_DEFAULTS registerDefaults:@{CURRENT_QUESTION_INDEX: @1}];
     }
     return self;
+}
+
+- (void)resetDB:(NSString *)dbName
+{
+    self.dataBase = [FMDatabase databaseWithPath:[self dbPathWithName:dbName]];
 }
 
 - (QuestionBase *)currentQuestion
@@ -181,11 +188,11 @@ static QuestionStore *answerCacheStore = nil;
     }
 }
 
-- (NSString *)dbPath
+- (NSString *)dbPathWithName:(NSString *)name
 {
     static NSString *dbPath;
     if (!dbPath) {
-        dbPath = [[NSBundle mainBundle] pathForResource:@"km1" ofType:@"db"];
+        dbPath = [[NSBundle mainBundle] pathForResource:name ofType:@"db"];
     }
     return dbPath;
 }

@@ -19,7 +19,9 @@
 
 @property (strong, nonatomic) FMDatabase *dataBase;
 
-- (NSString *)dbPath;
+- (NSString *)dbPathWithName:(NSString *)name;
+
+- (void)resetDB:(NSString *)dbName;
 
 + (QuestionStore *)exercisesStore;
 

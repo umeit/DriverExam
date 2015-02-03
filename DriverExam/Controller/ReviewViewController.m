@@ -18,6 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationItem.title = @"错题回顾";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,6 +44,22 @@
     self.questionNumberLabel.text = [NSString stringWithFormat:@"%d / %d",
                                      [[ExamQuestionStore examQuestionStore] currentFaultQuestionIndex],
                                      [[ExamQuestionStore examQuestionStore] faultquestionCuont]];
+    
+    // 设置上一题、下一题按钮的显示
+    if ([[ExamQuestionStore examQuestionStore] currentFaultQuestionIndex] == 1) {
+        self.prevButton.hidden = YES;
+    }
+    else {
+        self.prevButton.hidden = NO;
+    }
+    if ([[ExamQuestionStore examQuestionStore] currentFaultQuestionIndex] == [[ExamQuestionStore examQuestionStore] faultquestionCuont]) {
+        self.nextButton.hidden = YES;
+    }
+    else {
+        self.nextButton.hidden = NO;
+    }
+        
+    
     // 显示答案
     [self showCorrectAnswer];
     // 显示选错的答案(如果有)

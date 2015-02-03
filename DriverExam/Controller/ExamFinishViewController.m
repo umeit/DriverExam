@@ -20,6 +20,10 @@
     
     self.navigationItem.hidesBackButton = YES;
     
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    backItem.title = @"返回";
+    self.navigationItem.backBarButtonItem = backItem;
+    
     self.scoreLabel.text = [@([ExamQuestionStore examQuestionStore].lastScore) stringValue];
     self.examCountLabel.text = [@([[ExamQuestionStore examQuestionStore] examCount]) stringValue];
     self.averageLabel.text = [@([[ExamQuestionStore examQuestionStore] average]) stringValue];

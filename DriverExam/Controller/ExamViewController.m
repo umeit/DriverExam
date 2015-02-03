@@ -20,6 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationItem.hidesBackButton = YES;
+    
     self.examTimeLabel.text = @"45:00";
     
     self.secondsCountDown = 45 * 60; // 倒计时
@@ -50,7 +53,23 @@
 {
     [super updateQuestionDisplay];
     
-    self.questionNumberLabel.text = [NSString stringWithFormat:@"%d / %d", [[ExamQuestionStore examQuestionStore] currentQuestionIndex], [[ExamQuestionStore examQuestionStore] questionCuont]];
+    self.questionNumberLabel.text = [NSString stringWithFormat:@"%d / %d",
+                                     [[ExamQuestionStore examQuestionStore] currentQuestionIndex],
+                                     [[ExamQuestionStore examQuestionStore] questionCuont]];
+    
+    // 设置上一题、下一题按钮的显示
+    if ([[ExamQuestionStore examQuestionStore] currentQuestionIndex] == 1) {
+        self.prevButton.hidden = YES;
+    }
+    else {
+        self.prevButton.hidden = NO;
+    }
+    if ([[ExamQuestionStore examQuestionStore] currentQuestionIndex] == [[ExamQuestionStore examQuestionStore] questionCuont]) {
+        self.nextButton.hidden = YES;
+    }
+    else {
+        self.nextButton.hidden = NO;
+    }
     
     if (self.question.result) {
         UIButton *selectedButton = (UIButton *)[self.view viewWithTag:self.question.result];

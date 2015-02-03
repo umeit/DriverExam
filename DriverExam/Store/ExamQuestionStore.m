@@ -224,6 +224,11 @@ static ExamQuestionStore *examQuestionStore = nil;
     return [self.questionFaultList count];
 }
 
+- (void)resetReviewIndex
+{
+    [USER_DEFAULTS setInteger:0 forKey:EXAM_QUESTION_FAULT_INDEX_KEY];
+}
+
 #pragma mark - Private
 
 - (NSMutableDictionary *)answerCacheDic

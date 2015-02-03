@@ -100,11 +100,13 @@
 
 #pragma mark - Custom
 
-/** */
 - (void)examFinish
 {
     [[ExamQuestionStore examQuestionStore] examFinish];
     
+    self.navigationItem.backBarButtonItem.title = @"返回";
+    
+    // 进入考试结果界面
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     UIViewController *examFinishVC = [storyboard instantiateViewControllerWithIdentifier:@"ExamFinishViewController"];
     [self.navigationController pushViewController:examFinishVC animated:YES];

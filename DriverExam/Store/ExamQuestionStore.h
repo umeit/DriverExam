@@ -35,6 +35,8 @@
 
 /* 用于错题回顾 */
 
+- (void)resetReviewIndex;
+
 - (QuestionBase *)nextFaultQuestion;
 
 - (QuestionBase *)prevFaultQuestion;

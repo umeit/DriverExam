@@ -18,12 +18,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -31,6 +29,7 @@
 
 - (void)showCurrentQuestion
 {
+    [[ExamQuestionStore examQuestionStore] resetReviewIndex];
     self.question = [[ExamQuestionStore examQuestionStore] nextFaultQuestion];
     [self updateQuestionDisplay];
 }
@@ -46,9 +45,23 @@
     // 显示答案
     [self showCorrectAnswer];
     // 显示选错的答案(如果有)
-    NSInteger correctButtonTag = self.question.result;
-    self.selectedButton = (UIButton *)[self.view viewWithTag:correctButtonTag];
-    [self updateSelectedButtonFaultStatus];
+    NSInteger buttonTag = self.question.result;
+    if (buttonTag) {
+        self.selectedButton = (UIButton *)[self.view viewWithTag:buttonTag];
+        [self updateSelectedButtonFaultStatus];
+    }
+}
+
+- (void)procNextQuestionButtonPress
+{
+    self.question = [[ExamQuestionStore examQuestionStore] nextFaultQuestion];
+    [self updateQuestionDisplay];
+}
+
+- (void)procPrevQuestionButtonPress
+{
+    self.question = [[ExamQuestionStore examQuestionStore] prevFaultQuestion];
+    [self updateQuestionDisplay];
 }
 
 @end

@@ -31,15 +31,50 @@
 
 - (IBAction)selectAnswer:(UIButton *)sender
 {
-    self.selectedButton = sender;
-    self.question.result = self.selectedButton.tag;  // 记录选择的答案
-    // 答对
-    if ([self isCorrectAnswer]) {
-        [self answerDidCorrect];  // 子类实现
-    // 答错
-    } else {
-        [self answerDidFault];  // 子类实现
+    // 多选题
+    if (self.question.correctIndexs) {
+        // 选中
+        if ([self.selectButtons containsObject:sender]) {
+            [self.selectButtons removeObject:sender];
+            [sender setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        }
+        // 取消选择
+        else {
+            [self.selectButtons addObject:sender];
+            [sender setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        }
+        
     }
+    // 单选题/判断题
+    else {
+        self.selectedButton = sender;
+        self.question.result = self.selectedButton.tag;  // 记录选择的答案
+        // 答对
+        if ([self isCorrectAnswer]) {
+            [self answerDidCorrect];  // 子类实现
+            // 答错
+        } else {
+            [self answerDidFault];  // 子类实现
+        }
+    }
+}
+
+- (IBAction)okButtonPress:(id)sender
+{
+    if (self.selectButtons.count != self.question.results.count) {
+        // 答错
+        [self answerDidFault];  // 子类实现
+        return;
+    }
+    for (UIButton *button in self.selectButtons) {
+        if (![self.question.results containsObject:@(button.tag)]) {
+            // 答错
+            [self answerDidFault];  // 子类实现
+            return;
+        }
+    }
+    // 答对
+    [self answerDidCorrect];  // 子类实现
 }
 
 - (IBAction)nextQuestionButtonPress:(id)sender

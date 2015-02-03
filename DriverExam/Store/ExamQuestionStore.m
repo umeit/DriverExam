@@ -12,8 +12,9 @@
 #import "FMResultSet.h"
 #import "ReinforceQuestionStore.h"
 
-#define QUESTION_TYPE_TFNG 1   // 判断题
-#define QUESTION_TYPE_CQ   2   // 选择题
+#define QUESTION_TYPE_TFNG  1   // 判断题
+#define QUESTION_TYPE_CQ    2   // 选择题
+#define QUESTION_TYPE_MCQ   3   // 多择题
 
 #define EXAM_QUESTION_INDEX_KEY @"ExamQuestionIndexKey"
 #define EXAM_QUESTION_FAULT_INDEX_KEY @"ExamQuestionFaultIndexKey"

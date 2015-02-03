@@ -24,6 +24,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *answerButonC;
 @property (weak, nonatomic) IBOutlet UIButton *answerButonD;
 
+/** 用于多选题的确认按钮 */
+@property (weak, nonatomic) IBOutlet UIButton *okButton;
+
 @property (weak, nonatomic) IBOutlet UILabel *questionNumberLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *prevButton;
@@ -31,7 +34,10 @@
 
 @property (strong, nonatomic) QuestionBase *question;
 
+/** 用于单选 */
 @property (strong, nonatomic) UIButton *selectedButton;
+/** 用于多选 */
+@property (strong, nonatomic) NSMutableSet *selectButtons;
 
 /** 将当前选中的按钮改为‘错误’状态 */
 - (void)updateSelectedButtonFaultStatus;

@@ -62,7 +62,8 @@ static QuestionStore *answerCacheStore = nil;
 {
     self = [super init];
     if (self) {
-        _dataBase = [FMDatabase databaseWithPath:[self dbPath]];
+        _dataBase1 = [FMDatabase databaseWithPath:[self dbPath:KM1DB]];
+        _dataBase4 = [FMDatabase databaseWithPath:[self dbPath:KM4DB]];
         [USER_DEFAULTS registerDefaults:@{CURRENT_QUESTION_INDEX: @1}];
     }
     return self;
@@ -141,6 +142,16 @@ static QuestionStore *answerCacheStore = nil;
 }
 
 
+- (FMDatabase *)dataBase
+{
+    if (IS_KM1) {
+        return self.dataBase1;
+    }
+    else {
+        return self.dataBase4;
+    }
+}
+
 #pragma mark - Private
 
 /** 按 ID 获取题目 */
@@ -200,19 +211,9 @@ static QuestionStore *answerCacheStore = nil;
     }
 }
 
-- (NSString *)dbPath
+- (NSString *)dbPath:(NSString *)name
 {
-    static NSString *dbPath;
-    if (!dbPath) {
-        if (IS_KM1) {
-            dbPath = [[NSBundle mainBundle] pathForResource:KM1DB ofType:@"db"];
-        }
-        else if (IS_KM4) {
-            dbPath = [[NSBundle mainBundle] pathForResource:KM4DB ofType:@"db"];
-        }
-        
-    }
-    return dbPath;
+    return [[NSBundle mainBundle] pathForResource:name ofType:@"db"];
 }
 
 - (NSMutableDictionary *)answerCacheDic

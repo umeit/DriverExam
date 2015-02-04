@@ -20,11 +20,12 @@
 
 @interface QuestionStore : NSObject
 
-@property (strong, nonatomic) FMDatabase *dataBase;
+@property (strong, nonatomic) FMDatabase *dataBase1;
+@property (strong, nonatomic) FMDatabase *dataBase4;
 
-- (NSString *)dbPath;
+- (FMDatabase *)dataBase;
 
-//- (void)resetDB:(NSString *)dbName;
+- (NSString *)dbPath:(NSString *)name;
 
 + (QuestionStore *)exercisesStore;
 

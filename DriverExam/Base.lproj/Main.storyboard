@@ -240,7 +240,7 @@
                                     <action selector="prevQuestionButtonPress:" destination="0OW-tz-AFK" eventType="touchUpInside" id="Y8b-hW-8oP"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" tag="202" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wqk-ZW-6L3">
+                            <imageView userInteractionEnabled="NO" tag="202" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wqk-ZW-6L3" customClass="YLImageView">
                                 <rect key="frame" x="28" y="125" width="267" height="128"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="题目内容题目内容题目内容题目内容题目内容题目内容题目内容题目内容题目内容题目内容题目内容题目内容题目内容题目内容题目内容题目内容" lineBreakMode="headTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="wdd-yD-iWW">

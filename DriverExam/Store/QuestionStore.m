@@ -189,6 +189,7 @@ static QuestionStore *answerCacheStore = nil;
     if ([result stringForColumn:ANSWER_D]) {
         [question.answerList addObject:[result stringForColumn:ANSWER_D]];
     }
+    question.results = [[NSMutableSet alloc] init];
     return question;
 }
 

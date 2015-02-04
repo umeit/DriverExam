@@ -35,17 +35,23 @@
 {
     // 多选题
     if (self.question.correctIndexs) {
-        // 选中
+        // 取消选择
         if ([self.selectButtons containsObject:sender]) {
             [self.selectButtons removeObject:sender];
             [sender setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         }
-        // 取消选择
+        // 选中
         else {
             [self.selectButtons addObject:sender];
             [sender setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         }
         
+        if ([self.question.results containsObject:@(sender.tag)]) {
+            [self.question.results removeObject:@(sender.tag)];
+        }
+        else {
+            [self.question.results addObject:@(sender.tag)];
+        }
     }
     // 单选题/判断题
     else {
@@ -63,20 +69,10 @@
 
 - (IBAction)okButtonPress:(id)sender
 {
-    if (self.selectButtons.count != self.question.correctIndexs.count) {
-        // 答错
-        [self answerDidFault];  // 子类实现
-        return;
+    if ([self.question.results isEqualToSet:self.question.correctIndexs]) {
+        [self answerDidCorrect];  // 子类实现
     }
-    for (UIButton *button in self.selectButtons) {
-        if (![self.question.results containsObject:@(button.tag)]) {
-            // 答错
-            [self answerDidFault];  // 子类实现
-            return;
-        }
-    }
-    // 答对
-    [self answerDidCorrect];  // 子类实现
+    [self answerDidFault];  // 子类实现
 }
 
 - (IBAction)nextQuestionButtonPress:(id)sender
@@ -142,6 +138,8 @@
     } else {
         self.okButton.hidden = YES;
     }
+    
+    self.selectButtons = [[NSMutableSet alloc] init];
     
 //    if (self.question.qustoinID == 1) {
 //        self.prevButton.hidden = YES;

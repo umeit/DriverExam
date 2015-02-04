@@ -138,22 +138,29 @@ static ExamQuestionStore *examQuestionStore = nil;
     self.questionFaultList = [[NSMutableArray alloc] init];
     
     for (QuestionBase *question in self.questionList) {
-        if (question.result == question.correctIndex) {
-            score += 1;
+        // 多选题
+        if (question.correctIndexs) {
+            if ([question.results isEqualToSet:question.correctIndexs]) {
+                score += 1;
+                continue;
+            }
         }
         else {
-            // 将错题加入强化题库
-            [[ReinforceQuestionStore reinforceStore] addNeedReinforceQuestion:question];
-            
-            // 将错题加入错题回顾
-            [self.questionFaultList addObject:question];
+            if (question.result == question.correctIndex) {
+                score += 1;
+                continue;
+            }
         }
+        
+        // 将错题加入强化题库
+        [[ReinforceQuestionStore reinforceStore] addNeedReinforceQuestion:question];
+        // 将错题加入错题回顾
+        [self.questionFaultList addObject:question];
     }
     
     if (![self.dataBase open]) {
         return;
     }
-    
     [self.dataBase executeUpdate:@"INSERT INTO tbl_exam VALUES (?, ?)", nil, @(score)];
     
     [self.dataBase close];

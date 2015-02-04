@@ -28,12 +28,12 @@
 @property (nonatomic) NSInteger correctIndex;
 
 /** 多选题正确答案索引 */
-@property (strong, nonatomic) NSSet *correctIndexs;
+@property (strong, nonatomic) NSMutableSet *correctIndexs;
 
 /** 答题结果 */
 @property (nonatomic) NSInteger result;
 
 /** 多选题答题结果 */
-@property (strong, nonatomic) NSSet *results;
+@property (strong, nonatomic) NSMutableSet *results;
 
 @end

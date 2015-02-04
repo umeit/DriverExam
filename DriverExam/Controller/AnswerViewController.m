@@ -9,6 +9,7 @@
 #import "AnswerViewController.h"
 #import "QuestionStore.h"
 #import "QuestionBase.h"
+#import "YLGIFImage.h"
 
 @interface AnswerViewController ()
 
@@ -100,9 +101,16 @@
 
 - (void)updateQuestionDisplay
 {
-    NSString *imageName = [NSString stringWithFormat:@"%@.jpg", [self.question.order stringByTrimmingCharactersInSet:
-                           [NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+    NSString *imageName = [NSString stringWithFormat:@"%@.jpg",
+                           [self.question.order stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
     UIImage *image = [UIImage imageNamed:imageName];
+    
+    if (!image) {
+        imageName = [NSString stringWithFormat:@"%@.gif",
+                               [self.question.order stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+        image = [YLGIFImage imageNamed:imageName];
+    }
+    
     if (image) {
         self.questionImageView.hidden = NO;
         self.questionImageView.image = image;
@@ -110,6 +118,7 @@
         self.questionImageView.hidden = YES;
     }
 
+    self.questionContentLabel.adjustsFontSizeToFitWidth = YES;
     self.questionContentLabel.text = self.question.content;
     NSLog(@"%d", self.question.qustoinID);
     

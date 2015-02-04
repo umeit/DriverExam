@@ -20,11 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if (self.question.correctIndexs) {
-        self.okButton.hidden = NO;
-    } else {
-        self.okButton.hidden = YES;
-    }
+    
     [self showCurrentQuestion];
 }
 
@@ -118,7 +114,7 @@
         self.questionImageView.hidden = YES;
     }
 
-    self.questionContentLabel.adjustsFontSizeToFitWidth = YES;
+//    self.questionContentLabel.adjustsFontSizeToFitWidth = YES;
     self.questionContentLabel.text = self.question.content;
     NSLog(@"%d", self.question.qustoinID);
     
@@ -139,6 +135,12 @@
     } else {
         self.answerButonC.hidden = YES;
         self.answerButonD.hidden = YES;
+    }
+    
+    if (self.question.correctIndexs) {
+        self.okButton.hidden = NO;
+    } else {
+        self.okButton.hidden = YES;
     }
     
 //    if (self.question.qustoinID == 1) {
@@ -167,7 +169,7 @@
 {
     // 多选
     if (self.question.correctIndexs) {
-        for (NSNumber *tag in self.question.results) {
+        for (NSNumber *tag in self.question.correctIndexs) {
             UIButton *correctButton = (UIButton *)[self.view viewWithTag:[tag integerValue]];
             [correctButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         }

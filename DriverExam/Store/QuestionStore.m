@@ -194,8 +194,9 @@ static QuestionStore *answerCacheStore = nil;
         NSMutableSet *set = [[NSMutableSet alloc] init];
         NSString *str = [result stringForColumn:ANSWER_CORRECT];
         for(int i=0; i<str.length; i++){
-            [set addObject:[NSNumber numberWithUnsignedChar:[str characterAtIndex:i]]];
+            [set addObject:@([[str substringWithRange:NSMakeRange(i, 1)] integerValue])];
         }
+        question.correctIndexs = set;
     }
 }
 

@@ -109,14 +109,25 @@
     
     // 显示答案
     if (self.isShowAnswer) {
-        [self showCorrectAnswer];
         // 显示答案模式下不可答题
         self.answerButonA.userInteractionEnabled = NO;
         self.answerButonB.userInteractionEnabled = NO;
         self.answerButonC.userInteractionEnabled = NO;
         self.answerButonD.userInteractionEnabled = NO;
+        
+        self.okButton.userInteractionEnabled = NO;
+        
+        [self showCorrectAnswer];
+        
     }
     else {
+        self.answerButonA.userInteractionEnabled = YES;
+        self.answerButonB.userInteractionEnabled = YES;
+        self.answerButonC.userInteractionEnabled = YES;
+        self.answerButonD.userInteractionEnabled = YES;
+        
+        self.okButton.userInteractionEnabled = YES;
+        
         // 显示最近做过的结果
         QuestionBase *question = [[QuestionStore answerCacheStore] questionWithID:self.question.qustoinID];
         if (question) {
@@ -163,5 +174,8 @@
     [self updateSelectedButtonFaultStatus];
     [self showCorrectAnswer];
 }
+
+
+#pragma mark - Private
 
 @end

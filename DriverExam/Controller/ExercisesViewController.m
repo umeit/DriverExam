@@ -107,26 +107,17 @@
     
     self.questionNumberLabel.text = [NSString stringWithFormat:@"%d / %d", self.question.qustoinID, [[QuestionStore exercisesStore] questionCuont]];
     
-    // 显示答案
+    // 显示答案模式
     if (self.isShowAnswer) {
         // 显示答案模式下不可答题
-        self.answerButonA.userInteractionEnabled = NO;
-        self.answerButonB.userInteractionEnabled = NO;
-        self.answerButonC.userInteractionEnabled = NO;
-        self.answerButonD.userInteractionEnabled = NO;
-        
-        self.okButton.userInteractionEnabled = NO;
+        [self operationButtonEnabled:NO];
         
         [self showCorrectAnswer];
         
     }
     else {
-        self.answerButonA.userInteractionEnabled = YES;
-        self.answerButonB.userInteractionEnabled = YES;
-        self.answerButonC.userInteractionEnabled = YES;
-        self.answerButonD.userInteractionEnabled = YES;
-        
-        self.okButton.userInteractionEnabled = YES;
+        // 可答题
+        [self operationButtonEnabled:YES];
         
         // 显示最近做过的结果
         QuestionBase *question = [[QuestionStore answerCacheStore] questionWithID:self.question.qustoinID];
@@ -177,5 +168,15 @@
 
 
 #pragma mark - Private
+
+- (void)operationButtonEnabled:(BOOL)b
+{
+    self.answerButonA.userInteractionEnabled = b;
+    self.answerButonB.userInteractionEnabled = b;
+    self.answerButonC.userInteractionEnabled = b;
+    self.answerButonD.userInteractionEnabled = b;
+    
+    self.okButton.userInteractionEnabled = b;
+}
 
 @end

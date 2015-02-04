@@ -39,6 +39,8 @@
 
 - (NSString *)documentPathAppendingComponent:(NSString *)component;
 
+- (void)setBackButtonTitle:(NSString *)title;
+
 NSUInteger DeviceSystemMajorVersion();
 
 @end

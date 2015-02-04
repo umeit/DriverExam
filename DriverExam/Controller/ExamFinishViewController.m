@@ -8,6 +8,7 @@
 
 #import "ExamFinishViewController.h"
 #import "ExamQuestionStore.h"
+#import "UIViewController+GViewController.h"
 
 @interface ExamFinishViewController ()
 
@@ -20,9 +21,7 @@
     
     self.navigationItem.hidesBackButton = YES;
     
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
-    backItem.title = @"返回";
-    self.navigationItem.backBarButtonItem = backItem;
+    [self setBackButtonTitle:@"返回"];
     
     self.scoreLabel.text = [@([ExamQuestionStore examQuestionStore].lastScore) stringValue];
     self.examCountLabel.text = [@([[ExamQuestionStore examQuestionStore] examCount]) stringValue];

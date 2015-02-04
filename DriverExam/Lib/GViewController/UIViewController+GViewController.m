@@ -132,6 +132,13 @@ static char kAlertBlockIndex;
     return documentPath;
 }
 
+- (void)setBackButtonTitle:(NSString *)title
+{
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    backItem.title = title;
+    self.navigationItem.backBarButtonItem = backItem;
+}
+
 NSUInteger DeviceSystemMajorVersion()
 {
     static NSUInteger _deviceSystemMajorVersion = -1;

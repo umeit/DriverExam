@@ -7,6 +7,8 @@
 //
 
 #import "KMMainViewController.h"
+#import "UIViewController+GViewController.h"
+
 #define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
 
 @interface KMMainViewController ()
@@ -25,9 +27,7 @@
         self.navigationItem.title = @"科目四";
     }
     
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
-    backItem.title = @"返回";
-    self.navigationItem.backBarButtonItem = backItem;
+    [self setBackButtonTitle:@"返回"];
 }
 
 - (void)didReceiveMemoryWarning {

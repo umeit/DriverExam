@@ -18,9 +18,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationItem.title = @"强化练习";
+    
     // 隐藏上一题下一题按钮
     self.nextButton.hidden = YES;
     self.prevButton.hidden = YES;
+    
+    self.questionNumberLabel.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {

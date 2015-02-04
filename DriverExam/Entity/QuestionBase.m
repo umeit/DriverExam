@@ -19,6 +19,8 @@
         _answerList = [aDecoder decodeObjectForKey:@"answerList"];
         _correctIndex = [aDecoder decodeIntegerForKey:@"correctIndex"];
         _result = [aDecoder decodeIntegerForKey:@"result"];
+        _correctIndexs = [aDecoder decodeObjectForKey:@"correctIndexs"];
+        _results = [aDecoder decodeObjectForKey:@"results"];
     }
     return self;
 }
@@ -30,6 +32,8 @@
     [aCoder encodeObject:self.answerList forKey:@"answerList"];
     [aCoder encodeInteger:self.correctIndex forKey:@"correctIndex"];
     [aCoder encodeInteger:self.result forKey:@"result"];
+    [aCoder encodeObject:self.correctIndexs forKey:@"correctIndexs"];
+    [aCoder encodeObject:self.results forKey:@"results"];
 }
 
 @end

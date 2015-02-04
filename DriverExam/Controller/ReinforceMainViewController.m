@@ -8,6 +8,7 @@
 
 #import "ReinforceMainViewController.h"
 #import "ReinforceQuestionStore.h"
+#import "UIViewController+GViewController.h"
 
 @interface ReinforceMainViewController ()
 
@@ -17,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setBackButtonTitle:@"返回"];
 }
 
 - (void)viewWillAppear:(BOOL)animated

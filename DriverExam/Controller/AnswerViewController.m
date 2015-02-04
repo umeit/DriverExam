@@ -140,27 +140,21 @@
     }
     
     self.selectButtons = [[NSMutableSet alloc] init];
-    
-//    if (self.question.qustoinID == 1) {
-//        self.prevButton.hidden = YES;
-//    } else {
-//        self.prevButton.hidden = NO;
-//    }
-    
-//    if (self.questionImageView.hidden) {
-//        CGRect frame = self.questionContentTextView.frame;
-//        frame.origin.y = 72;
-//        self.questionContentTextView.bounds = frame;
-//    } else {
-//        CGRect frame = self.questionContentTextView.frame;
-//        frame.origin.y = 192;
-//        self.questionContentTextView.bounds = frame;
-//    }
 }
 
 - (void)updateSelectedButtonFaultStatus
 {
-    [self.selectedButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    if (self.question.correctIndexs) {
+        for (NSNumber *result in self.question.results) {
+            if (![self.question.correctIndexs containsObject:result]) {
+                UIButton *button = (UIButton *)[self.view viewWithTag:[result integerValue]];
+                [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            }
+        }
+    }
+    else {
+        [self.selectedButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    }
 }
 
 - (void)showCorrectAnswer

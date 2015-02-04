@@ -45,29 +45,80 @@ static ExamQuestionStore *examQuestionStore = nil;
 {
     self.questionList = [[NSMutableArray alloc] init];
     
-    // 第1章
-    // 判断题14题
-    [self.questionList addObjectsFromArray:[self questListWithSection:1 type:QUESTION_TYPE_TFNG count:14]];
-    // 选择题21题
-    [self.questionList addObjectsFromArray:[self questListWithSection:1 type:QUESTION_TYPE_CQ count:21]];
-    
-    // 第2章
-    // 判断题14题
-    [self.questionList addObjectsFromArray:[self questListWithSection:2 type:QUESTION_TYPE_TFNG count:14]];
-    // 选择题21题
-    [self.questionList addObjectsFromArray:[self questListWithSection:2 type:QUESTION_TYPE_CQ count:21]];
-    
-    // 第3章
-    // 判断题6题
-    [self.questionList addObjectsFromArray:[self questListWithSection:3 type:QUESTION_TYPE_TFNG count:6]];
-    // 选择题9题
-    [self.questionList addObjectsFromArray:[self questListWithSection:3 type:QUESTION_TYPE_CQ count:9]];
-
-    // 第4章
-    // 判断题6题
-    [self.questionList addObjectsFromArray:[self questListWithSection:4 type:QUESTION_TYPE_TFNG count:6]];
-    // 选择题9题
-    [self.questionList addObjectsFromArray:[self questListWithSection:4 type:QUESTION_TYPE_CQ count:9]];
+    if (IS_KM1) {
+        // 第1章
+        // 判断题14题
+        [self.questionList addObjectsFromArray:[self questListWithSection:1 type:QUESTION_TYPE_TFNG count:14]];
+        // 选择题21题
+        [self.questionList addObjectsFromArray:[self questListWithSection:1 type:QUESTION_TYPE_CQ count:21]];
+        
+        // 第2章
+        // 判断题14题
+        [self.questionList addObjectsFromArray:[self questListWithSection:2 type:QUESTION_TYPE_TFNG count:14]];
+        // 选择题21题
+        [self.questionList addObjectsFromArray:[self questListWithSection:2 type:QUESTION_TYPE_CQ count:21]];
+        
+        // 第3章
+        // 判断题6题
+        [self.questionList addObjectsFromArray:[self questListWithSection:3 type:QUESTION_TYPE_TFNG count:6]];
+        // 选择题9题
+        [self.questionList addObjectsFromArray:[self questListWithSection:3 type:QUESTION_TYPE_CQ count:9]];
+        
+        // 第4章
+        // 判断题6题
+        [self.questionList addObjectsFromArray:[self questListWithSection:4 type:QUESTION_TYPE_TFNG count:6]];
+        // 选择题9题
+        [self.questionList addObjectsFromArray:[self questListWithSection:4 type:QUESTION_TYPE_CQ count:9]];
+        
+    } else if (IS_KM4) {
+        // 第39章
+        // 选择题3题
+        [self.questionList addObjectsFromArray:[self questListWithSection:39 type:QUESTION_TYPE_CQ count:3]];
+        // 多选题2题
+        [self.questionList addObjectsFromArray:[self questListWithSection:39 type:QUESTION_TYPE_MCQ count:2]];
+        
+        // 第40章
+        // 判断题6题
+        [self.questionList addObjectsFromArray:[self questListWithSection:40 type:QUESTION_TYPE_TFNG count:6]];
+        // 选择题5题
+        [self.questionList addObjectsFromArray:[self questListWithSection:40 type:QUESTION_TYPE_CQ count:5]];
+        // 多选题1题
+        [self.questionList addObjectsFromArray:[self questListWithSection:40 type:QUESTION_TYPE_MCQ count:1]];
+        
+        // 第41章
+        // 判断题3题
+        [self.questionList addObjectsFromArray:[self questListWithSection:41 type:QUESTION_TYPE_TFNG count:3]];
+        // 选择题3题
+        [self.questionList addObjectsFromArray:[self questListWithSection:41 type:QUESTION_TYPE_CQ count:3]];
+        
+        // 第42章
+        // 判断题3题
+        [self.questionList addObjectsFromArray:[self questListWithSection:42 type:QUESTION_TYPE_TFNG count:3]];
+        // 选择题3题
+        [self.questionList addObjectsFromArray:[self questListWithSection:42 type:QUESTION_TYPE_CQ count:3]];
+        
+        // 第43章
+        // 判断题5题
+        [self.questionList addObjectsFromArray:[self questListWithSection:43 type:QUESTION_TYPE_TFNG count:5]];
+        // 选择题4题
+        [self.questionList addObjectsFromArray:[self questListWithSection:43 type:QUESTION_TYPE_CQ count:4]];
+        // 多选题1题
+        [self.questionList addObjectsFromArray:[self questListWithSection:43 type:QUESTION_TYPE_MCQ count:1]];
+        
+        // 第44章
+        // 判断题4题
+        [self.questionList addObjectsFromArray:[self questListWithSection:44 type:QUESTION_TYPE_TFNG count:4]];
+        // 选择题3题
+        [self.questionList addObjectsFromArray:[self questListWithSection:44 type:QUESTION_TYPE_CQ count:3]];
+        // 多选题2题
+        [self.questionList addObjectsFromArray:[self questListWithSection:44 type:QUESTION_TYPE_MCQ count:2]];
+        
+        // 第45章
+        // 判断题1题
+        [self.questionList addObjectsFromArray:[self questListWithSection:45 type:QUESTION_TYPE_TFNG count:1]];
+        // 选择题1题
+        [self.questionList addObjectsFromArray:[self questListWithSection:45 type:QUESTION_TYPE_CQ count:1]];
+    }
     
     [USER_DEFAULTS setInteger:0 forKey:EXAM_QUESTION_INDEX_KEY];
     
@@ -254,6 +305,11 @@ static ExamQuestionStore *examQuestionStore = nil;
     // 选择题
     } else if (type == QUESTION_TYPE_CQ) {
         NSString *sql = [NSString stringWithFormat:@"SELECT * FROM tbl_question WHERE c_index LIKE '%d.%%' AND answer_c is Not null ORDER BY RANDOM() LIMIT %d", section, count];
+        result = [self.dataBase executeQuery:sql];
+        
+    // 多选题
+    } else if (type == QUESTION_TYPE_MCQ) {
+        NSString *sql = [NSString stringWithFormat:@"SELECT * FROM tbl_question WHERE c_index LIKE '%d.%%' AND length(answer) > 1 ORDER BY RANDOM() LIMIT %d", section, count];
         result = [self.dataBase executeQuery:sql];
     }
     

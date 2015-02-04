@@ -10,9 +10,6 @@
 #import "QuestionBase.h"
 #import "FMDatabase.h"
 
-#define IS_KM1 [[USER_DEFAULTS objectForKey:@"KM"] isEqualToString:@"1"]
-#define IS_KM4 [[USER_DEFAULTS objectForKey:@"KM"] isEqualToString:@"4"]
-
 #define CURRENT_QUESTION_INDEX @"CurrentQuestionIndex"
 #define ANSWER_CACHE @"AnswerCache"
 

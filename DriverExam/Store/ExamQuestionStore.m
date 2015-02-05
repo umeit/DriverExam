@@ -257,7 +257,7 @@ static ExamQuestionStore *examQuestionStore = nil;
                                  withObject:question];
 }
 
-- (void)addcaCheQuestion:(QuestionBase *)question
+- (void)addCacheQuestion:(QuestionBase *)question
 {
     NSMutableDictionary *dic = [self answerCacheDic];
     [dic setObject:[NSKeyedArchiver archivedDataWithRootObject:question] forKey:[@(question.qustoinID) stringValue]];

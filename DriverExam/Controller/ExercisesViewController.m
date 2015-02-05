@@ -29,11 +29,14 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)dealloc
+{
+    [[QuestionStore answerCacheStore] clearCache];
+}
 
 #pragma mark - Action
-/**
- * 显示答案
- */
+
+/** 显示答案 */
 - (IBAction)showAnswerButtonPress:(id)sender
 {
     if (self.isShowAnswer) {
@@ -50,9 +53,7 @@
         
         [self updateQuestionDisplay];
     }
-    
 }
-
 
 
 #pragma mark - Override
@@ -105,7 +106,7 @@
         self.prevButton.hidden = NO;
     }
     
-    self.questionNumberLabel.text = [NSString stringWithFormat:@"%d / %d", self.question.qustoinID, [[QuestionStore exercisesStore] questionCuont]];
+    [self updatePageNumber];
     
     // 显示答案模式
     if (self.isShowAnswer) {
@@ -115,12 +116,10 @@
         [self showCorrectAnswer];
         
     }
+    // 非显示答案模式
     else {
-        // 可答题
-        [self operationButtonEnabled:YES];
-        
         // 显示最近做过的结果
-        QuestionBase *question = [[QuestionStore answerCacheStore] questionWithID:self.question.qustoinID];
+        QuestionBase *question = [[QuestionStore answerCacheStore] questionWithIDOnCache:self.question.qustoinID];
         if (question) {
             self.question = question;
             if (self.question.result == self.question.correctIndex) {
@@ -132,6 +131,9 @@
                 [self updateSelectedButtonFaultStatus];
                 [self showCorrectAnswer];
             }
+            
+            // 最近做过的题不可答题
+            [self operationButtonEnabled:NO];
         }
     }
 }
@@ -139,8 +141,11 @@
 /** 答对后的处理 */
 - (void)answerDidCorrect
 {
+    // 禁用按钮
+    [self operationButtonEnabled:NO];
+    
     // 记录本题的结果
-    [[QuestionStore answerCacheStore] addcaCheQuestion:self.question];
+    [[QuestionStore answerCacheStore] addCacheQuestion:self.question];
     
     // 显示正确选项
     [self showCorrectAnswer];
@@ -155,8 +160,11 @@
 /** 答错后的处理 */
 - (void)answerDidFault
 {
+    // 禁用按钮
+    [self operationButtonEnabled:NO];
+    
     // 记录本题的结果
-    [[QuestionStore answerCacheStore] addcaCheQuestion:self.question];
+    [[QuestionStore answerCacheStore] addCacheQuestion:self.question];
     
     // 将错题加入加强练习题库
     [[ReinforceQuestionStore reinforceStore] addNeedReinforceQuestion:self.question];
@@ -169,14 +177,9 @@
 
 #pragma mark - Private
 
-- (void)operationButtonEnabled:(BOOL)b
+- (void)updatePageNumber
 {
-    self.answerButonA.userInteractionEnabled = b;
-    self.answerButonB.userInteractionEnabled = b;
-    self.answerButonC.userInteractionEnabled = b;
-    self.answerButonD.userInteractionEnabled = b;
-    
-    self.okButton.userInteractionEnabled = b;
+    self.questionNumberLabel.text = [NSString stringWithFormat:@"%d / %d", self.question.qustoinID, [[QuestionStore exercisesStore] questionCuont]];
 }
 
 @end

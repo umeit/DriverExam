@@ -67,6 +67,7 @@
     }
 }
 
+/** 判断多选题结果 */
 - (IBAction)okButtonPress:(id)sender
 {
     if ([self.question.results isEqualToSet:self.question.correctIndexs]) {
@@ -85,6 +86,9 @@
     [self procPrevQuestionButtonPress];
 }
 
+
+#pragma mark - Custom
+
 /** 判断对错 */
 - (BOOL)isCorrectAnswer
 {
@@ -93,6 +97,10 @@
 
 - (void)updateQuestionDisplay
 {
+    NSLog(@"display question: %d", self.question.qustoinID);
+    
+    [self operationButtonEnabled:YES];
+    
     NSString *imageName = [NSString stringWithFormat:@"%@.jpg",
                            [self.question.order stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
     UIImage *image = [UIImage imageNamed:imageName];
@@ -110,9 +118,8 @@
         self.questionImageView.hidden = YES;
     }
 
-//    self.questionContentLabel.adjustsFontSizeToFitWidth = YES;
     self.questionContentLabel.text = self.question.content;
-    NSLog(@"%d", self.question.qustoinID);
+    
     
     [self.answerButonA setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [self.answerButonB setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
@@ -173,6 +180,18 @@
         [correctButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     }
 }
+
+- (void)operationButtonEnabled:(BOOL)b
+{
+    self.answerButonA.userInteractionEnabled = b;
+    self.answerButonB.userInteractionEnabled = b;
+    self.answerButonC.userInteractionEnabled = b;
+    self.answerButonD.userInteractionEnabled = b;
+    
+    self.okButton.userInteractionEnabled = b;
+}
+
+#pragma mark -
 
 - (void)procPrevQuestionButtonPress
 {

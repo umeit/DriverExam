@@ -44,17 +44,6 @@ static QuestionStore *answerCacheStore = nil;
     return exercisesStore;
 }
 
-+ (QuestionStore *)answerCacheStore
-{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        answerCacheStore = [[self alloc] init];
-        [USER_DEFAULTS registerDefaults:@{ANSWER_CACHE: @{}}];
-    });
-
-    return answerCacheStore;
-}
-
 - (id)init
 {
     self = [super init];
@@ -111,22 +100,6 @@ static QuestionStore *answerCacheStore = nil;
     return question;
 }
 
-- (void)addcaCheQuestion:(QuestionBase *)question
-{
-    NSMutableDictionary *dic = [self answerCacheDic];
-    [dic setObject:[NSKeyedArchiver archivedDataWithRootObject:question] forKey:[@(question.qustoinID) stringValue]];
-    [USER_DEFAULTS setObject:dic forKey:ANSWER_CACHE];
-}
-
-- (QuestionBase *)questionWithID:(NSInteger)questionID
-{
-    NSData *data = [[self answerCacheDic] objectForKey:[@(questionID) stringValue]];
-    if (data) {
-        return [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    }
-    return nil;
-}
-
 - (NSInteger)questionCuont
 {
     if (IS_KM1) {
@@ -148,6 +121,42 @@ static QuestionStore *answerCacheStore = nil;
         return self.dataBase4;
     }
 }
+
+
+#pragma mark - Cache
+
++ (QuestionStore *)answerCacheStore
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        answerCacheStore = [[self alloc] init];
+        [USER_DEFAULTS registerDefaults:@{ANSWER_CACHE: @{}}];
+    });
+    
+    return answerCacheStore;
+}
+
+- (void)addCacheQuestion:(QuestionBase *)question
+{
+    NSMutableDictionary *dic = [self answerCacheDic];
+    [dic setObject:[NSKeyedArchiver archivedDataWithRootObject:question] forKey:[@(question.qustoinID) stringValue]];
+    [USER_DEFAULTS setObject:dic forKey:ANSWER_CACHE];
+}
+
+- (QuestionBase *)questionWithIDOnCache:(NSInteger)questionID
+{
+    NSData *questionData = [[self answerCacheDic] objectForKey:[@(questionID) stringValue]];
+    if (questionData) {
+        return [NSKeyedUnarchiver unarchiveObjectWithData:questionData];
+    }
+    return nil;
+}
+
+- (void)clearCache
+{
+    [USER_DEFAULTS setObject:@{} forKey:ANSWER_CACHE];
+}
+
 
 #pragma mark - Private
 

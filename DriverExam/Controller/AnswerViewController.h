@@ -46,8 +46,10 @@
 /** 显示正确答案 */
 - (void)showCorrectAnswer;
 
+/** 启用/禁用 答题操作按钮 */
+- (void)operationButtonEnabled:(BOOL)b;
 
-/** 需要子类实现 */
+/** 需要子类实现的方法 */
 - (void)procNextQuestionButtonPress;
 
 - (void)procPrevQuestionButtonPress;

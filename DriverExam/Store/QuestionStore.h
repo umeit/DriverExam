@@ -32,21 +32,25 @@
 
 + (QuestionStore *)exercisesStore;
 
-+ (QuestionStore *)answerCacheStore;
-
 - (QuestionBase *)currentQuestion;
 
 - (QuestionBase *)nextQuestion;
 
 - (QuestionBase *)prevQustion;
 
-- (QuestionBase *)questionWithID:(NSInteger)questionID;
-
-- (void)addcaCheQuestion:(QuestionBase *)question;
-
 - (QuestionBase *)questionWithIDOnDB:(NSInteger)questionID;
 
 - (NSInteger)questionCuont;
 
 - (QuestionBase *)questionWithResult:(FMResultSet *)result;
+
+
+/** Cache */
++ (QuestionStore *)answerCacheStore;
+
+- (QuestionBase *)questionWithIDOnCache:(NSInteger)questionID;
+
+- (void)addCacheQuestion:(QuestionBase *)question;
+
+- (void)clearCache;
 @end

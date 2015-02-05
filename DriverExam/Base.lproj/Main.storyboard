@@ -72,7 +72,7 @@
             </objects>
             <point key="canvasLocation" x="325.5" y="307.5"/>
         </scene>
-        <!--Driver Exam Main View Controller-->
+        <!--嘀嘀学车-->
         <scene sceneID="jQe-WP-HE3">
             <objects>
                 <viewController id="OPF-wJ-ZdV" customClass="DriverExamMainViewController" sceneMemberID="viewController">
@@ -105,7 +105,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rFx-C1-8Q2"/>
+                    <navigationItem key="navigationItem" title="嘀嘀学车" id="rFx-C1-8Q2"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k2M-88-lGx" userLabel="First Responder" sceneMemberID="firstResponder"/>

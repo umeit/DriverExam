@@ -11,6 +11,7 @@
 #import "FMDatabase.h"
 
 #define CURRENT_QUESTION_INDEX @"CurrentQuestionIndex"
+#define CURRENT_QUESTION_INDEX_KM4 @"CurrentQuestionIndexKM4"
 #define ANSWER_CACHE @"AnswerCache"
 
 #define QUESTION_ID @"id"
@@ -51,13 +52,19 @@ static QuestionStore *answerCacheStore = nil;
         _dataBase1 = [FMDatabase databaseWithPath:[self dbPath:KM1DB]];
         _dataBase4 = [FMDatabase databaseWithPath:[self dbPath:KM4DB]];
         [USER_DEFAULTS registerDefaults:@{CURRENT_QUESTION_INDEX: @1}];
+        [USER_DEFAULTS registerDefaults:@{CURRENT_QUESTION_INDEX_KM4: @1}];
     }
     return self;
 }
 
 - (QuestionBase *)currentQuestion
 {
-    NSInteger currentQuestionIndex = [USER_DEFAULTS integerForKey:CURRENT_QUESTION_INDEX];
+    NSInteger currentQuestionIndex;
+    if (IS_KM1) {
+        currentQuestionIndex = [USER_DEFAULTS integerForKey:CURRENT_QUESTION_INDEX];
+    } else if (IS_KM4) {
+        currentQuestionIndex = [USER_DEFAULTS integerForKey:CURRENT_QUESTION_INDEX_KM4];
+    }
     
     QuestionBase *question = [self questionWithIDOnDB:currentQuestionIndex];
     
@@ -66,24 +73,28 @@ static QuestionStore *answerCacheStore = nil;
 
 - (QuestionBase *)nextQuestion
 {
-    NSInteger currentQuestionIndex = [USER_DEFAULTS integerForKey:CURRENT_QUESTION_INDEX];
+    NSInteger currentQuestionIndex = 0;
+    
     if (IS_KM1) {
-        // 已经是最后一题
+        currentQuestionIndex = [USER_DEFAULTS integerForKey:CURRENT_QUESTION_INDEX];
         if (currentQuestionIndex == LAST_INDEX_KM1) {
             return nil;
         }
     } else if (IS_KM4) {
-        // 已经是最后一题
+        currentQuestionIndex = [USER_DEFAULTS integerForKey:CURRENT_QUESTION_INDEX_KM4];
         if (currentQuestionIndex == LAST_INDEX_KM4) {
             return nil;
         }
     }
     
     currentQuestionIndex++;
-    
     QuestionBase *question = [self questionWithIDOnDB:currentQuestionIndex];
     
-    [USER_DEFAULTS setObject:@(currentQuestionIndex) forKey:CURRENT_QUESTION_INDEX];
+    if (IS_KM1) {
+        [USER_DEFAULTS setObject:@(currentQuestionIndex) forKey:CURRENT_QUESTION_INDEX];
+    } else if (IS_KM4) {
+        [USER_DEFAULTS setObject:@(currentQuestionIndex) forKey:CURRENT_QUESTION_INDEX_KM4];
+    }
     
     return question;
 }

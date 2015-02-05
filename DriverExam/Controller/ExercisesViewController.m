@@ -61,7 +61,7 @@
 - (void)procNextQuestionButtonPress
 {
     // 如当前题没做，记入强化练习
-    if (!self.question.result) {
+    if (!self.question.result && !self.isShowAnswer) {
         [[ReinforceQuestionStore reinforceStore] addNeedReinforceQuestion:self.question];
     }
     

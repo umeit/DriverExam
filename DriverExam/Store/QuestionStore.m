@@ -101,12 +101,22 @@ static QuestionStore *answerCacheStore = nil;
 
 - (QuestionBase *)prevQustion
 {
-    NSInteger currentQuestionIndex = [USER_DEFAULTS integerForKey:CURRENT_QUESTION_INDEX];
+    NSInteger currentQuestionIndex;
+    if (IS_KM1) {
+        currentQuestionIndex = [USER_DEFAULTS integerForKey:CURRENT_QUESTION_INDEX];
+    } else if (IS_KM4) {
+        currentQuestionIndex = [USER_DEFAULTS integerForKey:CURRENT_QUESTION_INDEX_KM4];
+    }
+
     currentQuestionIndex--;
     
     QuestionBase *question = [self questionWithIDOnDB:currentQuestionIndex];
     
-    [USER_DEFAULTS setObject:@(currentQuestionIndex) forKey:CURRENT_QUESTION_INDEX];
+    if (IS_KM1) {
+        [USER_DEFAULTS setObject:@(currentQuestionIndex) forKey:CURRENT_QUESTION_INDEX];
+    } else if (IS_KM4) {
+        [USER_DEFAULTS setObject:@(currentQuestionIndex) forKey:CURRENT_QUESTION_INDEX_KM4];
+    }
     
     return question;
 }

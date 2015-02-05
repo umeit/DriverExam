@@ -20,12 +20,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.navigationItem.hidesBackButton = YES;
     
-    self.examTimeLabel.text = @"45:00";
-    
-    self.secondsCountDown = 45 * 60; // 倒计时
+    if (IS_KM1) {
+        self.navigationItem.title = @"科目一考试";
+        self.examTimeLabel.text = @"45:00";
+        self.secondsCountDown = 45 * 60; // 倒计时
+        
+    } else if (IS_KM4) {
+        self.navigationItem.title = @"科目四考试";
+        self.examTimeLabel.text = @"30:00";
+        self.secondsCountDown = 30 * 60; // 倒计时
+    }
+
     self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1
                                                            target:self
                                                          selector:@selector(timeFireMethod)

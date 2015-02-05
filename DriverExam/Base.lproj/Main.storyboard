@@ -115,7 +115,7 @@
         <!--模拟考试-->
         <scene sceneID="6Az-1J-RoX">
             <objects>
-                <viewController id="Llg-X7-5pi" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ExamStartViewController" id="Llg-X7-5pi" customClass="ExamStartViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ESs-6h-VNF"/>
                         <viewControllerLayoutGuide type="bottom" id="TRA-cd-UZu"/>
@@ -169,6 +169,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="模拟考试" id="Jyr-Y7-IHx"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="ExamTimeLabel" destination="Ept-F2-jip" id="0eA-1W-fK3"/>
+                        <outlet property="limitLabel" destination="7Je-fE-csz" id="DTj-g7-VuS"/>
+                        <outlet property="passScoreLabel" destination="exf-2v-1r4" id="7DE-OV-Tkw"/>
+                        <outlet property="questionCountLabel" destination="2aR-TR-pYb" id="dcH-GY-Fz7"/>
+                        <outlet property="questionScoreLabel" destination="D7g-ba-fJ9" id="MJG-fF-PCD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tWf-Ah-bqR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -333,19 +340,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfB-Qu-0Mb">
-                                <rect key="frame" x="79" y="344" width="60" height="30"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfB-Qu-0Mb">
+                                <rect key="frame" x="34" y="398" width="60" height="30"/>
                                 <state key="normal" title="再考一次">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7p5-gN-45r">
-                                <rect key="frame" x="212" y="344" width="30" height="30"/>
-                                <state key="normal" title="结束">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                                 <connections>
-                                    <action selector="finishButtonPress:" destination="KjP-9n-ryV" eventType="touchUpInside" id="yfQ-Lf-Xpo"/>
+                                    <action selector="againButtonPress:" destination="KjP-9n-ryV" eventType="touchUpInside" id="nNV-Mh-H6H"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="平均得分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJk-Rb-Xft">
@@ -372,6 +373,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7p5-gN-45r">
+                                <rect key="frame" x="145" y="335" width="30" height="30"/>
+                                <state key="normal" title="结束">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="finishButtonPress:" destination="KjP-9n-ryV" eventType="touchUpInside" id="yfQ-Lf-Xpo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

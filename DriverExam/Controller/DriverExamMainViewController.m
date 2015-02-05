@@ -8,7 +8,6 @@
 
 #import "DriverExamMainViewController.h"
 #import "UIViewController+GViewController.h"
-#define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
 
 @interface DriverExamMainViewController ()
 

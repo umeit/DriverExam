@@ -134,6 +134,13 @@ static ExamQuestionStore *examQuestionStore = nil;
 - (void)examFinish
 {
     NSInteger score = 0;
+    NSInteger qValue = 0;
+    if (IS_KM1) {
+        qValue = 1;
+    }
+    else if (IS_KM4) {
+        qValue = 2;
+    }
     
     self.questionFaultList = [[NSMutableArray alloc] init];
     
@@ -141,13 +148,13 @@ static ExamQuestionStore *examQuestionStore = nil;
         // 多选题
         if (question.correctIndexs) {
             if ([question.results isEqualToSet:question.correctIndexs]) {
-                score += 1;
+                score += qValue;
                 continue;
             }
         }
         else {
             if (question.result == question.correctIndex) {
-                score += 1;
+                score += qValue;
                 continue;
             }
         }

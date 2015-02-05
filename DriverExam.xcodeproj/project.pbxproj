@@ -593,6 +593,7 @@
 		229A25A51A82126C00F935A9 /* km4.db in Resources */ = {isa = PBXBuildFile; fileRef = 229A23C71A82126A00F935A9 /* km4.db */; };
 		22A631CD1A7647EA0086F526 /* ReinforceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A631CC1A7647EA0086F526 /* ReinforceViewController.m */; };
 		22A631D01A764EE00086F526 /* ReinforceQuestionStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A631CF1A764EE00086F526 /* ReinforceQuestionStore.m */; };
+		22AFE86A1A83489400DB58C3 /* ExamStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AFE8691A83489400DB58C3 /* ExamStartViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1223,6 +1224,8 @@
 		22A631CC1A7647EA0086F526 /* ReinforceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReinforceViewController.m; sourceTree = "<group>"; };
 		22A631CE1A764EE00086F526 /* ReinforceQuestionStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReinforceQuestionStore.h; sourceTree = "<group>"; };
 		22A631CF1A764EE00086F526 /* ReinforceQuestionStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReinforceQuestionStore.m; sourceTree = "<group>"; };
+		22AFE8681A83489400DB58C3 /* ExamStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamStartViewController.h; sourceTree = "<group>"; };
+		22AFE8691A83489400DB58C3 /* ExamStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamStartViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1341,6 +1344,8 @@
 				226EFC201A80A26F0098330E /* KMMainViewController.m */,
 				226EFC221A80D2150098330E /* DriverExamMainViewController.h */,
 				226EFC231A80D2150098330E /* DriverExamMainViewController.m */,
+				22AFE8681A83489400DB58C3 /* ExamStartViewController.h */,
+				22AFE8691A83489400DB58C3 /* ExamStartViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2658,6 +2663,7 @@
 				03C5CF4F1A67C883002136E3 /* QuestionBase.m in Sources */,
 				226EFC241A80D2150098330E /* DriverExamMainViewController.m in Sources */,
 				228D0AF41A6F4CB200FDD577 /* FMDatabaseAdditions.m in Sources */,
+				22AFE86A1A83489400DB58C3 /* ExamStartViewController.m in Sources */,
 				228D0AF71A6F4CB200FDD577 /* FMResultSet.m in Sources */,
 				03C5CF281A679840002136E3 /* AppDelegate.m in Sources */,
 				227E57211A7F655500472A74 /* MBProgressHUD.m in Sources */,

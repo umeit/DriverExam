@@ -37,9 +37,11 @@
     [[ExamQuestionStore examQuestionStore] examClear];
     
     // 回到科目主页面
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"KMMainViewController"];
-    [self.navigationController popToViewController:vc animated:YES];
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+//    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"KMMainViewController"];
+//    [self.navigationController popToViewController:vc animated:YES];
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
 
 }
 

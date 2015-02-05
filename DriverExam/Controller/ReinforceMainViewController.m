@@ -19,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setBackButtonTitle:@"返回"];
+    self.navigationItem.title = @"难题强化";
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -35,9 +35,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Skp-Yh-tqw">
+                                <rect key="frame" x="47" y="127" width="237" height="82"/>
+                                <color key="backgroundColor" red="0.80000001192092896" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RXS-St-dfh">
+                                <rect key="frame" x="47" y="217" width="237" height="82"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oio-NA-hPr">
+                                <rect key="frame" x="47" y="307" width="237" height="82"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXB-mE-ALE">
-                                <rect key="frame" x="145" y="175" width="30" height="30"/>
-                                <state key="normal" title="练习">
+                                <rect key="frame" x="47" y="127" width="237" height="82"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="试题练习">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -45,8 +58,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pO2-pH-IbE">
-                                <rect key="frame" x="145" y="232" width="30" height="30"/>
-                                <state key="normal" title="强化">
+                                <rect key="frame" x="47" y="217" width="237" height="82"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="难题强化">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -54,8 +68,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GgF-yl-Gqs">
-                                <rect key="frame" x="145" y="287" width="30" height="30"/>
-                                <state key="normal" title="考试">
+                                <rect key="frame" x="41" y="307" width="237" height="82"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="模拟考试">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -70,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9mZ-xb-h9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325.5" y="307.5"/>
+            <point key="canvasLocation" x="325" y="307"/>
         </scene>
         <!--嘀嘀学车-->
         <scene sceneID="jQe-WP-HE3">
@@ -84,24 +99,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFh-1i-BZh">
-                                <rect key="frame" x="137" y="158" width="45" height="30"/>
-                                <state key="normal" title="科目一">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toKM1:" destination="OPF-wJ-ZdV" eventType="touchUpInside" id="nCG-sK-fGR"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4d-BL-8UG">
-                                <rect key="frame" x="137" y="224" width="45" height="30"/>
-                                <state key="normal" title="科目四">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toKM2:" destination="OPF-wJ-ZdV" eventType="touchUpInside" id="LvG-Cv-zgy"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j2x-ZS-uNw">
+                                <rect key="frame" x="51" y="154" width="237" height="82"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFh-1i-BZh">
+                                        <rect key="frame" x="0.0" y="0.0" width="237" height="82"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="科目一">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toKM1:" destination="OPF-wJ-ZdV" eventType="touchUpInside" id="nCG-sK-fGR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yl1-0Y-MLV">
+                                <rect key="frame" x="51" y="259" width="237" height="82"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4d-BL-8UG">
+                                        <rect key="frame" x="0.0" y="0.0" width="237" height="82"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="科目四">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toKM2:" destination="OPF-wJ-ZdV" eventType="touchUpInside" id="LvG-Cv-zgy"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -275,7 +304,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="okButtonPress:" destination="8Ll-lk-FEa" eventType="touchUpInside" id="pRo-KB-rcK"/>
+                                    <action selector="okButtonPress:" destination="0OW-tz-AFK" eventType="touchUpInside" id="Llj-JR-ylW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -613,10 +642,10 @@
             </objects>
             <point key="canvasLocation" x="782" y="10"/>
         </scene>
-        <!--强化练习-->
+        <!--难题强化-->
         <scene sceneID="lF0-C6-yyY">
             <objects>
-                <viewController id="dGA-pi-O3c" customClass="ReinforceMainViewController" sceneMemberID="viewController">
+                <viewController title="难题强化" id="dGA-pi-O3c" customClass="ReinforceMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2bt-Ys-gFu"/>
                         <viewControllerLayoutGuide type="bottom" id="tMS-Ex-cP5"/>
@@ -799,7 +828,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="okButtonPress:" destination="8Ll-lk-FEa" eventType="touchUpInside" id="ecA-LH-2PY"/>
+                                    <action selector="okButtonPress:" destination="hb1-Fb-ReS" eventType="touchUpInside" id="cz3-Ga-Tyr"/>
                                 </connections>
                             </button>
                         </subviews>

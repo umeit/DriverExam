@@ -38,12 +38,12 @@
         // 取消选择
         if ([self.selectButtons containsObject:sender]) {
             [self.selectButtons removeObject:sender];
-            [sender setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+            [sender setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         }
         // 选中
         else {
             [self.selectButtons addObject:sender];
-            [sender setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [sender setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         }
         
         if ([self.question.results containsObject:@(sender.tag)]) {
@@ -121,10 +121,10 @@
     self.questionContentLabel.text = self.question.content;
     
     
-    [self.answerButonA setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [self.answerButonB setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [self.answerButonC setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [self.answerButonD setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [self.answerButonA setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.answerButonB setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.answerButonC setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.answerButonD setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     
     [self.answerButonA setTitle:[self.question.answerList objectAtIndex:0] forState:UIControlStateNormal];
@@ -170,14 +170,14 @@
     if (self.question.correctIndexs) {
         for (NSNumber *tag in self.question.correctIndexs) {
             UIButton *correctButton = (UIButton *)[self.view viewWithTag:[tag integerValue]];
-            [correctButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+            [correctButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
         }
     }
     // 单选、判断
     else {
         NSInteger correctButtonTag = self.question.correctIndex;
         UIButton *correctButton = (UIButton *)[self.view viewWithTag:correctButtonTag];
-        [correctButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [correctButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     }
 }
 

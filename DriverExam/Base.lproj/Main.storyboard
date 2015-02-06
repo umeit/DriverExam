@@ -574,7 +574,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKq-9P-IbD">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKq-9P-IbD">
                                 <rect key="frame" x="28" y="518" width="45" height="30"/>
                                 <state key="normal" title="上一题">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -592,13 +592,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="页码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQg-sx-AJu">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="页码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQg-sx-AJu">
                                 <rect key="frame" x="131" y="525" width="60" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82v-TF-iws">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82v-TF-iws">
                                 <rect key="frame" x="250" y="518" width="45" height="30"/>
                                 <state key="normal" title="下一题">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -609,13 +609,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="GkO-bN-AmM" firstAttribute="top" secondItem="oQg-sx-AJu" secondAttribute="bottom" constant="22" id="Jnz-xT-ocn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="82v-TF-iws" secondAttribute="trailing" constant="9" id="MeV-Fd-BQz"/>
-                            <constraint firstItem="GkO-bN-AmM" firstAttribute="top" secondItem="82v-TF-iws" secondAttribute="bottom" constant="20" id="TSn-If-r6F"/>
-                            <constraint firstItem="jKq-9P-IbD" firstAttribute="leading" secondItem="ICR-m2-dzc" secondAttribute="leadingMargin" constant="12" id="WOn-zx-SBr"/>
-                            <constraint firstItem="GkO-bN-AmM" firstAttribute="top" secondItem="jKq-9P-IbD" secondAttribute="bottom" constant="20" id="ixb-C8-kcD"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="opi-1R-RJn"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

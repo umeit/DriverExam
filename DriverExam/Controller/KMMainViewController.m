@@ -34,4 +34,8 @@
     [super didReceiveMemoryWarning];
 }
 
+- (IBAction)buyButtonPress:(id)sender
+{
+    
+}
 @end

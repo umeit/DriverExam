@@ -499,6 +499,7 @@
 		225F1F8B1A84C354007E2640 /* 43.172.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 225F1DAF1A84C354007E2640 /* 43.172.jpg */; };
 		225F1F8C1A84C354007E2640 /* 43.173.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 225F1DB01A84C354007E2640 /* 43.173.jpg */; };
 		225F1F8D1A84C354007E2640 /* 43.174.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 225F1DB11A84C354007E2640 /* 43.174.jpg */; };
+		225F1F901A84DF1C007E2640 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 225F1F8F1A84DF1C007E2640 /* RegisterViewController.m */; };
 		226A5A8A1A79DE31007BDAC5 /* ExamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226A5A891A79DE31007BDAC5 /* ExamViewController.m */; };
 		226A5A8D1A79E162007BDAC5 /* ExamFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226A5A8C1A79E162007BDAC5 /* ExamFinishViewController.m */; };
 		226A5A901A7A0FF4007BDAC5 /* ExamQuestionStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 226A5A8F1A7A0FF4007BDAC5 /* ExamQuestionStore.m */; };
@@ -1592,6 +1593,8 @@
 		225F1DAF1A84C354007E2640 /* 43.172.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 43.172.jpg; sourceTree = "<group>"; };
 		225F1DB01A84C354007E2640 /* 43.173.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 43.173.jpg; sourceTree = "<group>"; };
 		225F1DB11A84C354007E2640 /* 43.174.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 43.174.jpg; sourceTree = "<group>"; };
+		225F1F8E1A84DF1C007E2640 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		225F1F8F1A84DF1C007E2640 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		226A5A881A79DE31007BDAC5 /* ExamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamViewController.h; sourceTree = "<group>"; };
 		226A5A891A79DE31007BDAC5 /* ExamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamViewController.m; sourceTree = "<group>"; };
 		226A5A8B1A79E162007BDAC5 /* ExamFinishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamFinishViewController.h; sourceTree = "<group>"; };
@@ -2310,6 +2313,8 @@
 				226EFC231A80D2150098330E /* DriverExamMainViewController.m */,
 				22AFE8681A83489400DB58C3 /* ExamStartViewController.h */,
 				22AFE8691A83489400DB58C3 /* ExamStartViewController.m */,
+				225F1F8E1A84DF1C007E2640 /* RegisterViewController.h */,
+				225F1F8F1A84DF1C007E2640 /* RegisterViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4617,6 +4622,7 @@
 				2282725C1A81C198006491B4 /* YLGIFImage.m in Sources */,
 				228D0AF61A6F4CB200FDD577 /* FMDatabaseQueue.m in Sources */,
 				03C5CF251A679840002136E3 /* main.m in Sources */,
+				225F1F901A84DF1C007E2640 /* RegisterViewController.m in Sources */,
 				226A5A8D1A79E162007BDAC5 /* ExamFinishViewController.m in Sources */,
 				228D0AF31A6F4CB200FDD577 /* FMDatabase.m in Sources */,
 				226A5A8A1A79DE31007BDAC5 /* ExamViewController.m in Sources */,

@@ -98,12 +98,11 @@
 
 - (void)completeTransaction:(SKPaymentTransaction *)transaction {
     NSString * productIdentifier = transaction.payment.productIdentifier;
-    NSString * receipt = [GTMBase64 stringByEncodingData:transaction.transactionReceipt];
+    NSURL *receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
     if ([productIdentifier length] > 0) {
         // 向自己的服务器验证购买凭证
     }
     
-    // Remove the transaction from the payment queue.
     [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
     
 }

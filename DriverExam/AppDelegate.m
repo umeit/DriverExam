@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "QuestionStore.h"
+#import "FileTools.h"
 
 @interface AppDelegate ()
 
@@ -15,9 +16,17 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    if (![FileTools fileIsExitsOnDocuments:@"km1.db"]) {
+        NSString *resourcePathKM1 = [[NSBundle mainBundle] pathForResource:@"km1" ofType:@"db"];
+        [FileTools copyFileToDocuments:resourcePathKM1 withName:@"km1.db"];
+    }
+    if (![FileTools fileIsExitsOnDocuments:@"km4.db"]) {
+        NSString *resourcePathKM4 = [[NSBundle mainBundle] pathForResource:@"km4" ofType:@"db"];
+        [FileTools copyFileToDocuments:resourcePathKM4 withName:@"km4.db"];
+    }
+
     return YES;
 }
 

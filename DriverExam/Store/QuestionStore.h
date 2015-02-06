@@ -10,8 +10,8 @@
 
 #define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
 
-#define KM1DB @"km1"
-#define KM4DB @"km4"
+#define KM1DB @"km1.db"
+#define KM4DB @"km4.db"
 
 #define IS_KM1 [[USER_DEFAULTS objectForKey:@"KM"] isEqualToString:@"1"]
 #define IS_KM4 [[USER_DEFAULTS objectForKey:@"KM"] isEqualToString:@"4"]

@@ -9,6 +9,7 @@
 #import "QuestionStore.h"
 #import "QuestionBase.h"
 #import "FMDatabase.h"
+#import "FileTools.h"
 
 #define CURRENT_QUESTION_INDEX @"CurrentQuestionIndex"
 #define CURRENT_QUESTION_INDEX_KM4 @"CurrentQuestionIndexKM4"
@@ -241,7 +242,7 @@ static QuestionStore *answerCacheStore = nil;
 
 - (NSString *)dbPath:(NSString *)name
 {
-    return [[NSBundle mainBundle] pathForResource:name ofType:@"db"];
+    return [[FileTools dirDoc] stringByAppendingPathComponent:name];
 }
 
 - (NSMutableDictionary *)answerCacheDic

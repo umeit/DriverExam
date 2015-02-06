@@ -22,6 +22,7 @@
 		225829BB1A84A452007A4751 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 225829B91A84A452007A4751 /* GTMBase64.m */; };
 		225884911A724B3200B70FAA /* ReinforceMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 225884901A724B3200B70FAA /* ReinforceMainViewController.m */; };
 		225884941A72669800B70FAA /* ReinforceQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 225884931A72669800B70FAA /* ReinforceQuestion.m */; };
+		225F1BD41A84BD0B007E2640 /* FileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 225F1BD31A84BD0B007E2640 /* FileTools.m */; };
 		226A5A8A1A79DE31007BDAC5 /* ExamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226A5A891A79DE31007BDAC5 /* ExamViewController.m */; };
 		226A5A8D1A79E162007BDAC5 /* ExamFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226A5A8C1A79E162007BDAC5 /* ExamFinishViewController.m */; };
 		226A5A901A7A0FF4007BDAC5 /* ExamQuestionStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 226A5A8F1A7A0FF4007BDAC5 /* ExamQuestionStore.m */; };
@@ -637,6 +638,8 @@
 		225884901A724B3200B70FAA /* ReinforceMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReinforceMainViewController.m; sourceTree = "<group>"; };
 		225884921A72669800B70FAA /* ReinforceQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReinforceQuestion.h; sourceTree = "<group>"; };
 		225884931A72669800B70FAA /* ReinforceQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReinforceQuestion.m; sourceTree = "<group>"; };
+		225F1BD21A84BD0B007E2640 /* FileTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTools.h; sourceTree = "<group>"; };
+		225F1BD31A84BD0B007E2640 /* FileTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTools.m; sourceTree = "<group>"; };
 		226A5A881A79DE31007BDAC5 /* ExamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamViewController.h; sourceTree = "<group>"; };
 		226A5A891A79DE31007BDAC5 /* ExamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamViewController.m; sourceTree = "<group>"; };
 		226A5A8B1A79E162007BDAC5 /* ExamFinishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamFinishViewController.h; sourceTree = "<group>"; };
@@ -1277,6 +1280,7 @@
 		03C5CF211A679840002136E3 /* DriverExam */ = {
 			isa = PBXGroup;
 			children = (
+				225F1BD11A84BCF8007E2640 /* Tools */,
 				228D0AF81A6F4E9200FDD577 /* Resource */,
 				228D0AE61A6F4CB200FDD577 /* Lib */,
 				03DC59A51A68C13000B30852 /* Controller */,
@@ -1379,6 +1383,15 @@
 				225829BA1A84A452007A4751 /* GTMDefines.h */,
 			);
 			path = GTMBase64;
+			sourceTree = "<group>";
+		};
+		225F1BD11A84BCF8007E2640 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				225F1BD21A84BD0B007E2640 /* FileTools.h */,
+				225F1BD31A84BD0B007E2640 /* FileTools.m */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		227E571A1A7F655500472A74 /* GViewController */ = {
@@ -2675,6 +2688,7 @@
 				2282725D1A81C198006491B4 /* YLImageView.m in Sources */,
 				03DC59AE1A68C13100B30852 /* ExercisesViewController.m in Sources */,
 				03DC59B21A68C15A00B30852 /* QuestionStore.m in Sources */,
+				225F1BD41A84BD0B007E2640 /* FileTools.m in Sources */,
 				22A631D01A764EE00086F526 /* ReinforceQuestionStore.m in Sources */,
 				225884911A724B3200B70FAA /* ReinforceMainViewController.m in Sources */,
 				22A631CD1A7647EA0086F526 /* ReinforceViewController.m in Sources */,

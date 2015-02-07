@@ -21,7 +21,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tJh-Te-Bks" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-216" y="195"/>
+            <point key="canvasLocation" x="-152" y="307"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="4hn-17-grz">
@@ -193,6 +193,9 @@
                                 <state key="normal" title="确定">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="submitButtonPress:" destination="Ph7-ZW-HCm" eventType="touchUpInside" id="jR0-pq-J8U"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -201,7 +204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r8h-ad-boP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-594" y="884"/>
+            <point key="canvasLocation" x="-562" y="996"/>
         </scene>
         <!--嘀嘀学车-->
         <scene sceneID="jQe-WP-HE3">
@@ -251,7 +254,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k2M-88-lGx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-216" y="884"/>
+            <point key="canvasLocation" x="-152" y="996"/>
         </scene>
         <!--模拟考试-->
         <scene sceneID="6Az-1J-RoX">
@@ -320,7 +323,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tWf-Ah-bqR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325" y="996"/>
+            <point key="canvasLocation" x="325" y="1258"/>
         </scene>
         <!--科目一考试-->
         <scene sceneID="uoH-un-2kD">
@@ -536,7 +539,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eES-TR-ZWu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1177" y="1258"/>
+            <point key="canvasLocation" x="1187" y="1258"/>
         </scene>
         <!--Review View Controller-->
         <scene sceneID="AJD-F1-EuH">
@@ -626,7 +629,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F6o-i6-GhM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1573" y="1258"/>
+            <point key="canvasLocation" x="1599" y="1258"/>
         </scene>
         <!--练习-->
         <scene sceneID="Nko-pQ-1eV">
@@ -752,7 +755,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xnF-wB-LAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="782" y="10"/>
+            <point key="canvasLocation" x="782" y="-5"/>
         </scene>
         <!--难题强化-->
         <scene sceneID="lF0-C6-yyY">
@@ -850,7 +853,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mDz-xa-VeT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="782" y="634"/>
+            <point key="canvasLocation" x="782" y="619"/>
         </scene>
         <!--Reinforce View Controller-->
         <scene sceneID="bs0-s5-EAJ">
@@ -963,7 +966,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uxU-eZ-Wlk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1177" y="634"/>
+            <point key="canvasLocation" x="1187" y="619"/>
         </scene>
     </scenes>
 </document>

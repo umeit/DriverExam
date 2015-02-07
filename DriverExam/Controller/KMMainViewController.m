@@ -47,12 +47,12 @@
 
 - (IBAction)buyButtonPress:(id)sender
 {
-//    if ([SKPaymentQueue canMakePayments]) {
-//        // 执行下面提到的第5步：
-//        [self getProductInfo];
-//    } else {
-//        NSLog(@"失败，用户禁止应用内付费购买.");
-//    }
+    if ([SKPaymentQueue canMakePayments]) {
+        // 执行下面提到的第5步：
+        [self getProductInfo];
+    } else {
+        NSLog(@"失败，用户禁止应用内付费购买.");
+    }
 }
 
 
@@ -93,7 +93,6 @@
                 break;
         }
     }
-    
 }
 
 - (void)completeTransaction:(SKPaymentTransaction *)transaction {

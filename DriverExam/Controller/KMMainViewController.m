@@ -97,7 +97,12 @@
 
 - (void)completeTransaction:(SKPaymentTransaction *)transaction {
     NSString * productIdentifier = transaction.payment.productIdentifier;
-    NSURL *receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
+//    NSURL *receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[[NSBundle mainBundle] appStoreReceiptURL]];
+    NSError *error = nil;
+    NSData *receiptData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:nil error:&error];
+    NSString *receipt = [GTMBase64 stringByEncodingData:receiptData];
+    NSString *receipt1 = [GTMBase64 stringByEncodingData:transaction.transactionReceipt];
     if ([productIdentifier length] > 0) {
         // 向自己的服务器验证购买凭证
     }

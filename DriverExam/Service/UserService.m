@@ -25,7 +25,7 @@
 - (void)saveUser:(UserEntity *)user
 {
     [USER_DEFAULTS setObject:[NSKeyedArchiver archivedDataWithRootObject:user]
-                      forKey:@"CurrentUser"];
+                      forKey:CURRENT_USER];
 }
 
 @end

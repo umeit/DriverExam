@@ -60,9 +60,9 @@
 {
     [super updateQuestionDisplay];
     
-    self.questionNumberLabel.text = [NSString stringWithFormat:@"%d / %d",
-                                     [[ExamQuestionStore examQuestionStore] currentQuestionIndex],
-                                     [[ExamQuestionStore examQuestionStore] questionCuont]];
+    self.questionNumberLabel.text = [NSString stringWithFormat:@"%ld / %ld",
+                                     (long)[[ExamQuestionStore examQuestionStore] currentQuestionIndex],
+                                     (long)[[ExamQuestionStore examQuestionStore] questionCuont]];
     
     // 设置上一题、下一题按钮的显示
     if ([[ExamQuestionStore examQuestionStore] currentQuestionIndex] == 1) {

@@ -122,7 +122,7 @@
         // 向自己的服务器验证购买凭证
         [self.payService checkReceipt:receipt block:^(BOOL success){
             if (success) {
-                [self.payService markPaymentInfo:receipt userInfo:[USER_DEFAULTS objectForKey:@"CurrentUser"]];
+                [self.payService markPaymentInfo:receipt userInfo:[USER_DEFAULTS objectForKey:CURRENT_USER]];
             } else {
                 [self showCustomTextAlert:@"购买失败"];
             }

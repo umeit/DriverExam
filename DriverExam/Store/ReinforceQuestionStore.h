@@ -24,4 +24,6 @@
 
 - (QuestionBase *)nextQuestionWhenLastQuestionWsaCorrect;
 
+- (QuestionBase *)currentReinforcedQuestion;
+
 @end

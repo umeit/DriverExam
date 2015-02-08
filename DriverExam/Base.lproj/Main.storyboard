@@ -61,7 +61,7 @@
                                 <rect key="frame" x="41" y="308" width="238" height="82"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="模拟1考试">
+                                <state key="normal" title="模拟考试">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -544,7 +544,7 @@
         <!--Review View Controller-->
         <scene sceneID="AJD-F1-EuH">
             <objects>
-                <viewController id="3MX-qK-LKi" customClass="ReviewViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReviewViewController" id="3MX-qK-LKi" customClass="ReviewViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pUf-4W-6VK"/>
                         <viewControllerLayoutGuide type="bottom" id="GkO-bN-AmM"/>
@@ -775,8 +775,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="略过" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qk7-LQ-4So">
-                                <rect key="frame" x="105" y="184" width="41" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="未答" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qk7-LQ-4So">
+                                <rect key="frame" x="105" y="184" width="41" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -819,6 +819,9 @@
                                 <state key="normal" title="查看">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="watchReinforcedButtonPress:" destination="dGA-pi-O3c" eventType="touchUpInside" id="hG3-oE-hlQ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="已强化" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OpU-VZ-gEk">
                                 <rect key="frame" x="105" y="387" width="57" height="23"/>

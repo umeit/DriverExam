@@ -8,6 +8,7 @@
 
 #import "ReinforceMainViewController.h"
 #import "ReinforceQuestionStore.h"
+#import "ReinforcedViewController.h"
 #import "UIViewController+GViewController.h"
 
 @interface ReinforceMainViewController ()
@@ -36,14 +37,15 @@
     [super didReceiveMemoryWarning];
 }
 
-
+/** 开始强化 */
 - (IBAction)startReinforceButtonPress:(id)sender
 {
     if (IsPayModel) {
-        if (![USER_DEFAULTS boolForKey:@"IsPay"]) {
-            [self showCustomTextAlert:@"请购买完整版"];
-        } else {
+        if (IS_Payed) {
             [self toReinforceVC];
+        }
+        else {
+            [self showCustomTextAlert:@"请购买完整版"];
         }
     }
     else {
@@ -52,11 +54,37 @@
     
 }
 
+- (IBAction)watchReinforcedButtonPress:(id)sender
+{
+    if (IsPayModel) {
+        if (IS_Payed) {
+            [self toReinforcedVC];
+        }
+        else {
+            [self showCustomTextAlert:@"请购买完整版"];
+        }
+    }
+    else {
+        [self toReinforcedVC];
+    }
+}
+
+
 - (void)toReinforceVC
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     UIViewController *reinforceVC = [storyboard instantiateViewControllerWithIdentifier:@"ReinforceViewController"];
     [self.navigationController pushViewController:reinforceVC animated:YES];
+}
+
+- (void)toReinforcedVC
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+//    UIViewController *reinforceVC = [storyboard instantiateViewControllerWithIdentifier:@"ReinforceViewController"];
+//    [self.navigationController pushViewController:reinforceVC animated:YES];
+    // 转换思路搞，不用继承 ReviewViewController 了，直接用它
+    ReinforcedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ReviewViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

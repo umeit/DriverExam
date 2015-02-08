@@ -516,6 +516,7 @@
 		226A5A8A1A79DE31007BDAC5 /* ExamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226A5A891A79DE31007BDAC5 /* ExamViewController.m */; };
 		226A5A8D1A79E162007BDAC5 /* ExamFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226A5A8C1A79E162007BDAC5 /* ExamFinishViewController.m */; };
 		226A5A901A7A0FF4007BDAC5 /* ExamQuestionStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 226A5A8F1A7A0FF4007BDAC5 /* ExamQuestionStore.m */; };
+		226D57F61A87003700F4940F /* DEPayService.m in Sources */ = {isa = PBXBuildFile; fileRef = 226D57F51A87003700F4940F /* DEPayService.m */; };
 		226EFC211A80A26F0098330E /* KMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226EFC201A80A26F0098330E /* KMMainViewController.m */; };
 		226EFC241A80D2150098330E /* DriverExamMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226EFC231A80D2150098330E /* DriverExamMainViewController.m */; };
 		227E57201A7F655500472A74 /* UIViewController+GViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227E571C1A7F655500472A74 /* UIViewController+GViewController.m */; };
@@ -1641,6 +1642,8 @@
 		226A5A8C1A79E162007BDAC5 /* ExamFinishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamFinishViewController.m; sourceTree = "<group>"; };
 		226A5A8E1A7A0FF4007BDAC5 /* ExamQuestionStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamQuestionStore.h; sourceTree = "<group>"; };
 		226A5A8F1A7A0FF4007BDAC5 /* ExamQuestionStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamQuestionStore.m; sourceTree = "<group>"; };
+		226D57F41A87003700F4940F /* DEPayService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEPayService.h; sourceTree = "<group>"; };
+		226D57F51A87003700F4940F /* DEPayService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEPayService.m; sourceTree = "<group>"; };
 		226EFC1F1A80A26F0098330E /* KMMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMMainViewController.h; sourceTree = "<group>"; };
 		226EFC201A80A26F0098330E /* KMMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMMainViewController.m; sourceTree = "<group>"; };
 		226EFC221A80D2150098330E /* DriverExamMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverExamMainViewController.h; sourceTree = "<group>"; };
@@ -2380,6 +2383,8 @@
 			children = (
 				222398A21A85BE1E00CD1DF1 /* UserService.h */,
 				222398A31A85BE1E00CD1DF1 /* UserService.m */,
+				226D57F41A87003700F4940F /* DEPayService.h */,
+				226D57F51A87003700F4940F /* DEPayService.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -4685,6 +4690,7 @@
 				225884941A72669800B70FAA /* ReinforceQuestion.m in Sources */,
 				03DC59AD1A68C13100B30852 /* AnswerViewController.m in Sources */,
 				222398BE1A85DC2F00CD1DF1 /* AFURLConnectionOperation.m in Sources */,
+				226D57F61A87003700F4940F /* DEPayService.m in Sources */,
 				226EFC211A80A26F0098330E /* KMMainViewController.m in Sources */,
 				222398C11A85DC2F00CD1DF1 /* AFURLSessionManager.m in Sources */,
 				222398BF1A85DC2F00CD1DF1 /* AFURLRequestSerialization.m in Sources */,

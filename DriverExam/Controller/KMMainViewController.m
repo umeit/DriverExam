@@ -9,14 +9,27 @@
 #import "KMMainViewController.h"
 #import "UIViewController+GViewController.h"
 #import "GTMBase64.h"
+#import "DEPayService.h"
 
 #define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
 
 @interface KMMainViewController ()
 
+@property (strong, nonatomic) DEPayService *payService;
+
 @end
 
 @implementation KMMainViewController
+
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.payService = [[DEPayService alloc] init];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,6 +60,8 @@
 
 - (IBAction)buyButtonPress:(id)sender
 {
+    [self showLodingView];
+    
     if ([SKPaymentQueue canMakePayments]) {
         // 执行下面提到的第5步：
         [self getProductInfo];
@@ -72,39 +87,49 @@
 #pragma mark - SKPaymentTransactionObserver
 
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions {
+    [self hideLodingView];
+    
     for (SKPaymentTransaction *transaction in transactions)
     {
         switch (transaction.transactionState)
         {
-            case SKPaymentTransactionStatePurchased://交易完成
-                NSLog(@"transactionIdentifier = %@", transaction.transactionIdentifier);
+            case SKPaymentTransactionStatePurchased: //交易完成
+                NSLog(@"交易完成");
                 [self completeTransaction:transaction];
                 break;
-            case SKPaymentTransactionStateFailed://交易失败
+            case SKPaymentTransactionStateFailed: //交易失败
+                NSLog(@"交易失败");
                 [self failedTransaction:transaction];
                 break;
-            case SKPaymentTransactionStateRestored://已经购买过该商品
+            case SKPaymentTransactionStateRestored: //已经购买过该商品
+                NSLog(@"已经购买过");
                 [self restoreTransaction:transaction];
                 break;
-            case SKPaymentTransactionStatePurchasing:      //商品添加进列表
-                NSLog(@"商品添加进列表");
+            case SKPaymentTransactionStatePurchasing: //商品添加进列表
+                NSLog(@"购买中");
                 break;
             default:
                 break;
         }
+        NSLog(@"transactionIdentifier = %@", transaction.transactionIdentifier);
     }
 }
 
 - (void)completeTransaction:(SKPaymentTransaction *)transaction {
     NSString * productIdentifier = transaction.payment.productIdentifier;
-//    NSURL *receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[[NSBundle mainBundle] appStoreReceiptURL]];
     NSError *error = nil;
     NSData *receiptData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:nil error:&error];
     NSString *receipt = [GTMBase64 stringByEncodingData:receiptData];
-    NSString *receipt1 = [GTMBase64 stringByEncodingData:transaction.transactionReceipt];
     if ([productIdentifier length] > 0) {
         // 向自己的服务器验证购买凭证
+        [self.payService checkReceipt:receipt block:^(BOOL success){
+            if (success) {
+                [self.payService markPaymentInfo:receipt userInfo:[USER_DEFAULTS objectForKey:@"CurrentUser"]];
+            } else {
+                [self showCustomTextAlert:@"购买失败"];
+            }
+        }];
     }
     
     [[SKPaymentQueue defaultQueue] finishTransaction: transaction];

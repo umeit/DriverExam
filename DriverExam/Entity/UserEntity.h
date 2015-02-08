@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UserEntity : NSObject
+@interface UserEntity : NSObject <NSCoding>
 
 @property (nonatomic) NSInteger userID;
 

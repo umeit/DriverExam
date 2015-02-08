@@ -22,4 +22,10 @@
                               }];
 }
 
+- (void)saveUser:(UserEntity *)user
+{
+    [USER_DEFAULTS setObject:[NSKeyedArchiver archivedDataWithRootObject:user]
+                      forKey:@"CurrentUser"];
+}
+
 @end

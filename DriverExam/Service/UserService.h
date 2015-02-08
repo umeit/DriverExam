@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
+
 @class UserEntity;
 
 typedef void(^RegisterBlock)(BOOL success, NSString *errorMgs);
@@ -15,5 +17,7 @@ typedef void(^RegisterBlock)(BOOL success, NSString *errorMgs);
 @interface UserService : NSObject
 
 - (void)registerUser:(UserEntity *)user block:(RegisterBlock)block;
+
+- (void)saveUser:(UserEntity *)user;
 
 @end

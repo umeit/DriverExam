@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD.h"
 
-#define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
-
 #define IS_KM1 [[USER_DEFAULTS objectForKey:@"KM"] isEqualToString:@"1"]
 #define IS_KM4 [[USER_DEFAULTS objectForKey:@"KM"] isEqualToString:@"4"]
 

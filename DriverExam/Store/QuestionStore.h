@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
-
 #define KM1DB @"km1.db"
 #define KM4DB @"km4.db"
 

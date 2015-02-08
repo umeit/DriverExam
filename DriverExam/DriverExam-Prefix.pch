@@ -1,0 +1,19 @@
+//
+//  DriverExam-Prefix.pch
+//  DriverExam
+//
+//  Created by 沈 湛 on 15/2/8.
+//  Copyright (c) 2015年 Baisika. All rights reserved.
+//
+
+#ifndef DriverExam_DriverExam_Prefix_pch
+#define DriverExam_DriverExam_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#define IsPayModel YES
+
+#define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
+
+#endif

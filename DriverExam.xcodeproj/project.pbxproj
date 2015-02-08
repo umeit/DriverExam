@@ -1644,6 +1644,7 @@
 		226A5A8F1A7A0FF4007BDAC5 /* ExamQuestionStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamQuestionStore.m; sourceTree = "<group>"; };
 		226D57F41A87003700F4940F /* DEPayService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEPayService.h; sourceTree = "<group>"; };
 		226D57F51A87003700F4940F /* DEPayService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEPayService.m; sourceTree = "<group>"; };
+		226D57F71A875ACB00F4940F /* DriverExam-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DriverExam-Prefix.pch"; sourceTree = "<group>"; };
 		226EFC1F1A80A26F0098330E /* KMMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMMainViewController.h; sourceTree = "<group>"; };
 		226EFC201A80A26F0098330E /* KMMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMMainViewController.m; sourceTree = "<group>"; };
 		226EFC221A80D2150098330E /* DriverExamMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverExamMainViewController.h; sourceTree = "<group>"; };
@@ -2302,6 +2303,7 @@
 			children = (
 				03C5CF231A679840002136E3 /* Info.plist */,
 				03C5CF241A679840002136E3 /* main.m */,
+				226D57F71A875ACB00F4940F /* DriverExam-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -4850,6 +4852,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DriverExam/DriverExam-Prefix.pch";
 				INFOPLIST_FILE = DriverExam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -4861,6 +4865,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DriverExam/DriverExam-Prefix.pch";
 				INFOPLIST_FILE = DriverExam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -4942,6 +4948,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: cui feng (ZZAGTE8AU9)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DriverExam/DriverExam-Prefix.pch";
 				INFOPLIST_FILE = DriverExam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

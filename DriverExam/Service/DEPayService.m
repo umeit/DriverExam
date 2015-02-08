@@ -19,6 +19,7 @@
                                    id status = [responseObject objectForKey:@"status"];
                                    if (status && [status integerValue] == 0) {
                                        block(YES);
+                                       [USER_DEFAULTS setBool:YES forKey:@"IsPay"];
                                    } else {
                                        block(NO);
                                    }

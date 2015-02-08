@@ -18,14 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    if (![FileTools fileIsExitsOnDocuments:@"km1.db"]) {
-        NSString *resourcePathKM1 = [[NSBundle mainBundle] pathForResource:@"km1" ofType:@"db"];
-        [FileTools copyFileToDocuments:resourcePathKM1 withName:@"km1.db"];
-    }
-    if (![FileTools fileIsExitsOnDocuments:@"km4.db"]) {
-        NSString *resourcePathKM4 = [[NSBundle mainBundle] pathForResource:@"km4" ofType:@"db"];
-        [FileTools copyFileToDocuments:resourcePathKM4 withName:@"km4.db"];
-    }
+    [self copyDB];
 
     return YES;
 }
@@ -50,6 +43,18 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)copyDB
+{
+    if (![FileTools fileIsExitsOnDocuments:@"km1.db"]) {
+        NSString *resourcePathKM1 = [[NSBundle mainBundle] pathForResource:@"km1" ofType:@"db"];
+        [FileTools copyFileToDocuments:resourcePathKM1 withName:@"km1.db"];
+    }
+    if (![FileTools fileIsExitsOnDocuments:@"km4.db"]) {
+        NSString *resourcePathKM4 = [[NSBundle mainBundle] pathForResource:@"km4" ofType:@"db"];
+        [FileTools copyFileToDocuments:resourcePathKM4 withName:@"km4.db"];
+    }
 }
 
 @end

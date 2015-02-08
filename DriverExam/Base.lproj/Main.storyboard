@@ -811,7 +811,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="hb1-Fb-ReS" kind="push" id="zMV-Wb-wYP"/>
+                                    <action selector="startReinforceButtonPress:" destination="dGA-pi-O3c" eventType="touchUpInside" id="mbA-Sx-OL3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRc-9Z-nt6">
@@ -858,7 +858,7 @@
         <!--Reinforce View Controller-->
         <scene sceneID="bs0-s5-EAJ">
             <objects>
-                <viewController id="hb1-Fb-ReS" customClass="ReinforceViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReinforceViewController" id="hb1-Fb-ReS" customClass="ReinforceViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FCC-k7-IGs"/>
                         <viewControllerLayoutGuide type="bottom" id="JSE-To-Fpq"/>

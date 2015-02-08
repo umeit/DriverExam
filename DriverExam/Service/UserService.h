@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
-
 @class UserEntity;
 
 typedef void(^RegisterBlock)(BOOL success, NSString *errorMgs);

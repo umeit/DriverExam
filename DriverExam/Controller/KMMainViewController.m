@@ -11,8 +11,6 @@
 #import "GTMBase64.h"
 #import "DEPayService.h"
 
-#define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
-
 @interface KMMainViewController ()
 
 @property (strong, nonatomic) DEPayService *payService;
@@ -69,7 +67,6 @@
         NSLog(@"失败，用户禁止应用内付费购买.");
     }
 }
-
 
 #pragma mark - SKProductsRequestDelegate
 

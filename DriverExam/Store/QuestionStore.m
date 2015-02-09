@@ -24,9 +24,6 @@
 #define ANSWER_C @"answer_c"
 #define ANSWER_D @"answer_d"
 
-#define LAST_INDEX_KM1 1074
-#define LAST_INDEX_KM4 899
-
 @interface QuestionStore ()
 
 @end

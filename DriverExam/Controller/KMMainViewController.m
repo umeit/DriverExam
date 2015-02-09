@@ -11,6 +11,7 @@
 #import "GTMBase64.h"
 #import "DEPayService.h"
 #import "ExamQuestionStore.h"
+#import "QuestionStore.h"
 
 @interface KMMainViewController ()
 
@@ -35,9 +36,11 @@
     
     if ([[USER_DEFAULTS objectForKey:@"KM"] isEqualToString:@"1"]) {
         self.navigationItem.title = @"科目一";
+        self.questionCountLabel.text = [@(LAST_INDEX_KM1) stringValue];
     }
     else if ([[USER_DEFAULTS objectForKey:@"KM"] isEqualToString:@"4"]) {
         self.navigationItem.title = @"科目四";
+        self.questionCountLabel.text = [@(LAST_INDEX_KM4) stringValue];
     }
     
     [self setBackButtonTitle:@"返回"];

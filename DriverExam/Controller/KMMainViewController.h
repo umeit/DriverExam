@@ -10,4 +10,7 @@
 #import <StoreKit/StoreKit.h>
 
 @interface KMMainViewController : UIViewController <SKProductsRequestDelegate, SKPaymentTransactionObserver>
+
+@property (weak, nonatomic) IBOutlet UILabel *questionCountLabel;
+
 @end

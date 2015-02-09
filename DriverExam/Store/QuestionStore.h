@@ -14,6 +14,9 @@
 #define IS_KM1 [[USER_DEFAULTS objectForKey:@"KM"] isEqualToString:@"1"]
 #define IS_KM4 [[USER_DEFAULTS objectForKey:@"KM"] isEqualToString:@"4"]
 
+#define LAST_INDEX_KM1 1074
+#define LAST_INDEX_KM4 899
+
 @class QuestionBase;
 @class FMDatabase;
 @class ReinforceQuestionStore;

@@ -15,10 +15,10 @@
 {
     [[DEHTTPClient sharedClient] POST:@"login" parameters:@{}
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                   
+                                  block(YES, nil);
                               }
                               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                   
+                                  block(YES, nil);
                               }];
 }
 

@@ -19,7 +19,7 @@
         _sex = [aDecoder decodeIntegerForKey:@"sex"];
         _age = [aDecoder decodeIntegerForKey:@"age"];
         _school = [aDecoder decodeIntegerForKey:@"school"];
-        _mobile = [aDecoder decodeIntegerForKey:@"mobile"];
+        _mobile = [aDecoder decodeObjectForKey:@"mobile"];
     }
     return self;
 }
@@ -31,7 +31,7 @@
     [aCoder encodeInteger:self.sex forKey:@"sex"];
     [aCoder encodeInteger:self.age forKey:@"age"];
     [aCoder encodeInteger:self.school forKey:@"school"];
-    [aCoder encodeInteger:self.mobile forKey:@"mobile"];
+    [aCoder encodeObject:self.mobile forKey:@"mobile"];
 }
 
 @end

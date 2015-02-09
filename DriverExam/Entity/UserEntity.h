@@ -20,6 +20,6 @@
 
 @property (nonatomic) NSInteger school;
 
-@property (nonatomic) NSInteger mobile;
+@property (strong, nonatomic) NSString *mobile;
 
 @end

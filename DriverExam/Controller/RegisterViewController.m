@@ -42,20 +42,40 @@
 - (IBAction)submitButtonPress:(id)sender
 {
     UserEntity *user = [self userInfo];
-    [self.userService registerUser:user block:^(BOOL success, NSString *errorMgs) {
-        if (success) {
-            [self.userService saveUser:user];
-        } else {
-            [self showCustomTextAlert:@"登陆失败，请稍后再试."];
-        }
-    }];
+    if ([self checkUser:user]) {
+        [self.userService registerUser:user block:^(BOOL success, NSString *errorMgs) {
+            if (success) {
+                [self.userService saveUser:user];
+                [self dismissViewControllerAnimated:YES completion:nil];
+            } else {
+                [self showCustomTextAlert:@"登陆失败，请稍后再试."];
+            }
+        }];
+    }
+    else {
+        [self showCustomTextAlert:@"请填写完整信息"];
+    }
+}
+
+
+#pragma mark - Private
+
+- (BOOL)checkUser:(UserEntity *)user
+{
+    if (user.name == nil || [user.name isEqualToString:@""] || user.age == 0 || [user.mobile isEqualToString:@""] || user.mobile.length != 11) {
+        return NO;
+    }
+    return YES;
 }
 
 - (UserEntity *)userInfo
 {
     UserEntity *user = [[UserEntity alloc] init];
-
-    return nil;
+    user.name = self.nameField.text;
+    user.age = [self.ageField.text integerValue];
+    user.mobile = self.mobileField.text;
+    
+    return user;
 }
 
 @end

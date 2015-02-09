@@ -29,9 +29,7 @@
 {
     [super viewWillAppear:animated];
     
-    self.faultQuestionCountLabel.text = [@([[ReinforceQuestionStore reinforceStore] faultQuestionCount]) stringValue];
-    self.missQuestionCountLabel.text = [@([[ReinforceQuestionStore reinforceStore] missQuestionCount]) stringValue];
-    self.reinforcedQuestionCountLabel.text = [@([[ReinforceQuestionStore reinforceStore] reinforcedQuestionCount]) stringValue];
+    [self updateCount];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,11 +79,37 @@
        destructiveButtonTitle:nil
             otherButtonTitles:@[@"清除错题", @"清除未答", @"清除已强化"]
                      tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
-                         NSLog(@"Chose %@", [actionSheet buttonTitleAtIndex:buttonIndex]);
-                         NSLog(@"Chose %d", buttonIndex);
+                         switch (buttonIndex) {
+                             case 0:
+                                 [[ReinforceQuestionStore reinforceStore] clearFault];
+                                 [self updateCount];
+                                 break;
+                                 
+                             case 1:
+                                 [[ReinforceQuestionStore reinforceStore] clearMiss];
+                                 [self updateCount];
+                                 break;
+                                 
+                             case 2:
+                                 [[ReinforceQuestionStore reinforceStore] clearReinforced];
+                                 [self updateCount];
+                                 break;
+                                 
+                             default:
+                                 break;
+                         }
                      }];
 }
 
+
+#pragma mark - Private
+
+- (void)updateCount
+{
+    self.faultQuestionCountLabel.text = [@([[ReinforceQuestionStore reinforceStore] faultQuestionCount]) stringValue];
+    self.missQuestionCountLabel.text = [@([[ReinforceQuestionStore reinforceStore] missQuestionCount]) stringValue];
+    self.reinforcedQuestionCountLabel.text = [@([[ReinforceQuestionStore reinforceStore] reinforcedQuestionCount]) stringValue];
+}
 
 
 - (void)toReinforceVC

@@ -39,4 +39,10 @@
 /** 当前已强化索引 */
 - (NSInteger)currenReinforcedQuestionIndex;
 
+- (void)clearFault;
+
+- (void)clearMiss;
+
+- (void)clearReinforced;
+
 @end

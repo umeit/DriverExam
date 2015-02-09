@@ -227,6 +227,39 @@ static ReinforceQuestionStore *reinforceStore = nil;
 }
 
 
+#pragma mark - Clear
+
+- (void)clearFault
+{
+    if (![self.dataBase open]) {
+        return;
+    }
+    NSString *sql = [NSString stringWithFormat:@"DELETE FROM tbl_reinforce WHERE result <> 0 AND status = 0"];
+    [self.dataBase executeUpdate:sql];
+    [self.dataBase close];
+}
+
+- (void)clearMiss
+{
+    if (![self.dataBase open]) {
+        return;
+    }
+    NSString *sql = [NSString stringWithFormat:@"DELETE FROM tbl_reinforce WHERE result = 0 AND status = 0"];
+    [self.dataBase executeUpdate:sql];
+    [self.dataBase close];
+}
+
+- (void)clearReinforced
+{
+    if (![self.dataBase open]) {
+        return;
+    }
+    NSString *sql = [NSString stringWithFormat:@"DELETE FROM tbl_reinforce WHERE status = 1"];
+    [self.dataBase executeUpdate:sql];
+    [self.dataBase close];
+}
+
+
 #pragma mark - Override
 
 - (QuestionBase *)currentQuestion

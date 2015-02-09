@@ -8,8 +8,8 @@
 
 #import "ReinforceMainViewController.h"
 #import "ReinforceQuestionStore.h"
-//#import "ReinforcedViewController.h"
 #import "ReviewViewController.h"
+#import "UIActionSheet+Blocks.h"
 #import "UIViewController+GViewController.h"
 
 @interface ReinforceMainViewController ()
@@ -37,6 +37,9 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+
+#pragma mark - Action
 
 /** 开始强化 */
 - (IBAction)startReinforceButtonPress:(id)sender
@@ -69,6 +72,20 @@
         [self toReinforcedVC];
     }
 }
+
+- (IBAction)clearButtonPress:(id)sender
+{
+    [UIActionSheet showInView:self.view
+                    withTitle:@"选择要清楚的内容"
+            cancelButtonTitle:@"取消"
+       destructiveButtonTitle:nil
+            otherButtonTitles:@[@"清除错题", @"清除未答", @"清除已强化"]
+                     tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+                         NSLog(@"Chose %@", [actionSheet buttonTitleAtIndex:buttonIndex]);
+                         NSLog(@"Chose %d", buttonIndex);
+                     }];
+}
+
 
 
 - (void)toReinforceVC

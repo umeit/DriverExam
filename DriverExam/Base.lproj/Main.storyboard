@@ -845,7 +845,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="强化练习" id="yUx-dT-bcM">
-                        <barButtonItem key="rightBarButtonItem" title="清除" id="gvD-GZ-3EL"/>
+                        <barButtonItem key="rightBarButtonItem" title="清除" id="gvD-GZ-3EL">
+                            <connections>
+                                <action selector="clearButtonPress:" destination="dGA-pi-O3c" id="KaB-sO-z47"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>

@@ -513,6 +513,7 @@
 		225F1F8C1A84C354007E2640 /* 43.173.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 225F1DB01A84C354007E2640 /* 43.173.jpg */; };
 		225F1F8D1A84C354007E2640 /* 43.174.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 225F1DB11A84C354007E2640 /* 43.174.jpg */; };
 		225F1F901A84DF1C007E2640 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 225F1F8F1A84DF1C007E2640 /* RegisterViewController.m */; };
+		226600751A8866DD00C0BD7A /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 226600741A8866DD00C0BD7A /* UIActionSheet+Blocks.m */; };
 		226A5A8A1A79DE31007BDAC5 /* ExamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226A5A891A79DE31007BDAC5 /* ExamViewController.m */; };
 		226A5A8D1A79E162007BDAC5 /* ExamFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226A5A8C1A79E162007BDAC5 /* ExamFinishViewController.m */; };
 		226A5A901A7A0FF4007BDAC5 /* ExamQuestionStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 226A5A8F1A7A0FF4007BDAC5 /* ExamQuestionStore.m */; };
@@ -1637,6 +1638,8 @@
 		225F1DB11A84C354007E2640 /* 43.174.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 43.174.jpg; sourceTree = "<group>"; };
 		225F1F8E1A84DF1C007E2640 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		225F1F8F1A84DF1C007E2640 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		226600731A8866DD00C0BD7A /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
+		226600741A8866DD00C0BD7A /* UIActionSheet+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks.m"; sourceTree = "<group>"; };
 		226A5A881A79DE31007BDAC5 /* ExamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamViewController.h; sourceTree = "<group>"; };
 		226A5A891A79DE31007BDAC5 /* ExamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamViewController.m; sourceTree = "<group>"; };
 		226A5A8B1A79E162007BDAC5 /* ExamFinishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamFinishViewController.h; sourceTree = "<group>"; };
@@ -2928,6 +2931,15 @@
 			path = km4image;
 			sourceTree = "<group>";
 		};
+		226600721A8866DD00C0BD7A /* UIActionSheet-Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				226600731A8866DD00C0BD7A /* UIActionSheet+Blocks.h */,
+				226600741A8866DD00C0BD7A /* UIActionSheet+Blocks.m */,
+			);
+			path = "UIActionSheet-Blocks";
+			sourceTree = "<group>";
+		};
 		227E571A1A7F655500472A74 /* GViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2961,6 +2973,7 @@
 		228D0AE61A6F4CB200FDD577 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				226600721A8866DD00C0BD7A /* UIActionSheet-Blocks */,
 				222398A51A85DC2F00CD1DF1 /* AFNetworking */,
 				225829B71A84A452007A4751 /* GTMBase64 */,
 				228272561A81C198006491B4 /* YLGIFImage */,
@@ -4701,6 +4714,7 @@
 				226EFC211A80A26F0098330E /* KMMainViewController.m in Sources */,
 				222398C11A85DC2F00CD1DF1 /* AFURLSessionManager.m in Sources */,
 				222398BF1A85DC2F00CD1DF1 /* AFURLRequestSerialization.m in Sources */,
+				226600751A8866DD00C0BD7A /* UIActionSheet+Blocks.m in Sources */,
 				2282725D1A81C198006491B4 /* YLImageView.m in Sources */,
 				03DC59AE1A68C13100B30852 /* ExercisesViewController.m in Sources */,
 				03DC59B21A68C15A00B30852 /* QuestionStore.m in Sources */,

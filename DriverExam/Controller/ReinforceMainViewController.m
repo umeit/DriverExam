@@ -8,7 +8,8 @@
 
 #import "ReinforceMainViewController.h"
 #import "ReinforceQuestionStore.h"
-#import "ReinforcedViewController.h"
+//#import "ReinforcedViewController.h"
+#import "ReviewViewController.h"
 #import "UIViewController+GViewController.h"
 
 @interface ReinforceMainViewController ()
@@ -80,10 +81,8 @@
 - (void)toReinforcedVC
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-//    UIViewController *reinforceVC = [storyboard instantiateViewControllerWithIdentifier:@"ReinforceViewController"];
-//    [self.navigationController pushViewController:reinforceVC animated:YES];
-    // 转换思路搞，不用继承 ReviewViewController 了，直接用它
-    ReinforcedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ReviewViewController"];
+    ReviewViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ReviewViewController"];
+    vc.reviewType = REVIEW_TYPE_REINFORCE;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

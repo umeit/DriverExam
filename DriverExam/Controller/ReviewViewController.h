@@ -8,6 +8,11 @@
 
 #import "AnswerViewController.h"
 
+#define REVIEW_TYPE_EXAM       0
+#define REVIEW_TYPE_REINFORCE  1
+
 @interface ReviewViewController : AnswerViewController
+
+@property (nonatomic) NSInteger reviewType;
 
 @end

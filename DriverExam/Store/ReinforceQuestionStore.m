@@ -125,23 +125,6 @@ static ReinforceQuestionStore *reinforceStore = nil;
     return count;
 }
 
-- (NSInteger)reinforcedQuestionCount
-{
-    if (![self.dataBase open]) {
-        return 0;
-    }
-    
-    NSInteger count = 0;
-    
-    FMResultSet *result = [self.dataBase executeQuery:@"SELECT COUNT(*) FROM tbl_reinforce WHERE status = 1"];
-    while ([result next]) {
-        count =  [result intForColumnIndex:0];
-    }
-    
-    [self.dataBase close];
-    return count;
-}
-
 - (QuestionBase *)nextQuestionWhenLastQuestionWsaCorrect
 {
     if (![self.dataBase open]) {
@@ -158,6 +141,31 @@ static ReinforceQuestionStore *reinforceStore = nil;
     }
     [self.dataBase close];
     return nil;
+}
+
+
+#pragma mark - Reinforced
+
+- (NSInteger)currenReinforcedQuestionIndex
+{
+    return [USER_DEFAULTS integerForKey:CURRENT_QUESTION_INDEX_FOR_REINFORCED];
+}
+
+- (NSInteger)reinforcedQuestionCount
+{
+    if (![self.dataBase open]) {
+        return 0;
+    }
+    
+    NSInteger count = 0;
+    
+    FMResultSet *result = [self.dataBase executeQuery:@"SELECT COUNT(*) FROM tbl_reinforce WHERE status = 1"];
+    while ([result next]) {
+        count =  [result intForColumnIndex:0];
+    }
+    
+    [self.dataBase close];
+    return count;
 }
 
 - (QuestionBase *)currentReinforcedQuestion
@@ -197,6 +205,27 @@ static ReinforceQuestionStore *reinforceStore = nil;
     [self.dataBase close];
     return nil;
 }
+
+- (QuestionBase *)prevReinforcedQustion
+{
+    if (![self.dataBase open]) {
+        return 0;
+    }
+    NSInteger index = [USER_DEFAULTS integerForKey:CURRENT_QUESTION_INDEX_FOR_REINFORCED];
+    index--;
+    index--;
+    FMResultSet *result = [self.dataBase executeQuery:@"SELECT * FROM tbl_reinforce WHERE status = 1 LIMIT 1 OFFSET (?)", @(index)];
+    ReinforceQuestion *question = nil;
+    if ([result next]) {
+        question = [self reinforceQuestionWithResult:result];
+        [USER_DEFAULTS setInteger:++index forKey:CURRENT_QUESTION_INDEX_FOR_REINFORCED];
+        [self.dataBase close];
+        return [[QuestionStore exercisesStore] questionWithIDOnDB:question.questionID];
+    }
+    [self.dataBase close];
+    return nil;
+}
+
 
 #pragma mark - Override
 

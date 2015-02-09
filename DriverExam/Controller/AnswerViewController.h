@@ -10,8 +10,6 @@
 
 @class QuestionBase;
 
-
-
 /** 
  * 答题控制器的基类
  * 用途：展示题目、选项，判断结果
@@ -32,6 +30,15 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *prevButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
+
+@property (weak, nonatomic) IBOutlet UIImageView *aFalseImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *aTrueImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *bFalseImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *bTrueImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *cFalseImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *cTrueImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *dFalseImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *dTrueImageView;
 
 @property (strong, nonatomic) QuestionBase *question;
 

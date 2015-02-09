@@ -780,7 +780,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RvV-qk-gAO">
                                 <rect key="frame" x="5" y="68" width="310" height="65"/>
-                                <color key="backgroundColor" white="0.95690528029999999" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.85054112601894838" green="1" blue="0.73703871390310804" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="题目内容题目内容题目内容题目内容题目内容题目内容题目内容题目内容题目内容题目内容题目内容题目内容题目内容题目内容题目内容题目内容" lineBreakMode="headTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="j0r-oo-tRg">
                                 <rect key="frame" x="20" y="72" width="281" height="61"/>
@@ -809,25 +809,8 @@
                             <imageView userInteractionEnabled="NO" tag="202" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zc0-ie-FQs" customClass="YLImageView">
                                 <rect key="frame" x="27" y="137" width="267" height="128"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="页码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNk-Ed-1eg">
-                                <rect key="frame" x="125" y="522" width="71" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRh-32-67c">
-                                <rect key="frame" x="134" y="448" width="52" height="38"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="确定">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="okButtonPress:" destination="8Ll-lk-FEa" eventType="touchUpInside" id="Sdq-BK-eVB"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6d-NE-eNB">
-                                <rect key="frame" x="90" y="362" width="140" height="30"/>
+                                <rect key="frame" x="90" y="363" width="140" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="C Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -837,7 +820,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eW8-op-Th6">
-                                <rect key="frame" x="90" y="400" width="140" height="30"/>
+                                <rect key="frame" x="90" y="403" width="140" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="D Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -857,7 +840,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaV-qH-MTH">
-                                <rect key="frame" x="90" y="324" width="140" height="30"/>
+                                <rect key="frame" x="90" y="323" width="140" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="B Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -866,6 +849,47 @@
                                     <action selector="selectAnswer:" destination="8Ll-lk-FEa" eventType="touchUpInside" id="YcP-l5-V2Z"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="页码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNk-Ed-1eg">
+                                <rect key="frame" x="125" y="522" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRh-32-67c">
+                                <rect key="frame" x="129" y="448" width="62" height="38"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="确定">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="okButtonPress:" destination="8Ll-lk-FEa" eventType="touchUpInside" id="Sdq-BK-eVB"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_false.png" translatesAutoresizingMaskIntoConstraints="NO" id="rOc-hc-caJ">
+                                <rect key="frame" x="52" y="283" width="30" height="30"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_true.png" translatesAutoresizingMaskIntoConstraints="NO" id="ptE-Ph-039">
+                                <rect key="frame" x="52" y="283" width="30" height="30"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_false.png" translatesAutoresizingMaskIntoConstraints="NO" id="2pt-PQ-Yyk">
+                                <rect key="frame" x="52" y="323" width="30" height="30"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_true.png" translatesAutoresizingMaskIntoConstraints="NO" id="aE3-kq-f4c">
+                                <rect key="frame" x="52" y="323" width="30" height="30"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_false.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pun-TD-Vdg">
+                                <rect key="frame" x="52" y="363" width="30" height="30"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_true.png" translatesAutoresizingMaskIntoConstraints="NO" id="dpr-gH-x41">
+                                <rect key="frame" x="52" y="363" width="30" height="30"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_false.png" translatesAutoresizingMaskIntoConstraints="NO" id="utu-j4-YNr">
+                                <rect key="frame" x="52" y="403" width="30" height="30"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_true.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nmn-nU-es0">
+                                <rect key="frame" x="52" y="403" width="30" height="30"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -884,10 +908,18 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="aFalseImageView" destination="rOc-hc-caJ" id="jHx-HL-RrI"/>
+                        <outlet property="aTrueImageView" destination="ptE-Ph-039" id="fEK-ml-4L6"/>
                         <outlet property="answerButonA" destination="RU3-6K-P8w" id="TP4-x3-Xls"/>
                         <outlet property="answerButonB" destination="eaV-qH-MTH" id="U5y-nu-0om"/>
                         <outlet property="answerButonC" destination="w6d-NE-eNB" id="Gb2-EM-zCE"/>
                         <outlet property="answerButonD" destination="eW8-op-Th6" id="Y1C-DB-MRq"/>
+                        <outlet property="bFalseImageView" destination="2pt-PQ-Yyk" id="Orr-Aa-jgk"/>
+                        <outlet property="bTrueImageView" destination="aE3-kq-f4c" id="VFJ-LT-xYc"/>
+                        <outlet property="cFalseImageView" destination="Pun-TD-Vdg" id="NeY-ZL-we4"/>
+                        <outlet property="cTrueImageView" destination="dpr-gH-x41" id="rRV-fi-fiF"/>
+                        <outlet property="dFalseImageView" destination="utu-j4-YNr" id="Kiv-ff-3qH"/>
+                        <outlet property="dTrueImageView" destination="Nmn-nU-es0" id="igJ-FP-bJX"/>
                         <outlet property="nextButton" destination="ZxB-8V-KKR" id="6mj-gU-2ZO"/>
                         <outlet property="okButton" destination="XRh-32-67c" id="lsg-hM-Rwe"/>
                         <outlet property="prevButton" destination="vd5-pS-ySJ" id="oCe-Q2-kbb"/>
@@ -1120,4 +1152,8 @@
             <point key="canvasLocation" x="1187" y="619"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_false.png" width="76" height="76"/>
+        <image name="icon_true.png" width="76" height="76"/>
+    </resources>
 </document>

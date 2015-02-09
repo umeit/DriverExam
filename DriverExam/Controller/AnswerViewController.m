@@ -146,21 +146,34 @@
         self.okButton.hidden = YES;
     }
     
+    self.aFalseImageView.hidden = YES;
+    self.aTrueImageView.hidden = YES;
+    self.bFalseImageView.hidden = YES;
+    self.bTrueImageView.hidden = YES;
+    self.cFalseImageView.hidden = YES;
+    self.cTrueImageView.hidden = YES;
+    self.dFalseImageView.hidden = YES;
+    self.dTrueImageView.hidden = YES;
+    
     self.selectButtons = [[NSMutableSet alloc] init];
 }
 
 - (void)updateSelectedButtonFaultStatus
 {
+    // 多选
     if (self.question.correctIndexs) {
         for (NSNumber *result in self.question.results) {
             if (![self.question.correctIndexs containsObject:result]) {
                 UIButton *button = (UIButton *)[self.view viewWithTag:[result integerValue]];
                 [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+                [self showFalseIcon:[result integerValue]];
             }
         }
     }
+    // 单选、判断
     else {
         [self.selectedButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [self showFalseIcon:self.selectedButton.tag];
     }
 }
 
@@ -171,6 +184,8 @@
         for (NSNumber *tag in self.question.correctIndexs) {
             UIButton *correctButton = (UIButton *)[self.view viewWithTag:[tag integerValue]];
             [correctButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+            
+            [self showTrueIcon:[tag integerValue]];
         }
     }
     // 单选、判断
@@ -178,6 +193,8 @@
         NSInteger correctButtonTag = self.question.correctIndex;
         UIButton *correctButton = (UIButton *)[self.view viewWithTag:correctButtonTag];
         [correctButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+        
+        [self showTrueIcon:correctButtonTag];
     }
 }
 
@@ -219,6 +236,49 @@
 
 - (void)answerDidFault
 {
+}
+
+
+#pragma mark - Private
+
+- (void)showTrueIcon:(NSInteger)tag
+{
+    switch (tag) {
+        case 1:
+            self.aTrueImageView.hidden = NO;
+            break;
+        case 2:
+            self.bTrueImageView.hidden = NO;
+            break;
+        case 3:
+            self.cTrueImageView.hidden = NO;
+            break;
+        case 4:
+            self.dTrueImageView.hidden = NO;
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)showFalseIcon:(NSInteger)tag
+{
+    switch (tag) {
+        case 1:
+            self.aFalseImageView.hidden = NO;
+            break;
+        case 2:
+            self.bFalseImageView.hidden = NO;
+            break;
+        case 3:
+            self.cFalseImageView.hidden = NO;
+            break;
+        case 4:
+            self.dFalseImageView.hidden = NO;
+            break;
+        default:
+            break;
+    }
 }
 
 @end

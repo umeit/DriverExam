@@ -120,12 +120,10 @@
 
     self.questionContentLabel.text = self.question.content;
     
-    
     [self.answerButonA setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.answerButonB setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.answerButonC setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.answerButonD setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    
     
     [self.answerButonA setTitle:[self.question.answerList objectAtIndex:0] forState:UIControlStateNormal];
     [self.answerButonB setTitle:[self.question.answerList objectAtIndex:1] forState:UIControlStateNormal];

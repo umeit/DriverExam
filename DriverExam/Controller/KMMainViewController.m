@@ -54,19 +54,31 @@
     [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];
 }
 
+
 #pragma mark - Action
 
+/** 点击购买 */
 - (IBAction)buyButtonPress:(id)sender
 {
     [self showLodingView];
     
     if ([SKPaymentQueue canMakePayments]) {
-        // 执行下面提到的第5步：
         [self getProductInfo];
     } else {
         NSLog(@"失败，用户禁止应用内付费购买.");
     }
 }
+
+/** 点击考试 */
+- (IBAction)examButtonPress:(id)sender
+{
+    if (IsPayModel) {
+        if (IS_Payed) {
+            <#statements#>
+        }
+    }
+}
+
 
 #pragma mark - SKProductsRequestDelegate
 
@@ -123,6 +135,7 @@
         [self.payService checkReceipt:receipt block:^(BOOL success){
             if (success) {
                 [self.payService markPaymentInfo:receipt userInfo:[USER_DEFAULTS objectForKey:CURRENT_USER]];
+                [USER_DEFAULTS setBool:YES forKey:@"IsPay"];
             } else {
                 [self showCustomTextAlert:@"购买失败"];
             }
@@ -156,6 +169,13 @@
     SKProductsRequest * request = [[SKProductsRequest alloc] initWithProductIdentifiers:set];
     request.delegate = self;
     [request start];
+}
+
+- (void)toExamVC
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UIViewController *reinforceVC = [storyboard instantiateViewControllerWithIdentifier:@"ExamStartViewController"];
+    [self.navigationController pushViewController:reinforceVC animated:YES];
 }
 
 @end

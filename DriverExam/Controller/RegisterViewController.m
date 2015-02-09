@@ -36,6 +36,9 @@
     [super didReceiveMemoryWarning];
 }
 
+
+#pragma mark - Action
+
 - (IBAction)submitButtonPress:(id)sender
 {
     UserEntity *user = [self userInfo];
@@ -50,6 +53,8 @@
 
 - (UserEntity *)userInfo
 {
+    UserEntity *user = [[UserEntity alloc] init];
+
     return nil;
 }
 

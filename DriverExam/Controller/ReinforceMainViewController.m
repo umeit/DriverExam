@@ -56,6 +56,7 @@
     
 }
 
+/** 查看已强化 */
 - (IBAction)watchReinforcedButtonPress:(id)sender
 {
     if (IsPayModel) {
@@ -71,6 +72,7 @@
     }
 }
 
+/** 清楚 */
 - (IBAction)clearButtonPress:(id)sender
 {
     [UIActionSheet showInView:self.view

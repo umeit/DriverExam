@@ -10,6 +10,7 @@
 #import "UIViewController+GViewController.h"
 #import "GTMBase64.h"
 #import "DEPayService.h"
+#import "ExamQuestionStore.h"
 
 @interface KMMainViewController ()
 
@@ -74,8 +75,19 @@
 {
     if (IsPayModel) {
         if (IS_Payed) {
-            <#statements#>
+            [self toExamVC];
         }
+        else {
+            if ([[ExamQuestionStore examQuestionStore] examCount] >= 3) {
+                [self showCustomTextAlert:@"您已经试用3次，请购买完整版"];
+            }
+            else {
+                [self toExamVC];
+            }
+        }
+    }
+    else {
+        [self toExamVC];
     }
 }
 

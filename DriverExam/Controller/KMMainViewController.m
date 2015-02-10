@@ -161,24 +161,27 @@
         // 验证购买凭证
         [self.payService checkReceipt:[self getReceipt] block:^(BOOL success){
             if (success) {
-                
                 if (!transaction.originalTransaction) {
                     // 第一次购买，记录用户的购买信息
-                    [self.payService markPaymentInfo:transaction.transactionIdentifier userInfo:[USER_DEFAULTS objectForKey:CURRENT_USER]];
+                    [self.payService markPaymentInfo:transaction.transactionIdentifier
+                                            userInfo:[USER_DEFAULTS objectForKey:CURRENT_USER]
+                                               block:^(BOOL success){
+                                                   if (success) {
+                                                       // 设置为已购买
+                                                       [USER_DEFAULTS setBool:YES forKey:@"IsPay"];
+                                                       self.buyButton.hidden = YES;
+                                                   }
+                                                   else {
+                                                       [self showCustomTextAlert:@"购买失败"];
+                                                   }
+                    }];
                 }
-                
-                // 设置为已购买
-                [USER_DEFAULTS setBool:YES forKey:@"IsPay"];
-                self.buyButton.hidden = YES;
-                
             } else {
                 [self showCustomTextAlert:@"购买失败"];
             }
         }];
     }
-    
     [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
-    
 }
 
 - (NSString *)getReceipt

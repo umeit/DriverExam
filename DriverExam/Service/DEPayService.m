@@ -8,10 +8,11 @@
 
 #import "DEPayService.h"
 #import "PayHTTPClient.h"
+#import "DEHTTPClient.h"
 
 @implementation DEPayService
 
-- (void)checkReceipt:(NSString *)receipt block:(checkReceiptBlock)block
+- (void)checkReceipt:(NSString *)receipt block:(baseBlock)block
 {
     [[PayHTTPClient sharedClient] POST:@"/ios/receipt"
                             parameters:@{@"receipt": receipt}
@@ -19,7 +20,6 @@
                                    id status = [responseObject objectForKey:@"status"];
                                    if (status && [status integerValue] == 0) {
                                        block(YES);
-                                       [USER_DEFAULTS setBool:YES forKey:@"IsPay"];
                                    } else {
                                        block(NO);
                                    }
@@ -29,9 +29,23 @@
                                }];
 }
 
-- (void)markPaymentInfo:(NSString *)receipt userInfo:(UserEntity *)user
+- (void)markPaymentInfo:(NSString *)transactionIdentifier
+               userInfo:(UserEntity *)user
+                  block:(baseBlock)block
 {
-    
+    [[DEHTTPClient sharedClient] POST:@"/markpay"
+                           parameters:@{@"uID": @(user.userID), @"tID":transactionIdentifier}
+                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                  NSInteger ret = [responseObject integerForKey:@"ret"];
+                                  if (ret == 1) {
+                                      block(YES);
+                                  } else {
+                                      block(NO);
+                                  }
+                              }
+                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                  block(NO);
+                              }];
 }
 
 @end

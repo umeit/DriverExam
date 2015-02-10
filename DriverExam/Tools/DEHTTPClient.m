@@ -8,7 +8,9 @@
 
 #import "DEHTTPClient.h"
 
-static NSString *const BaseURLString = @"http://appapi.youche.com/";
+//static NSString *const BaseURLString = @"http://xuecheapp.youche.com";
+
+static NSString *const BaseURLString = @"http://127.0.0.1:7123";
 
 @implementation DEHTTPClient
 

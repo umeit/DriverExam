@@ -45,6 +45,15 @@
     
     [self setBackButtonTitle:@"返回"];
     
+    if (IsPayModel) {
+        if (IS_Payed) {
+            self.buyButton.hidden = YES;
+        }
+        else {
+            self.buyButton.hidden = NO;
+        }
+    }
+    
     // 监听购买结果
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
 }
@@ -139,18 +148,29 @@
     }
 }
 
+- (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
+{
+    NSLog(@"!!!!");
+}
+
+
+#pragma mark - Private
+
 - (void)completeTransaction:(SKPaymentTransaction *)transaction {
-    NSString * productIdentifier = transaction.payment.productIdentifier;
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[[NSBundle mainBundle] appStoreReceiptURL]];
-    NSError *error = nil;
-    NSData *receiptData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:nil error:&error];
-    NSString *receipt = [GTMBase64 stringByEncodingData:receiptData];
-    if ([productIdentifier length] > 0) {
-        // 向自己的服务器验证购买凭证
-        [self.payService checkReceipt:receipt block:^(BOOL success){
+    if ([transaction.payment.productIdentifier length] > 0) {
+        // 验证购买凭证
+        [self.payService checkReceipt:[self getReceipt] block:^(BOOL success){
             if (success) {
-                [self.payService markPaymentInfo:receipt userInfo:[USER_DEFAULTS objectForKey:CURRENT_USER]];
+                
+                if (!transaction.originalTransaction) {
+                    // 第一次购买，记录用户的购买信息
+                    [self.payService markPaymentInfo:transaction.transactionIdentifier userInfo:[USER_DEFAULTS objectForKey:CURRENT_USER]];
+                }
+                
+                // 设置为已购买
                 [USER_DEFAULTS setBool:YES forKey:@"IsPay"];
+                self.buyButton.hidden = YES;
+                
             } else {
                 [self showCustomTextAlert:@"购买失败"];
             }
@@ -159,6 +179,16 @@
     
     [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
     
+}
+
+- (NSString *)getReceipt
+{
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[[NSBundle mainBundle] appStoreReceiptURL]];
+    NSError *error = nil;
+    NSData *receiptData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:nil error:&error];
+    NSString *receipt = [GTMBase64 stringByEncodingData:receiptData];
+    
+    return receipt;
 }
 
 - (void)failedTransaction:(SKPaymentTransaction *)transaction {
@@ -174,9 +204,6 @@
     // 对于已购商品，处理恢复购买的逻辑
     [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
 }
-
-
-#pragma mark - Private
 
 - (void)getProductInfo
 {

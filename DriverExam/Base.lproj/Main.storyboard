@@ -192,6 +192,7 @@
                     <navigationItem key="navigationItem" id="cpa-0u-i70"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="buyButton" destination="4pn-dD-Kfm" id="HY8-1S-6o2"/>
                         <outlet property="questionCountLabel" destination="4ak-lA-2h4" id="0gs-qI-OCp"/>
                     </connections>
                 </viewController>

@@ -19,13 +19,14 @@
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                   id ret = [responseObject objectForKey:@"ret"];
                                   if ([ret integerValue] == 1) {
-                                      block(YES, nil);
+                                      id uID = [responseObject objectForKey:@"uID"];
+                                      block([uID integerValue], nil);
                                   } else {
-                                      block(NO, nil);
+                                      block(0, nil);
                                   }
                               }
                               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                  block(YES, nil);
+                                  block(0, nil);
                               }];
 }
 

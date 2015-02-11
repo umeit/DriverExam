@@ -10,7 +10,7 @@
 
 @class UserEntity;
 
-typedef void(^RegisterBlock)(BOOL success, NSString *errorMgs);
+typedef void(^RegisterBlock)(NSInteger uID, NSString *errorMgs);
 
 @interface UserService : NSObject
 

@@ -43,8 +43,10 @@
 {
     UserEntity *user = [self userInfo];
     if ([self checkUser:user]) {
-        [self.userService registerUser:user block:^(BOOL success, NSString *errorMgs) {
-            if (success) {
+        [self.userService registerUser:user block:^(NSInteger uID, NSString *errorMgs) {
+            if (uID) {
+                // 登录成功，获取ID
+                user.userID = uID;
                 [self.userService saveUser:user];
                 [self dismissViewControllerAnimated:YES completion:nil];
             } else {
@@ -62,7 +64,8 @@
 
 - (BOOL)checkUser:(UserEntity *)user
 {
-    if (user.name == nil || [user.name isEqualToString:@""] || user.age == 0 || [user.mobile isEqualToString:@""] || user.mobile.length != 11) {
+    if (user.name == nil || [user.name isEqualToString:@""] || user.age == 0
+        || [user.mobile isEqualToString:@""] || user.mobile.length != 11) {
         return NO;
     }
     return YES;

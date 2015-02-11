@@ -12,4 +12,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *examCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *averageLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *examResultImageView;
 @end

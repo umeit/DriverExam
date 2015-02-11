@@ -84,6 +84,25 @@
 /** 清楚 */
 - (IBAction)clearButtonPress:(id)sender
 {
+    if (IsPayModel) {
+        if (IS_Payed) {
+            [self startActionSheet];
+            
+        }
+        else {
+            [self showCustomTextAlert:@"请购买完整版"];
+        }
+    }
+    else {
+        [self startActionSheet];
+    }
+}
+
+
+#pragma mark - Private
+
+- (void)startActionSheet
+{
     [UIActionSheet showInView:self.view
                     withTitle:@"选择要清楚的内容"
             cancelButtonTitle:@"取消"
@@ -111,9 +130,6 @@
                          }
                      }];
 }
-
-
-#pragma mark - Private
 
 - (void)updateCount
 {

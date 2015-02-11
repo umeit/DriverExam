@@ -26,6 +26,8 @@
     self.scoreLabel.text = [@([ExamQuestionStore examQuestionStore].lastScore) stringValue];
     self.examCountLabel.text = [@([[ExamQuestionStore examQuestionStore] examCount]) stringValue];
     self.averageLabel.text = [@([[ExamQuestionStore examQuestionStore] average]) stringValue];
+    
+    // 在这里判断
 }
 
 - (void)didReceiveMemoryWarning {

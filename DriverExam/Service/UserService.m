@@ -38,7 +38,8 @@
 
 - (NSDictionary *)userDic:(UserEntity *)user
 {
-    return @{@"name": user.name, @"mobile": user.mobile, @"sex": @(user.sex), @"schoolID": @(user.school)};
+    return @{@"name": user.name, @"mobile": user.mobile, @"age":@(user.age),
+             @"sex": @(user.sex), @"schoolID": @(user.school), @"system": @(1)};
 }
 
 @end

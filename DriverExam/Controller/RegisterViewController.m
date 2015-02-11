@@ -43,7 +43,9 @@
 {
     UserEntity *user = [self userInfo];
     if ([self checkUser:user]) {
+        [self showLodingView];
         [self.userService registerUser:user block:^(NSInteger uID, NSString *errorMgs) {
+            [self hideLodingView];
             if (uID) {
                 // 登录成功，获取ID
                 user.userID = uID;

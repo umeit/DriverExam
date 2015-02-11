@@ -8,7 +8,7 @@
 
 #import "PayHTTPClient.h"
 
-static NSString *const BaseURLString = @"http://192.168.100.125";
+static NSString *const BaseURLString = @"http://pay.youche.com";
 
 @implementation PayHTTPClient
 

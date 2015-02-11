@@ -53,6 +53,9 @@
             self.buyButton.hidden = NO;
         }
     }
+    else {
+        self.buyButton.hidden = YES;
+    }
     
     // 监听购买结果
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
@@ -78,7 +81,7 @@
     if ([SKPaymentQueue canMakePayments]) {
         [self getProductInfo];
     } else {
-        NSLog(@"失败，用户禁止应用内付费购买.");
+        [self showCustomTextAlert:@"无法购买，您已禁止应用内付费."];
     }
 }
 
@@ -120,8 +123,6 @@
 #pragma mark - SKPaymentTransactionObserver
 
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions {
-    [self hideLodingView];
-    
     for (SKPaymentTransaction *transaction in transactions)
     {
         switch (transaction.transactionState)
@@ -131,7 +132,6 @@
                 [self completeTransaction:transaction];
                 break;
             case SKPaymentTransactionStateFailed: //交易失败
-                NSLog(@"交易失败");
                 [self failedTransaction:transaction];
                 break;
             case SKPaymentTransactionStateRestored: //已经购买过该商品
@@ -142,6 +142,7 @@
                 NSLog(@"购买中");
                 break;
             default:
+                [self hideLodingView];
                 break;
         }
         NSLog(@"transactionIdentifier = %@", transaction.transactionIdentifier);
@@ -158,13 +159,21 @@
 
 - (void)completeTransaction:(SKPaymentTransaction *)transaction {
     if ([transaction.payment.productIdentifier length] > 0) {
+        NSString *receipt = [self getReceipt];
+        if (!receipt || [receipt isEqualToString:@""]) {
+            NSLog(@"receipt is nil.");
+            return;
+        }
+        
         // 验证购买凭证
         [self.payService checkReceipt:[self getReceipt] block:^(BOOL success){
             if (success) {
+                
+                // 第一次购买，记录用户的购买信息
                 if (!transaction.originalTransaction) {
-                    // 第一次购买，记录用户的购买信息
+//                if (YES) {
                     [self.payService markPaymentInfo:transaction.transactionIdentifier
-                                            userInfo:[USER_DEFAULTS objectForKey:CURRENT_USER]
+                                            userInfo:[self currentUser]
                                                block:^(BOOL success){
                                                    if (success) {
                                                        // 设置为已购买
@@ -172,11 +181,22 @@
                                                        self.buyButton.hidden = YES;
                                                    }
                                                    else {
+                                                       [self hideLodingView];
                                                        [self showCustomTextAlert:@"购买失败"];
                                                    }
+                                                   [self hideLodingView];
                     }];
                 }
+                else {
+                    [self hideLodingView];
+                    // 设置为已购买
+                    [USER_DEFAULTS setBool:YES forKey:@"IsPay"];
+                    self.buyButton.hidden = YES;
+                }
+                
+            // 验证凭证失败
             } else {
+                [self hideLodingView];
                 [self showCustomTextAlert:@"购买失败"];
             }
         }];
@@ -195,8 +215,9 @@
 }
 
 - (void)failedTransaction:(SKPaymentTransaction *)transaction {
-    if(transaction.error.code != SKErrorPaymentCancelled) {
-        NSLog(@"购买失败");
+    [self hideLodingView];
+    if (transaction.error.code != SKErrorPaymentCancelled) {
+        [self showCustomTextAlert:@"购买失败，请重试（不会重复付费）。"];
     } else {
         NSLog(@"用户取消交易");
     }
@@ -204,6 +225,7 @@
 }
 
 - (void)restoreTransaction:(SKPaymentTransaction *)transaction {
+    [self hideLodingView];
     // 对于已购商品，处理恢复购买的逻辑
     [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
 }
@@ -221,6 +243,12 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     UIViewController *reinforceVC = [storyboard instantiateViewControllerWithIdentifier:@"ExamStartViewController"];
     [self.navigationController pushViewController:reinforceVC animated:YES];
+}
+
+- (UserEntity *)currentUser
+{
+    NSData *data = [USER_DEFAULTS objectForKey:CURRENT_USER];
+    return [NSKeyedUnarchiver unarchiveObjectWithData:data];
 }
 
 @end

@@ -189,10 +189,12 @@
     // 单选、判断
     else {
         NSInteger correctButtonTag = self.question.correctIndex;
-        UIButton *correctButton = (UIButton *)[self.view viewWithTag:correctButtonTag];
-        [correctButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
-        
-        [self showTrueIcon:correctButtonTag];
+        if (correctButtonTag) {
+            UIButton *correctButton = (UIButton *)[self.view viewWithTag:correctButtonTag];
+            [correctButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+            
+            [self showTrueIcon:correctButtonTag];
+        }
     }
 }
 

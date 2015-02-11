@@ -36,8 +36,8 @@
     [[DEHTTPClient sharedClient] POST:@"/markpay"
                            parameters:@{@"uID": @(user.userID), @"tID":transactionIdentifier}
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                  NSInteger ret = [responseObject integerForKey:@"ret"];
-                                  if (ret == 1) {
+                                  id ret = [responseObject objectForKey:@"ret"];
+                                  if ([ret integerValue] == 1) {
                                       block(YES);
                                   } else {
                                       block(NO);

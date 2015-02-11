@@ -44,6 +44,11 @@
 {
     if (IsPayModel) {
         if (IS_Payed) {
+            if ([[ReinforceQuestionStore reinforceStore] faultQuestionCount] == 0
+                && [[ReinforceQuestionStore reinforceStore] missQuestionCount] == 0) {
+                [self showCustomTextAlert:@"没有需要强化的试题"];
+                return;
+            }
             [self toReinforceVC];
         }
         else {
@@ -61,6 +66,10 @@
 {
     if (IsPayModel) {
         if (IS_Payed) {
+            if ([[ReinforceQuestionStore reinforceStore] reinforcedQuestionCount] == 0) {
+                [self showCustomTextAlert:@"没有已经强化的试题"];
+                return;
+            }
             [self toReinforcedVC];
         }
         else {

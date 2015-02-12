@@ -28,6 +28,13 @@
     self.averageLabel.text = [@([[ExamQuestionStore examQuestionStore] average]) stringValue];
     
     // 在这里判断
+    if ([ExamQuestionStore examQuestionStore].lastScore < 90) {
+        self.examResultImageView.image = [UIImage imageNamed:@"exam_failure"];
+    }
+    else {
+        [self.scoreLabel setTintColor:[UIColor redColor]];
+        self.examResultImageView.image = [UIImage imageNamed:@"exam_pass"];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

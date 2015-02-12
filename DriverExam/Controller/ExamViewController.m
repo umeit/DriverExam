@@ -49,6 +49,7 @@
 - (IBAction)submitButtonPress:(id)sender
 {
     [self showCustomTextAlert:@"确定交卷吗？" withOKButtonPressed:^{
+        [self.countDownTimer invalidate];
         [self examFinish];
     }];
 }

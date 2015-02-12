@@ -187,7 +187,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.74509805439999999" green="0.94117653369999998" blue="0.9215686917" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" white="0.95690528029999999" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="cpa-0u-i70"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -382,7 +382,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.74509805439999999" green="0.94117653369999998" blue="0.9215686917" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" white="0.95690528029999999" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="N4d-BL-8UG" firstAttribute="leading" secondItem="2Qv-X2-CBB" secondAttribute="leadingMargin" constant="25" id="Cv4-Kc-iuw"/>
                             <constraint firstItem="FFh-1i-BZh" firstAttribute="leading" secondItem="2Qv-X2-CBB" secondAttribute="leadingMargin" constant="25" id="G5J-a5-imH"/>
@@ -452,7 +452,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.74509805439999999" green="0.94117653369999998" blue="0.9215686917" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" white="0.95690528029999999" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="模拟考试" id="Jyr-Y7-IHx"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -664,13 +664,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgB-jE-gG8">
-                                <rect key="frame" x="129" y="123" width="62" height="30"/>
+                                <rect key="frame" x="129" y="115" width="62" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.74509805439999999" green="0.94117653369999998" blue="0.9215686917" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" white="0.95690528029999999" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="考试结束" id="7l3-vM-0Zr"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -1036,7 +1036,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.74509805439999999" green="0.94117653369999998" blue="0.9215686917" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" white="0.95690528029999999" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="强化练习" id="yUx-dT-bcM">
                         <barButtonItem key="rightBarButtonItem" title="清除" id="gvD-GZ-3EL">

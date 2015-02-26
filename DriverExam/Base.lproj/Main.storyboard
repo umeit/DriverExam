@@ -186,6 +186,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PYa-hh-I23">
+                                <rect key="frame" x="130" y="481" width="60" height="30"/>
+                                <state key="normal" title="恢复购买">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="rebuyButtonPress:" destination="oF6-76-cM9" eventType="touchUpInside" id="OT4-9F-Ubz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.95690528029999999" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -194,6 +203,7 @@
                     <connections>
                         <outlet property="buyButton" destination="4pn-dD-Kfm" id="HY8-1S-6o2"/>
                         <outlet property="questionCountLabel" destination="4ak-lA-2h4" id="0gs-qI-OCp"/>
+                        <outlet property="rebuyButton" destination="PYa-hh-I23" id="iGH-jF-wBZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9mZ-xb-h9K" userLabel="First Responder" sceneMemberID="firstResponder"/>

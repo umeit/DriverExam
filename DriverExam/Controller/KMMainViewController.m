@@ -85,6 +85,21 @@
     }
 }
 
+/** 点击恢复购买 */
+- (IBAction)rebuyButtonPress:(id)sender
+{
+    [self showLodingView];
+    
+//    if ([SKPaymentQueue canMakePayments]) {
+//        [self getProductInfo];
+//    } else {
+//        [self showCustomTextAlert:@"无法购买，您已禁止应用内付费."];
+//    }
+    
+    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+}
+
+
 /** 点击考试 */
 - (IBAction)examButtonPress:(id)sender
 {
@@ -122,7 +137,8 @@
 
 #pragma mark - SKPaymentTransactionObserver
 
-- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions {
+- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions
+{
     for (SKPaymentTransaction *transaction in transactions)
     {
         switch (transaction.transactionState)
@@ -149,9 +165,20 @@
     }
 }
 
+/** 恢复购买成功 */
 - (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
 {
-    NSLog(@"!!!!");
+    [self hideLodingView];
+    [USER_DEFAULTS setBool:YES forKey:@"IsPay"];
+    self.buyButton.hidden = YES;
+    self.rebuyButton.hidden = YES;
+}
+
+/** 恢复购买失败 */
+- (void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error
+{
+    [self hideLodingView];
+    [self showCustomTextAlert:@"恢复购买失败，请重试"];
 }
 
 
@@ -179,6 +206,7 @@
                                                        // 设置为已购买
                                                        [USER_DEFAULTS setBool:YES forKey:@"IsPay"];
                                                        self.buyButton.hidden = YES;
+                                                       self.rebuyButton.hidden = YES;
                                                    }
                                                    else {
                                                        [self hideLodingView];
@@ -192,6 +220,7 @@
                     // 设置为已购买
                     [USER_DEFAULTS setBool:YES forKey:@"IsPay"];
                     self.buyButton.hidden = YES;
+                    self.rebuyButton.hidden = YES;
                 }
                 
             // 验证凭证失败
@@ -225,7 +254,7 @@
 }
 
 - (void)restoreTransaction:(SKPaymentTransaction *)transaction {
-    [self hideLodingView];
+//    [self hideLodingView];
     // 对于已购商品，处理恢复购买的逻辑
     [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
 }

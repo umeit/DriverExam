@@ -14,4 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *questionCountLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *buyButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *rebuyButton;
+
 @end

@@ -48,13 +48,16 @@
     if (IsPayModel) {
         if (IS_Payed) {
             self.buyButton.hidden = YES;
+            self.rebuyButton.hidden = YES;
         }
         else {
             self.buyButton.hidden = NO;
+            self.rebuyButton.hidden = NO;
         }
     }
     else {
         self.buyButton.hidden = YES;
+        self.rebuyButton.hidden = YES;
     }
     
     // 监听购买结果

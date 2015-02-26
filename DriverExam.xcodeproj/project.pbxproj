@@ -17,6 +17,8 @@
 		03DC59AD1A68C13100B30852 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DC59A71A68C13100B30852 /* AnswerViewController.m */; };
 		03DC59AE1A68C13100B30852 /* ExercisesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DC59A91A68C13100B30852 /* ExercisesViewController.m */; };
 		03DC59B21A68C15A00B30852 /* QuestionStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DC59B11A68C15A00B30852 /* QuestionStore.m */; };
+		220E05921A8CB54D008FF4D7 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 220E05901A8CB54D008FF4D7 /* TestViewController.m */; };
+		220E05931A8CB54D008FF4D7 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 220E05911A8CB54D008FF4D7 /* TestViewController.xib */; };
 		222398A01A85BA1D00CD1DF1 /* UserEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2223989F1A85BA1D00CD1DF1 /* UserEntity.m */; };
 		222398A41A85BE1E00CD1DF1 /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 222398A31A85BE1E00CD1DF1 /* UserService.m */; };
 		222398B91A85DC2F00CD1DF1 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 222398A71A85DC2F00CD1DF1 /* AFHTTPRequestOperation.m */; };
@@ -1126,6 +1128,9 @@
 		03DC59A91A68C13100B30852 /* ExercisesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisesViewController.m; sourceTree = "<group>"; };
 		03DC59B01A68C15A00B30852 /* QuestionStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionStore.h; sourceTree = "<group>"; };
 		03DC59B11A68C15A00B30852 /* QuestionStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionStore.m; sourceTree = "<group>"; };
+		220E058F1A8CB54D008FF4D7 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		220E05901A8CB54D008FF4D7 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		220E05911A8CB54D008FF4D7 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		2223989E1A85BA1D00CD1DF1 /* UserEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserEntity.h; sourceTree = "<group>"; };
 		2223989F1A85BA1D00CD1DF1 /* UserEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserEntity.m; sourceTree = "<group>"; };
 		222398A21A85BE1E00CD1DF1 /* UserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserService.h; sourceTree = "<group>"; };
@@ -2379,6 +2384,9 @@
 				225F1F8F1A84DF1C007E2640 /* RegisterViewController.m */,
 				226D57F81A8768BB00F4940F /* ReinforcedViewController.h */,
 				226D57F91A8768BB00F4940F /* ReinforcedViewController.m */,
+				220E058F1A8CB54D008FF4D7 /* TestViewController.h */,
+				220E05901A8CB54D008FF4D7 /* TestViewController.m */,
+				220E05911A8CB54D008FF4D7 /* TestViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4014,6 +4022,7 @@
 				225F1E371A84C354007E2640 /* 40.202.jpg in Resources */,
 				225F1DBA1A84C354007E2640 /* 39.033.jpg in Resources */,
 				225F1E931A84C354007E2640 /* 41.068.jpg in Resources */,
+				220E05931A8CB54D008FF4D7 /* TestViewController.xib in Resources */,
 				22995AAC1A788B79002FD99F /* 2.082.jpg in Resources */,
 				22995AC41A788B79002FD99F /* 2.107.jpg in Resources */,
 				22995BE61A788B79002FD99F /* 4.086.jpg in Resources */,
@@ -4730,6 +4739,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22995C341A78CB25002FD99F /* QuestionMainView.m in Sources */,
+				220E05921A8CB54D008FF4D7 /* TestViewController.m in Sources */,
 				226A5A901A7A0FF4007BDAC5 /* ExamQuestionStore.m in Sources */,
 				225884941A72669800B70FAA /* ReinforceQuestion.m in Sources */,
 				03DC59AD1A68C13100B30852 /* AnswerViewController.m in Sources */,
@@ -4896,6 +4906,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DriverExam/DriverExam-Prefix.pch";
 				INFOPLIST_FILE = DriverExam/Info.plist;
@@ -4909,6 +4920,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DriverExam/DriverExam-Prefix.pch";
 				INFOPLIST_FILE = DriverExam/Info.plist;
@@ -4991,6 +5003,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: cui feng (ZZAGTE8AU9)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DriverExam/DriverExam-Prefix.pch";

@@ -25,12 +25,12 @@
 {
     [super viewWillAppear:animated];
     
-    if (![USER_DEFAULTS dataForKey:CURRENT_USER]) {
-        
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-        UIViewController *registerVC = [storyboard instantiateViewControllerWithIdentifier:@"RegisterViewControllerNav"];
-        [self.navigationController presentViewController:registerVC animated:YES completion:nil];
-    }
+//    if (![USER_DEFAULTS dataForKey:CURRENT_USER]) {
+    
+//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+//        UIViewController *registerVC = [storyboard instantiateViewControllerWithIdentifier:@"RegisterViewControllerNav"];
+//        [self.navigationController presentViewController:registerVC animated:YES completion:nil];
+//    }
 }
 
 - (void)didReceiveMemoryWarning {

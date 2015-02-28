@@ -31,10 +31,14 @@
     // 在这里判断
     if ([ExamQuestionStore examQuestionStore].lastScore < 90) {
         self.examResultImageView.image = [UIImage imageNamed:@"exam_failure"];
+        self.textLabel.text = @"很遗憾";
+        [self.textLabel setTintColor:[UIColor grayColor]];
     }
     else {
         [self.scoreLabel setTintColor:[UIColor redColor]];
         self.examResultImageView.image = [UIImage imageNamed:@"exam_pass"];
+        self.textLabel.text = @"恭喜你";
+        [self.textLabel setTintColor:[UIColor redColor]];
     }
 }
 

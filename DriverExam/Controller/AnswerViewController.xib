@@ -5,8 +5,26 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TestViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnswerViewController">
             <connections>
+                <outlet property="aFalseImageView" destination="VJq-vk-JeA" id="fPn-x7-UzM"/>
+                <outlet property="aTrueImageView" destination="WUG-n5-8om" id="sLx-ZH-u2Z"/>
+                <outlet property="answerButonA" destination="RjX-l8-D6C" id="pYM-kX-UDJ"/>
+                <outlet property="answerButonB" destination="XLd-Dt-3o9" id="dtj-f1-XCB"/>
+                <outlet property="answerButonC" destination="Ryq-Wt-DHT" id="BdG-f9-Uwm"/>
+                <outlet property="answerButonD" destination="gPf-Sj-UD0" id="eV7-tf-Z7i"/>
+                <outlet property="bFalseImageView" destination="ouw-Yl-rd5" id="iEQ-Fc-Cjz"/>
+                <outlet property="bTrueImageView" destination="g2J-T2-MQd" id="nP1-ID-N4d"/>
+                <outlet property="cFalseImageView" destination="U6S-mj-nKL" id="h08-0d-t3A"/>
+                <outlet property="cTrueImageView" destination="etE-ei-d00" id="L5r-0o-2vd"/>
+                <outlet property="dFalseImageView" destination="5Oz-Zz-pOc" id="kRa-3S-iTI"/>
+                <outlet property="dTrueImageView" destination="tfh-wt-PlK" id="Z4y-ui-ZWP"/>
+                <outlet property="nextButton" destination="O95-q1-Nc2" id="iPT-Gj-aHy"/>
+                <outlet property="okButton" destination="GzA-ht-kzH" id="j1W-RK-eZl"/>
+                <outlet property="prevButton" destination="efD-sf-sBf" id="FlE-Vu-1MB"/>
+                <outlet property="questionContentLabel" destination="ger-Tk-UkJ" id="3PF-Lp-2Hc"/>
+                <outlet property="questionImageView" destination="B8k-Ld-fRr" id="iA2-Wg-eoq"/>
+                <outlet property="questionNumberLabel" destination="4bQ-ck-Kcy" id="Ma8-bB-9CN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,12 +48,18 @@
                     <state key="normal" title="下一题">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="nextQuestionButtonPress:" destination="-1" eventType="touchUpInside" id="lQc-La-hxw"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efD-sf-sBf">
                     <rect key="frame" x="16" y="516" width="45" height="30"/>
                     <state key="normal" title="上一题">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="prevQuestionButtonPress:" destination="-1" eventType="touchUpInside" id="XC4-J1-hVW"/>
+                    </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" tag="202" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B8k-Ld-fRr" customClass="YLImageView">
                     <rect key="frame" x="27" y="135" width="267" height="128"/>
@@ -46,6 +70,9 @@
                     <state key="normal" title="A Button">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="selectAnswer:" destination="-1" eventType="touchUpInside" id="aZ9-jS-nOO"/>
+                    </connections>
                 </button>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLd-Dt-3o9">
                     <rect key="frame" x="90" y="321" width="140" height="30"/>
@@ -53,6 +80,9 @@
                     <state key="normal" title="B Button">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="selectAnswer:" destination="-1" eventType="touchUpInside" id="NNa-DF-72y"/>
+                    </connections>
                 </button>
                 <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ryq-Wt-DHT">
                     <rect key="frame" x="90" y="361" width="140" height="30"/>
@@ -60,6 +90,9 @@
                     <state key="normal" title="C Button">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="selectAnswer:" destination="-1" eventType="touchUpInside" id="tKo-Ij-VGL"/>
+                    </connections>
                 </button>
                 <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPf-Sj-UD0">
                     <rect key="frame" x="90" y="401" width="140" height="30"/>
@@ -67,6 +100,9 @@
                     <state key="normal" title="D Button">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="selectAnswer:" destination="-1" eventType="touchUpInside" id="vNp-wO-IkN"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="页码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bQ-ck-Kcy">
                     <rect key="frame" x="125" y="520" width="71" height="21"/>
@@ -81,6 +117,9 @@
                     <state key="normal" title="确定">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="okButtonPress:" destination="-1" eventType="touchUpInside" id="VmV-jn-ILD"/>
+                    </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_false.png" translatesAutoresizingMaskIntoConstraints="NO" id="VJq-vk-JeA">
                     <rect key="frame" x="52" y="281" width="30" height="30"/>
@@ -109,7 +148,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="355" y="281"/>
+            <point key="canvasLocation" x="310" y="221"/>
         </view>
     </objects>
     <resources>

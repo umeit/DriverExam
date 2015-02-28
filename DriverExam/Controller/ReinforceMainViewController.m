@@ -11,6 +11,7 @@
 #import "ReviewViewController.h"
 #import "UIActionSheet+Blocks.h"
 #import "UIViewController+GViewController.h"
+#import "ReinforceViewController.h"
 
 @interface ReinforceMainViewController ()
 
@@ -141,9 +142,8 @@
 
 - (void)toReinforceVC
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    UIViewController *reinforceVC = [storyboard instantiateViewControllerWithIdentifier:@"ReinforceViewController"];
-    [self.navigationController pushViewController:reinforceVC animated:YES];
+    ReinforceViewController *reinforceViewController = [[ReinforceViewController alloc] initWithNibName:@"AnswerViewController" bundle:nil];
+    [self.navigationController pushViewController:reinforceViewController animated:YES];
 }
 
 - (void)toReinforcedVC

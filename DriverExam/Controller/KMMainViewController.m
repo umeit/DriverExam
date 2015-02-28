@@ -12,6 +12,7 @@
 #import "DEPayService.h"
 #import "ExamQuestionStore.h"
 #import "QuestionStore.h"
+#import "ExercisesViewController.h"
 
 @interface KMMainViewController ()
 
@@ -93,15 +94,15 @@
 {
     [self showLodingView];
     
-//    if ([SKPaymentQueue canMakePayments]) {
-//        [self getProductInfo];
-//    } else {
-//        [self showCustomTextAlert:@"无法购买，您已禁止应用内付费."];
-//    }
-    
     [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
 }
 
+/** 点击试题练习 */
+- (IBAction)exercisesButtonPress:(id)sender
+{
+    ExercisesViewController *exercisesViewController = [[ExercisesViewController alloc] initWithNibName:@"AnswerViewController" bundle:nil];
+    [self.navigationController pushViewController:exercisesViewController animated:YES];
+}
 
 /** 点击考试 */
 - (IBAction)examButtonPress:(id)sender

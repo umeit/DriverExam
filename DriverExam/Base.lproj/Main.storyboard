@@ -59,7 +59,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="8Ll-lk-FEa" kind="push" id="xxe-cH-r6W"/>
+                                    <action selector="exercisesButtonPress:" destination="oF6-76-cM9" eventType="touchUpInside" id="48S-Qu-P6N"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pO2-pH-IbE">

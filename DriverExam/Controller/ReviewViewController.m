@@ -25,11 +25,6 @@
     } else {
         self.navigationItem.title = @"已强化";
     }
-    
-    self.answerButonA.userInteractionEnabled = NO;
-    self.answerButonB.userInteractionEnabled = NO;
-    self.answerButonC.userInteractionEnabled = NO;
-    self.answerButonD.userInteractionEnabled = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,6 +61,11 @@
         self.selectedButton = (UIButton *)[self.view viewWithTag:buttonTag];
         [self updateSelectedButtonFaultStatus];
     }
+    
+    self.answerButonA.userInteractionEnabled = NO;
+    self.answerButonB.userInteractionEnabled = NO;
+    self.answerButonC.userInteractionEnabled = NO;
+    self.answerButonD.userInteractionEnabled = NO;
 }
 
 - (void)procNextQuestionButtonPress

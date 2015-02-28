@@ -37,7 +37,7 @@
                            parameters:@{@"uID": @(user.userID), @"tID":transactionIdentifier}
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                   id ret = [responseObject objectForKey:@"ret"];
-                                  if ([ret integerValue] == 1) {
+                                  if ([ret integerValue] == 0) {
                                       block(YES);
                                   } else {
                                       block(NO);

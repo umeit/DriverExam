@@ -18,7 +18,7 @@
                            parameters:[self userDic:user]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                   id ret = [responseObject objectForKey:@"ret"];
-                                  if ([ret integerValue] == 1) {
+                                  if ([ret integerValue] == 0) {
                                       id uID = [responseObject objectForKey:@"uID"];
                                       block([uID integerValue], nil);
                                   } else {

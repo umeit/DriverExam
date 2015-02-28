@@ -452,7 +452,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="0OW-tz-AFK" kind="push" id="9dL-dg-wJY"/>
+                                    <action selector="startButtonPress:" destination="Llg-X7-5pi" eventType="touchUpInside" id="YYY-z5-ztM"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="可免费使用 3 次" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Je-fE-csz">
@@ -476,7 +476,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tWf-Ah-bqR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325" y="1258"/>
+            <point key="canvasLocation" x="325" y="946"/>
         </scene>
         <!--科目一考试-->
         <scene sceneID="uoH-un-2kD">
@@ -602,7 +602,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="28O-K1-MEn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="782" y="1258"/>
+            <point key="canvasLocation" x="2306" y="-253"/>
         </scene>
         <!--考试结束-->
         <scene sceneID="hOC-9N-tWT">
@@ -625,7 +625,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="3MX-qK-LKi" kind="push" id="7mH-Kh-3pz"/>
+                                    <action selector="reviewFaultButtonPress:" destination="KjP-9n-ryV" eventType="touchUpInside" id="htA-1z-bKf"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s08-WA-VnC">
@@ -693,7 +693,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eES-TR-ZWu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1187" y="1258"/>
+            <point key="canvasLocation" x="739" y="946"/>
         </scene>
         <!--Review View Controller-->
         <scene sceneID="AJD-F1-EuH">
@@ -783,7 +783,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F6o-i6-GhM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1599" y="1258"/>
+            <point key="canvasLocation" x="1929" y="-253"/>
         </scene>
         <!--练习-->
         <scene sceneID="Nko-pQ-1eV">
@@ -950,7 +950,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xnF-wB-LAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="782" y="-5"/>
+            <point key="canvasLocation" x="1187" y="-253"/>
         </scene>
         <!--难题强化-->
         <scene sceneID="lF0-C6-yyY">
@@ -965,7 +965,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ld-BQ-5dl">
-                                <rect key="frame" x="16" y="102" width="288" height="121"/>
+                                <rect key="frame" x="16" y="102" width="288" height="167"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="未强化" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAX-dv-mIa">
                                         <rect key="frame" x="8" y="8" width="69" height="21"/>
@@ -1001,7 +1001,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTg-wb-MW5">
-                                <rect key="frame" x="16" y="223" width="288" height="45"/>
+                                <rect key="frame" x="17" y="223" width="286" height="45"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <state key="normal" title="开始强化">
@@ -1064,7 +1064,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mDz-xa-VeT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="782" y="619"/>
+            <point key="canvasLocation" x="744" y="307"/>
         </scene>
         <!--Reinforce View Controller-->
         <scene sceneID="bs0-s5-EAJ">
@@ -1177,7 +1177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uxU-eZ-Wlk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1187" y="619"/>
+            <point key="canvasLocation" x="1557" y="-253"/>
         </scene>
     </scenes>
     <resources>

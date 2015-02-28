@@ -8,6 +8,7 @@
 
 #import "ExamStartViewController.h"
 #import "UIViewController+GViewController.h"
+#import "ExamViewController.h"
 
 @interface ExamStartViewController ()
 
@@ -15,7 +16,8 @@
 
 @implementation ExamStartViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     if (IS_KM1) {
         self.questionCountLabel.text = @"题数：100 题";
@@ -28,8 +30,14 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
 }
 
+- (IBAction)startButtonPress:(id)sender
+{
+    ExamViewController *examViewController = [[ExamViewController alloc] initWithNibName:@"AnswerViewController" bundle:nil];
+    [self.navigationController pushViewController:examViewController animated:YES];
+}
 @end

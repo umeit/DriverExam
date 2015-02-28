@@ -148,10 +148,9 @@
 
 - (void)toReinforcedVC
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    ReviewViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ReviewViewController"];
-    vc.reviewType = REVIEW_TYPE_REINFORCE;
-    [self.navigationController pushViewController:vc animated:YES];
+    ReviewViewController *reviewViewController = [[ReviewViewController alloc] initWithNibName:@"AnswerViewController" bundle:nil];
+    reviewViewController.reviewType = REVIEW_TYPE_REINFORCE;
+    [self.navigationController pushViewController:reviewViewController animated:YES];
 }
 
 

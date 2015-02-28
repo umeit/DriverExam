@@ -18,9 +18,11 @@
 
 @implementation ExamViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
+    self.examTimeLabel.hidden = NO;
     
     if (IS_KM1) {
         self.navigationItem.title = @"科目一考试";
@@ -33,13 +35,21 @@
         self.secondsCountDown = 30 * 60; // 倒计时
     }
 
+    // 考试定时器
     self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1
                                                            target:self
                                                          selector:@selector(timeFireMethod)
                                                          userInfo:nil repeats:YES];
+    // 交卷按钮
+    UIBarButtonItem *submitItem = [[UIBarButtonItem alloc] initWithTitle:@"交卷"
+                                                                   style:UIBarButtonItemStylePlain
+                                                                  target:self
+                                                                  action:@selector(submitButtonPress:)];
+    self.navigationItem.rightBarButtonItem = submitItem;
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
 }
 

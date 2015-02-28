@@ -12,6 +12,5 @@
  * 
  */
 @interface ExamViewController : AnswerViewController
-@property (weak, nonatomic) IBOutlet UILabel *examTimeLabel;
 
 @end

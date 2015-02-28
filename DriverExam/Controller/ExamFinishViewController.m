@@ -9,6 +9,7 @@
 #import "ExamFinishViewController.h"
 #import "ExamQuestionStore.h"
 #import "UIViewController+GViewController.h"
+#import "ReviewViewController.h"
 
 @interface ExamFinishViewController ()
 
@@ -39,6 +40,14 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+
+- (IBAction)reviewFaultButtonPress:(id)sender
+{
+    ReviewViewController *reviewViewController = [[ReviewViewController alloc] initWithNibName:@"AnswerViewController" bundle:nil];
+    reviewViewController.reviewType = REVIEW_TYPE_EXAM;
+    [self.navigationController pushViewController:reviewViewController animated:YES];
 }
 
 - (IBAction)finishButtonPress:(id)sender

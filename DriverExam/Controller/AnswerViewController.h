@@ -26,6 +26,7 @@
 /** 用于多选题的确认按钮 */
 @property (weak, nonatomic) IBOutlet UIButton *okButton;
 
+@property (weak, nonatomic) IBOutlet UILabel *examTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *questionNumberLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *prevButton;

@@ -66,6 +66,8 @@
     self.answerButonB.userInteractionEnabled = NO;
     self.answerButonC.userInteractionEnabled = NO;
     self.answerButonD.userInteractionEnabled = NO;
+    
+    self.okButton.hidden = YES;
 }
 
 - (void)procNextQuestionButtonPress

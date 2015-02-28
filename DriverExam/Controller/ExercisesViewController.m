@@ -22,6 +22,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationItem.title = @"试题练习";
+    
+    UIBarButtonItem *showAnswerItem = [[UIBarButtonItem alloc] initWithTitle:@"显示答案"
+                                                                   style:UIBarButtonItemStylePlain
+                                                                  target:self
+                                                                  action:@selector(showAnswerButtonPress:)];
+    self.navigationItem.rightBarButtonItem = showAnswerItem;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,14 +49,14 @@
 - (IBAction)showAnswerButtonPress:(id)sender
 {
     if (self.isShowAnswer) {
-        [self.showAnswerButton setTitle:@"显示答案"];
+        [self.navigationItem.rightBarButtonItem setTitle:@"显示答案"];
         
         self.isShowAnswer = NO;
         
         [self updateQuestionDisplay];
     }
     else {
-        [self.showAnswerButton setTitle:@"隐藏答案"];
+        [self.navigationItem.rightBarButtonItem setTitle:@"隐藏答案"];
         
         self.isShowAnswer = YES;
         

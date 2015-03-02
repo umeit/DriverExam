@@ -50,15 +50,18 @@
         if (IS_Payed) {
             self.buyButton.hidden = YES;
             self.rebuyButton.hidden = YES;
+            self.buyTextLabel.hidden = YES;
         }
         else {
             self.buyButton.hidden = NO;
             self.rebuyButton.hidden = NO;
+            self.buyTextLabel.hidden = NO;
         }
     }
     else {
         self.buyButton.hidden = YES;
         self.rebuyButton.hidden = YES;
+        self.buyTextLabel.hidden = YES;
     }
     
     // 监听购买结果

@@ -202,6 +202,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="buyButton" destination="4pn-dD-Kfm" id="HY8-1S-6o2"/>
+                        <outlet property="buyTextLabel" destination="flp-f7-sOv" id="0dH-5K-UdC"/>
                         <outlet property="questionCountLabel" destination="4ak-lA-2h4" id="0gs-qI-OCp"/>
                         <outlet property="rebuyButton" destination="PYa-hh-I23" id="iGH-jF-wBZ"/>
                     </connections>

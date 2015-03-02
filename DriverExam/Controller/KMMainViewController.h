@@ -17,4 +17,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *rebuyButton;
 
+@property (weak, nonatomic) IBOutlet UILabel *buyTextLabel;
+
 @end

@@ -392,12 +392,36 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ad.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Pan-Wb-w0o">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="7xd-dV-acM"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ClF-JS-NHJ">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="bRo-PO-eDo"/>
+                                </constraints>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="uj3-Vg-bpu" kind="push" id="IBh-eq-gXQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.95690528029999999" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Pan-Wb-w0o" firstAttribute="bottom" secondItem="2Qv-X2-CBB" secondAttribute="bottomMargin" id="9X0-FN-fXf"/>
                             <constraint firstItem="N4d-BL-8UG" firstAttribute="leading" secondItem="2Qv-X2-CBB" secondAttribute="leadingMargin" constant="25" id="Cv4-Kc-iuw"/>
                             <constraint firstItem="FFh-1i-BZh" firstAttribute="leading" secondItem="2Qv-X2-CBB" secondAttribute="leadingMargin" constant="25" id="G5J-a5-imH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="N4d-BL-8UG" secondAttribute="trailing" constant="25" id="LOG-0w-g7e"/>
+                            <constraint firstItem="ClF-JS-NHJ" firstAttribute="trailing" secondItem="2Qv-X2-CBB" secondAttribute="trailing" id="PxI-JB-40s"/>
+                            <constraint firstItem="ClF-JS-NHJ" firstAttribute="bottom" secondItem="2Qv-X2-CBB" secondAttribute="bottomMargin" id="beK-Nf-ZJ2"/>
+                            <constraint firstItem="ClF-JS-NHJ" firstAttribute="leading" secondItem="2Qv-X2-CBB" secondAttribute="leading" id="cxL-4b-gB0"/>
+                            <constraint firstItem="Pan-Wb-w0o" firstAttribute="trailing" secondItem="2Qv-X2-CBB" secondAttribute="trailing" id="eMy-W7-get"/>
+                            <constraint firstItem="Pan-Wb-w0o" firstAttribute="leading" secondItem="2Qv-X2-CBB" secondAttribute="leading" id="fTd-nt-Ldk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FFh-1i-BZh" secondAttribute="trailing" constant="25" id="wn8-Hc-b0Z"/>
                         </constraints>
                     </view>
@@ -407,6 +431,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k2M-88-lGx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-152" y="996"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="co0-zE-GSa">
+            <objects>
+                <viewController id="uj3-Vg-bpu" customClass="ADWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tmt-8H-EIM"/>
+                        <viewControllerLayoutGuide type="bottom" id="aTG-Pm-QYD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OSe-3K-H0e">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XLA-zE-rxR">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="iLN-6J-o7b"/>
+                    <connections>
+                        <outlet property="webView" destination="XLA-zE-rxR" id="e7Z-cN-7UN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GPV-uT-FYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-152" y="1638"/>
         </scene>
         <!--模拟考试-->
         <scene sceneID="6Az-1J-RoX">
@@ -1189,6 +1241,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ad.jpg" width="1242" height="200"/>
         <image name="icon_false.png" width="76" height="76"/>
         <image name="icon_true.png" width="76" height="76"/>
     </resources>

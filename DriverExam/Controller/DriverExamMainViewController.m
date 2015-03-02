@@ -54,6 +54,10 @@
     [self.navigationController pushViewController:[self kmMainVC] animated:YES];
 }
 
+//- (IBAction)adButtonPress:(id)sender
+//{
+//    
+//}
 
 #pragma mark - Private
 

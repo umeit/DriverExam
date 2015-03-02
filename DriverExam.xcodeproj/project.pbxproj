@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0322066E1AA4762A00ED4584 /* ad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0322066D1AA4762A00ED4584 /* ad.jpg */; };
+		03B8243A1AA45818002D0A09 /* ADWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B824391AA45818002D0A09 /* ADWebViewController.m */; };
 		03C5CF251A679840002136E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C5CF241A679840002136E3 /* main.m */; };
 		03C5CF281A679840002136E3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C5CF271A679840002136E3 /* AppDelegate.m */; };
 		03C5CF2E1A679840002136E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C5CF2C1A679840002136E3 /* Main.storyboard */; };
@@ -1108,6 +1110,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0322066D1AA4762A00ED4584 /* ad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ad.jpg; sourceTree = "<group>"; };
+		03B824381AA45818002D0A09 /* ADWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADWebViewController.h; sourceTree = "<group>"; };
+		03B824391AA45818002D0A09 /* ADWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADWebViewController.m; sourceTree = "<group>"; };
 		03C5CF1F1A679840002136E3 /* DriverExam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DriverExam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03C5CF231A679840002136E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03C5CF241A679840002136E3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -2382,6 +2387,8 @@
 				226D57F81A8768BB00F4940F /* ReinforcedViewController.h */,
 				226D57F91A8768BB00F4940F /* ReinforcedViewController.m */,
 				220E05911A8CB54D008FF4D7 /* AnswerViewController.xib */,
+				03B824381AA45818002D0A09 /* ADWebViewController.h */,
+				03B824391AA45818002D0A09 /* ADWebViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3027,6 +3034,7 @@
 		228D0AF81A6F4E9200FDD577 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				0322066D1AA4762A00ED4584 /* ad.jpg */,
 				226600761A88CC8300C0BD7A /* icons */,
 				225F1BD51A84C351007E2640 /* km4image */,
 				229A23C71A82126A00F935A9 /* km4.db */,
@@ -4327,6 +4335,7 @@
 				225F1E151A84C354007E2640 /* 40.132.jpg in Resources */,
 				22995B051A788B79002FD99F /* 2.174.jpg in Resources */,
 				22995BD41A788B79002FD99F /* 4.068.Jpg in Resources */,
+				0322066E1AA4762A00ED4584 /* ad.jpg in Resources */,
 				22995B7F1A788B79002FD99F /* 2.297.jpg in Resources */,
 				225F1F061A84C354007E2640 /* 41.183.jpg in Resources */,
 				225F1DD21A84C354007E2640 /* 40.040.jpg in Resources */,
@@ -4773,6 +4782,7 @@
 				03C5CF251A679840002136E3 /* main.m in Sources */,
 				226D57FA1A8768BB00F4940F /* ReinforcedViewController.m in Sources */,
 				225F1F901A84DF1C007E2640 /* RegisterViewController.m in Sources */,
+				03B8243A1AA45818002D0A09 /* ADWebViewController.m in Sources */,
 				222398C71A860A8B00CD1DF1 /* PayHTTPClient.m in Sources */,
 				226A5A8D1A79E162007BDAC5 /* ExamFinishViewController.m in Sources */,
 				228D0AF31A6F4CB200FDD577 /* FMDatabase.m in Sources */,
@@ -4901,12 +4911,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DriverExam/DriverExam-Prefix.pch";
 				INFOPLIST_FILE = DriverExam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -4915,12 +4928,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DriverExam/DriverExam-Prefix.pch";
 				INFOPLIST_FILE = DriverExam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -4998,13 +5014,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: cui feng (ZZAGTE8AU9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DriverExam/DriverExam-Prefix.pch";
 				INFOPLIST_FILE = DriverExam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = "ad hoc distribution";
 		};

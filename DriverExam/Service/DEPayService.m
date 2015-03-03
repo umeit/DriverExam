@@ -34,7 +34,7 @@
                   block:(baseBlock)block
 {
     [[DEHTTPClient sharedClient] POST:@"/markpay"
-                           parameters:@{@"uID": @(user.userID), @"tID":transactionIdentifier}
+                           parameters:@{@"uID": @(user.userID), @"tID":transactionIdentifier, @"price":@(12.0)}
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                   id ret = [responseObject objectForKey:@"ret"];
                                   if ([ret integerValue] == 0) {

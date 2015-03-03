@@ -32,6 +32,12 @@
     [super viewDidLoad];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.schoolNameLabel.text = [USER_DEFAULTS stringForKey:@"schoolName"];
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -66,8 +72,11 @@
 
 - (BOOL)checkUser:(UserEntity *)user
 {
-    if (user.name == nil || [user.name isEqualToString:@""] || user.age == 0
-        || [user.mobile isEqualToString:@""] || user.mobile.length != 11) {
+    if (user.name == nil || [user.name isEqualToString:@""]
+        || user.age == 0
+        || [user.mobile isEqualToString:@""] || user.mobile.length != 11
+        || user.sex == -1
+        || user.school == 0) {
         return NO;
     }
     return YES;
@@ -78,7 +87,9 @@
     UserEntity *user = [[UserEntity alloc] init];
     user.name = self.nameField.text;
     user.age = [self.ageField.text integerValue];
+    user.sex = self.sexSegmentControl.selectedSegmentIndex;
     user.mobile = self.mobileField.text;
+    user.school = [USER_DEFAULTS integerForKey:@"schoolID"];
     
     return user;
 }

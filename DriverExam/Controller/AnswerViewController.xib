@@ -149,14 +149,22 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_false.png" translatesAutoresizingMaskIntoConstraints="NO" id="U6S-mj-nKL">
                     <rect key="frame" x="52" y="361" width="30" height="30"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_true.png" translatesAutoresizingMaskIntoConstraints="NO" id="etE-ei-d00">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="icon_true.png" translatesAutoresizingMaskIntoConstraints="NO" id="etE-ei-d00">
                     <rect key="frame" x="52" y="361" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="Evs-rU-3qf"/>
+                        <constraint firstAttribute="height" constant="30" id="x9g-RC-3f7"/>
+                    </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_false.png" translatesAutoresizingMaskIntoConstraints="NO" id="5Oz-Zz-pOc">
                     <rect key="frame" x="52" y="401" width="30" height="30"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_true.png" translatesAutoresizingMaskIntoConstraints="NO" id="tfh-wt-PlK">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="icon_true.png" translatesAutoresizingMaskIntoConstraints="NO" id="tfh-wt-PlK">
                     <rect key="frame" x="52" y="401" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Qho-kG-P4Q"/>
+                        <constraint firstAttribute="width" constant="30" id="mzt-3N-boa"/>
+                    </constraints>
                 </imageView>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="时间" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wb5-lt-Ksw">
                     <rect key="frame" x="139" y="501" width="42" height="21"/>
@@ -169,7 +177,9 @@
             <constraints>
                 <constraint firstItem="efD-sf-sBf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="9BC-3x-uBo"/>
                 <constraint firstItem="4bQ-ck-Kcy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="125" id="JaI-fU-RON"/>
+                <constraint firstItem="Ryq-Wt-DHT" firstAttribute="leading" secondItem="etE-ei-d00" secondAttribute="trailing" constant="8" id="JsQ-d2-HDD"/>
                 <constraint firstItem="RjX-l8-D6C" firstAttribute="centerX" secondItem="B8k-Ld-fRr" secondAttribute="centerX" id="McX-HG-UKp"/>
+                <constraint firstItem="gPf-Sj-UD0" firstAttribute="leading" secondItem="tfh-wt-PlK" secondAttribute="trailing" constant="8" id="RBS-49-0Nn"/>
                 <constraint firstItem="RjX-l8-D6C" firstAttribute="centerX" secondItem="XLd-Dt-3o9" secondAttribute="centerX" id="Sh9-a8-VBb"/>
                 <constraint firstAttribute="trailing" secondItem="4bQ-ck-Kcy" secondAttribute="trailing" constant="124" id="Swt-kj-RFk"/>
                 <constraint firstItem="RjX-l8-D6C" firstAttribute="leading" secondItem="WUG-n5-8om" secondAttribute="trailing" constant="8" id="UTR-yS-qne"/>

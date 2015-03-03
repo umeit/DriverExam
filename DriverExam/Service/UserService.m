@@ -30,6 +30,20 @@
                               }];
 }
 
+- (void)schoolAndLocalList:(SchollAndLocalBlock)block
+{
+    [[DEHTTPClient sharedClient] GET:@"/school"
+                          parameters:nil
+                             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                 NSLog(@"%@", responseObject);
+                             }
+                             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+                             }];
+}
+
+
+
 - (void)saveUser:(UserEntity *)user
 {
     [USER_DEFAULTS setObject:[NSKeyedArchiver archivedDataWithRootObject:user]

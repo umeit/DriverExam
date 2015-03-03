@@ -9,10 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface RegisterViewController : UIViewController
-
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *ageField;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *sexSegmentControl;
 @property (weak, nonatomic) IBOutlet UITextField *mobileField;
-@property (weak, nonatomic) IBOutlet UITextField *schoolField;
-
+@property (weak, nonatomic) IBOutlet UILabel *schoolNameLabel;
 @end

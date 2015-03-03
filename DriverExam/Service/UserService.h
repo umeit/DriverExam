@@ -12,9 +12,13 @@
 
 typedef void(^RegisterBlock)(NSInteger uID, NSString *errorMgs);
 
+typedef void(^SchollAndLocalBlock)(NSString *string);
+
 @interface UserService : NSObject
 
 - (void)registerUser:(UserEntity *)user block:(RegisterBlock)block;
+
+- (void)schoolAndLocalList:(SchollAndLocalBlock)block;
 
 - (void)saveUser:(UserEntity *)user;
 

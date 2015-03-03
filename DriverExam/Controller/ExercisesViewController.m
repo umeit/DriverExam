@@ -30,7 +30,6 @@
                                                                   target:self
                                                                   action:@selector(showAnswerButtonPress:)];
     self.navigationItem.rightBarButtonItem = showAnswerItem;
-
 }
 
 - (void)didReceiveMemoryWarning

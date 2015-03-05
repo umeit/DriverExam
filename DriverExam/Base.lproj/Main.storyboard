@@ -364,7 +364,7 @@
                                     <action selector="toKM2:" destination="OPF-wJ-ZdV" eventType="touchUpInside" id="LvG-Cv-zgy"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5AJ-sa-Giy">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5AJ-sa-Giy">
                                 <rect key="frame" x="43" y="156" width="85" height="78"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="科目一" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6B-ie-OPa">
@@ -382,7 +382,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4T8-O3-pD6">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4T8-O3-pD6">
                                 <rect key="frame" x="43" y="289" width="85" height="78"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="科目四" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwY-Hq-4Zp">
@@ -425,11 +425,17 @@
                             <constraint firstItem="N4d-BL-8UG" firstAttribute="leading" secondItem="2Qv-X2-CBB" secondAttribute="leadingMargin" constant="25" id="Cv4-Kc-iuw"/>
                             <constraint firstItem="FFh-1i-BZh" firstAttribute="leading" secondItem="2Qv-X2-CBB" secondAttribute="leadingMargin" constant="25" id="G5J-a5-imH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="N4d-BL-8UG" secondAttribute="trailing" constant="25" id="LOG-0w-g7e"/>
+                            <constraint firstItem="N4d-BL-8UG" firstAttribute="leading" secondItem="2Qv-X2-CBB" secondAttribute="leading" constant="41" id="MT0-b5-ShA"/>
+                            <constraint firstAttribute="trailing" secondItem="FFh-1i-BZh" secondAttribute="trailing" constant="41" id="NKF-iG-CFN"/>
                             <constraint firstItem="ClF-JS-NHJ" firstAttribute="trailing" secondItem="2Qv-X2-CBB" secondAttribute="trailing" id="PxI-JB-40s"/>
+                            <constraint firstItem="4T8-O3-pD6" firstAttribute="leading" secondItem="2Qv-X2-CBB" secondAttribute="leading" constant="43" id="TJ8-gz-mYE"/>
                             <constraint firstItem="ClF-JS-NHJ" firstAttribute="bottom" secondItem="2Qv-X2-CBB" secondAttribute="bottomMargin" id="beK-Nf-ZJ2"/>
+                            <constraint firstItem="5AJ-sa-Giy" firstAttribute="leading" secondItem="2Qv-X2-CBB" secondAttribute="leading" constant="43" id="cjh-20-wqO"/>
                             <constraint firstItem="ClF-JS-NHJ" firstAttribute="leading" secondItem="2Qv-X2-CBB" secondAttribute="leading" id="cxL-4b-gB0"/>
                             <constraint firstItem="Pan-Wb-w0o" firstAttribute="trailing" secondItem="2Qv-X2-CBB" secondAttribute="trailing" id="eMy-W7-get"/>
                             <constraint firstItem="Pan-Wb-w0o" firstAttribute="leading" secondItem="2Qv-X2-CBB" secondAttribute="leading" id="fTd-nt-Ldk"/>
+                            <constraint firstItem="FFh-1i-BZh" firstAttribute="leading" secondItem="2Qv-X2-CBB" secondAttribute="leading" constant="41" id="lf3-Qk-m0f"/>
+                            <constraint firstAttribute="trailing" secondItem="N4d-BL-8UG" secondAttribute="trailing" constant="41" id="tuD-rh-KU5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FFh-1i-BZh" secondAttribute="trailing" constant="25" id="wn8-Hc-b0Z"/>
                         </constraints>
                     </view>

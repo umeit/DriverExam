@@ -9,6 +9,7 @@
 #import "ExercisesViewController.h"
 #import "QuestionBase.h"
 #import "ReinforceQuestionStore.h"
+#import "MobClick.h"
 
 @interface ExercisesViewController ()
 
@@ -30,6 +31,20 @@
                                                                   target:self
                                                                   action:@selector(showAnswerButtonPress:)];
     self.navigationItem.rightBarButtonItem = showAnswerItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    [MobClick beginLogPageView:@"ExercisesView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    
+    [MobClick endLogPageView:@"ExercisesView"];
 }
 
 - (void)didReceiveMemoryWarning

@@ -9,6 +9,7 @@
 #import "DriverExamMainViewController.h"
 #import "UIViewController+GViewController.h"
 #import "RegisterViewController.h"
+#import "MobClick.h"
 
 @interface DriverExamMainViewController ()
 
@@ -31,6 +32,15 @@
         UIViewController *registerVC = [storyboard instantiateViewControllerWithIdentifier:@"RegisterViewControllerNav"];
         [self.navigationController presentViewController:registerVC animated:YES completion:nil];
     }
+    
+    [MobClick beginLogPageView:@"DriverExamMainView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    
+    [MobClick endLogPageView:@"DriverExamMainView"];
 }
 
 - (void)didReceiveMemoryWarning {

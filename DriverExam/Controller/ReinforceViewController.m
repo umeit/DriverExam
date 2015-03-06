@@ -9,6 +9,7 @@
 #import "ReinforceViewController.h"
 #import "ReinforceQuestionStore.h"
 #import "QuestionBase.h"
+#import "MobClick.h"
 
 @interface ReinforceViewController ()
 
@@ -26,6 +27,20 @@
     self.prevButton.hidden = YES;
     
     self.questionNumberLabel.hidden = YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [MobClick beginLogPageView:@"ReinforceView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    
+    [MobClick endLogPageView:@"ReinforceView"];
 }
 
 - (void)didReceiveMemoryWarning {

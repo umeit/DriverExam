@@ -10,6 +10,7 @@
 #import "ExamQuestionStore.h"
 #import "QuestionBase.h"
 #import "UIViewController+GViewController.h"
+#import "MobClick.h"
 
 @interface ExamViewController ()
 @property (nonatomic)  NSInteger secondsCountDown;
@@ -46,6 +47,20 @@
                                                                   target:self
                                                                   action:@selector(submitButtonPress:)];
     self.navigationItem.rightBarButtonItem = submitItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [MobClick beginLogPageView:@"ExamView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    
+    [MobClick endLogPageView:@"ExamView"];
 }
 
 - (void)didReceiveMemoryWarning

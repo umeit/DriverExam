@@ -12,6 +12,7 @@
 #import "UIActionSheet+Blocks.h"
 #import "UIViewController+GViewController.h"
 #import "ReinforceViewController.h"
+#import "MobClick.h"
 
 @interface ReinforceMainViewController ()
 
@@ -31,7 +32,17 @@
     [super viewWillAppear:animated];
     
     [self updateCount];
+    
+    [MobClick beginLogPageView:@"ReinforceMainView"];
 }
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    
+    [MobClick endLogPageView:@"ReinforceMainView"];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

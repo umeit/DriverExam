@@ -7,6 +7,7 @@
 //
 
 #import "ADWebViewController.h"
+#import "MobClick.h"
 
 @interface ADWebViewController ()
 
@@ -23,6 +24,19 @@
     [self.webView loadRequest:request];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    [MobClick beginLogPageView:@"ADWebView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    
+    [MobClick endLogPageView:@"ADWebView"];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

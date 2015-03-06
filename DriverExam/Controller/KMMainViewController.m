@@ -13,6 +13,7 @@
 #import "ExamQuestionStore.h"
 #import "QuestionStore.h"
 #import "ExercisesViewController.h"
+#import "MobClick.h"
 
 @interface KMMainViewController ()
 
@@ -66,6 +67,20 @@
     
     // 监听购买结果
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [MobClick beginLogPageView:@"KMMainView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    
+    [MobClick endLogPageView:@"KMMainView"];
 }
 
 - (void)didReceiveMemoryWarning {

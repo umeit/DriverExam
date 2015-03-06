@@ -9,6 +9,7 @@
 #import "ExamStartViewController.h"
 #import "UIViewController+GViewController.h"
 #import "ExamViewController.h"
+#import "MobClick.h"
 
 @interface ExamStartViewController ()
 
@@ -28,6 +29,20 @@
         self.questionScoreLabel.text = @"分值：每题 2 分";
         self.ExamTimeLabel.text = @"时间：30 分钟";
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    [MobClick beginLogPageView:@"ExamStartView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    
+    [MobClick endLogPageView:@"ExamStartView"];
 }
 
 - (void)didReceiveMemoryWarning

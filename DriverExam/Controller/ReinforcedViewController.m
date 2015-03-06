@@ -9,6 +9,7 @@
 #import "ReinforcedViewController.h"
 #import "ReinforceQuestionStore.h"
 #import "ReinforceQuestion.h"
+#import "MobClick.h"
 
 @interface ReinforcedViewController ()
 
@@ -20,6 +21,20 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"已强化";
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    [MobClick beginLogPageView:@"ReinforcedView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    
+    [MobClick endLogPageView:@"ReinforcedView"];
 }
 
 - (void)didReceiveMemoryWarning {

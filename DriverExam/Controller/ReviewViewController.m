@@ -10,6 +10,7 @@
 #import "ExamQuestionStore.h"
 #import "QuestionBase.h"
 #import "ReinforceQuestionStore.h"
+#import "MobClick.h"
 
 @interface ReviewViewController ()
 
@@ -25,6 +26,20 @@
     } else {
         self.navigationItem.title = @"已强化";
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [MobClick beginLogPageView:@"ReviewView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    
+    [MobClick endLogPageView:@"ReviewView"];
 }
 
 - (void)didReceiveMemoryWarning {

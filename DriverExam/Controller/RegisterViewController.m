@@ -10,6 +10,7 @@
 #import "UserEntity.h"
 #import "UserService.h"
 #import "UIViewController+GViewController.h"
+#import "MobClick.h"
 
 @interface RegisterViewController ()
 
@@ -32,10 +33,20 @@
     [super viewDidLoad];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
     self.schoolNameLabel.text = [USER_DEFAULTS stringForKey:@"schoolName"];
     
+    [MobClick beginLogPageView:@"RegisterView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    
+    [MobClick endLogPageView:@"RegisterView"];
 }
 
 - (void)didReceiveMemoryWarning {

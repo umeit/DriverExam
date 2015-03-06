@@ -16,6 +16,8 @@
 		03C5CF331A679840002136E3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C5CF311A679840002136E3 /* LaunchScreen.xib */; };
 		03C5CF3F1A679840002136E3 /* DriverExamTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C5CF3E1A679840002136E3 /* DriverExamTests.m */; };
 		03C5CF4F1A67C883002136E3 /* QuestionBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C5CF4E1A67C883002136E3 /* QuestionBase.m */; };
+		03DC20991AA94B6800DAF11B /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DC20961AA94B6800DAF11B /* libMobClickLibrary.a */; };
+		03DC209B1AA94BA700DAF11B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DC209A1AA94BA700DAF11B /* libz.dylib */; };
 		03DC59AD1A68C13100B30852 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DC59A71A68C13100B30852 /* AnswerViewController.m */; };
 		03DC59AE1A68C13100B30852 /* ExercisesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DC59A91A68C13100B30852 /* ExercisesViewController.m */; };
 		03DC59B21A68C15A00B30852 /* QuestionStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DC59B11A68C15A00B30852 /* QuestionStore.m */; };
@@ -1129,6 +1131,10 @@
 		03C5CF3E1A679840002136E3 /* DriverExamTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DriverExamTests.m; sourceTree = "<group>"; };
 		03C5CF4D1A67C883002136E3 /* QuestionBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionBase.h; sourceTree = "<group>"; };
 		03C5CF4E1A67C883002136E3 /* QuestionBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionBase.m; sourceTree = "<group>"; };
+		03DC20961AA94B6800DAF11B /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		03DC20971AA94B6800DAF11B /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		03DC20981AA94B6800DAF11B /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
+		03DC209A1AA94BA700DAF11B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		03DC59A61A68C13100B30852 /* AnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerViewController.h; sourceTree = "<group>"; };
 		03DC59A71A68C13100B30852 /* AnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerViewController.m; sourceTree = "<group>"; };
 		03DC59A81A68C13100B30852 /* ExercisesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisesViewController.h; sourceTree = "<group>"; };
@@ -2270,6 +2276,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03DC209B1AA94BA700DAF11B /* libz.dylib in Frameworks */,
+				03DC20991AA94B6800DAF11B /* libMobClickLibrary.a in Frameworks */,
 				225829B21A848DD7007A4751 /* StoreKit.framework in Frameworks */,
 				224877991A6FB60A004C5B31 /* libsqlite3.0.dylib in Frameworks */,
 			);
@@ -2288,6 +2296,7 @@
 		03C5CF161A679840002136E3 = {
 			isa = PBXGroup;
 			children = (
+				03DC209A1AA94BA700DAF11B /* libz.dylib */,
 				225829B11A848DD7007A4751 /* StoreKit.framework */,
 				224877981A6FB60A004C5B31 /* libsqlite3.0.dylib */,
 				03C5CF211A679840002136E3 /* DriverExam */,
@@ -2365,6 +2374,16 @@
 				2223989F1A85BA1D00CD1DF1 /* UserEntity.m */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		03DC20951AA94B6800DAF11B /* UMAnalytics_Sdk_3.4.6 */ = {
+			isa = PBXGroup;
+			children = (
+				03DC20961AA94B6800DAF11B /* libMobClickLibrary.a */,
+				03DC20971AA94B6800DAF11B /* MobClick.h */,
+				03DC20981AA94B6800DAF11B /* MobClickSocialAnalytics.h */,
+			);
+			path = UMAnalytics_Sdk_3.4.6;
 			sourceTree = "<group>";
 		};
 		03DC59A51A68C13000B30852 /* Controller */ = {
@@ -3014,6 +3033,7 @@
 		228D0AE61A6F4CB200FDD577 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				03DC20951AA94B6800DAF11B /* UMAnalytics_Sdk_3.4.6 */,
 				226600721A8866DD00C0BD7A /* UIActionSheet-Blocks */,
 				222398A51A85DC2F00CD1DF1 /* AFNetworking */,
 				225829B71A84A452007A4751 /* GTMBase64 */,
@@ -4934,6 +4954,10 @@
 				INFOPLIST_FILE = DriverExam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DriverExam/Lib/UMAnalytics_Sdk_3.4.6",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -4951,6 +4975,10 @@
 				INFOPLIST_FILE = DriverExam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DriverExam/Lib/UMAnalytics_Sdk_3.4.6",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -5037,6 +5065,10 @@
 				INFOPLIST_FILE = DriverExam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DriverExam/Lib/UMAnalytics_Sdk_3.4.6",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

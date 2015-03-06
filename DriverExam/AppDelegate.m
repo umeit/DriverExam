@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "QuestionStore.h"
 #import "FileTools.h"
+#import "MobClick.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,8 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [MobClick startWithAppkey:@"54d88271fd98c5a933000938" reportPolicy:BATCH channelId:nil];
     
     [self copyDB];
 

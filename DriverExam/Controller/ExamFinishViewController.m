@@ -10,6 +10,7 @@
 #import "ExamQuestionStore.h"
 #import "UIViewController+GViewController.h"
 #import "ReviewViewController.h"
+#import "MobClick.h"
 
 @interface ExamFinishViewController ()
 
@@ -40,6 +41,20 @@
         self.textLabel.text = @"恭喜你";
         [self.textLabel setTintColor:[UIColor redColor]];
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [MobClick beginLogPageView:@"ExamFinishView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    
+    [MobClick endLogPageView:@"ExamFinishView"];
 }
 
 - (void)didReceiveMemoryWarning {

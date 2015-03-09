@@ -180,7 +180,7 @@
     if (self.question.correctIndexs) {
         for (NSNumber *tag in self.question.correctIndexs) {
             UIButton *correctButton = (UIButton *)[self.view viewWithTag:[tag integerValue]];
-            [correctButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+            [correctButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
             
             [self showTrueIcon:[tag integerValue]];
         }
@@ -190,7 +190,7 @@
         NSInteger correctButtonTag = self.question.correctIndex;
         if (correctButtonTag) {
             UIButton *correctButton = (UIButton *)[self.view viewWithTag:correctButtonTag];
-            [correctButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+            [correctButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
             
             [self showTrueIcon:correctButtonTag];
         }

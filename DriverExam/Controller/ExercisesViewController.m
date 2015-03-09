@@ -123,10 +123,18 @@
 {
     [super updateQuestionDisplay];
     
+    // 上一题按钮
     if (self.question.qustoinID == 1) {
         self.prevButton.hidden = YES;
     } else {
         self.prevButton.hidden = NO;
+    }
+    
+    // 下一题按钮
+    if ([[QuestionStore exercisesStore] hasNextQuestion]) {
+        self.nextButton.hidden = NO;
+    } else {
+        self.nextButton.hidden = YES;
     }
     
     [self updatePageNumber];

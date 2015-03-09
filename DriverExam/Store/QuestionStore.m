@@ -141,6 +141,17 @@ static QuestionStore *answerCacheStore = nil;
     }
 }
 
+- (BOOL)hasNextQuestion {
+    NSInteger currentQuestionIndex = 0;
+    if (IS_KM1) {
+        currentQuestionIndex = [USER_DEFAULTS integerForKey:CURRENT_QUESTION_INDEX];
+        return currentQuestionIndex != LAST_INDEX_KM1;
+    } else {
+        currentQuestionIndex = [USER_DEFAULTS integerForKey:CURRENT_QUESTION_INDEX_KM4];
+        return currentQuestionIndex != LAST_INDEX_KM4;
+    }
+}
+
 
 #pragma mark - Cache
 

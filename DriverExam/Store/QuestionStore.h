@@ -45,6 +45,7 @@
 
 - (QuestionBase *)questionWithResult:(FMResultSet *)result;
 
+- (BOOL)hasNextQuestion;
 
 /** Cache */
 + (QuestionStore *)answerCacheStore;

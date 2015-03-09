@@ -47,6 +47,8 @@
 @property (strong, nonatomic) UIButton *selectedButton;
 /** 用于多选 */
 @property (strong, nonatomic) NSMutableSet *selectButtons;
+/** 记录当前显示的图片 */
+@property (strong, nonatomic) NSString *currentImageName;
 
 /** 将当前选中的按钮改为‘错误’状态 */
 - (void)updateSelectedButtonFaultStatus;

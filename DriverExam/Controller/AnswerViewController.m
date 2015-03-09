@@ -96,9 +96,7 @@
 }
 
 - (void)updateQuestionDisplay
-{
-    NSLog(@"display question: %d", self.question.qustoinID);
-    
+{   
     [self operationButtonEnabled:YES];
     
     NSString *imageName = [NSString stringWithFormat:@"%@.jpg",
@@ -113,6 +111,7 @@
     
     if (image) {
         self.questionImageView.hidden = NO;
+        self.questionImageView.image = nil;
         self.questionImageView.image = image;
     } else {
         self.questionImageView.hidden = YES;

@@ -41,6 +41,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *dFalseImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *dTrueImageView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *aButtonImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *bButtonImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *cButtonImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *dButtonImageView;
+
+
 @property (strong, nonatomic) QuestionBase *question;
 
 /** 用于单选 */

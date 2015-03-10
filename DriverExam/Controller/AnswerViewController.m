@@ -99,6 +99,22 @@
 {   
     [self operationButtonEnabled:YES];
     
+    self.aFalseImageView.hidden = YES;
+    self.aTrueImageView.hidden = YES;
+    self.bFalseImageView.hidden = YES;
+    self.bTrueImageView.hidden = YES;
+    self.cFalseImageView.hidden = YES;
+    self.cTrueImageView.hidden = YES;
+    self.dFalseImageView.hidden = YES;
+    self.dTrueImageView.hidden = YES;
+    
+    self.aButtonImageView.hidden = NO;
+    self.bButtonImageView.hidden = NO;
+    self.cButtonImageView.hidden = NO;
+    self.dButtonImageView.hidden = NO;
+    
+    self.selectButtons = [[NSMutableSet alloc] init];
+    
     NSString *imageName = [NSString stringWithFormat:@"%@.jpg",
                            [self.question.order stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
     UIImage *image = [UIImage imageNamed:imageName];
@@ -133,6 +149,8 @@
         [self.answerButonC setTitle:[self.question.answerList objectAtIndex:2] forState:UIControlStateNormal];
         [self.answerButonD setTitle:[self.question.answerList objectAtIndex:3] forState:UIControlStateNormal];
     } else {
+        self.cButtonImageView.hidden = YES;
+        self.dButtonImageView.hidden = YES;
         self.answerButonC.hidden = YES;
         self.answerButonD.hidden = YES;
     }
@@ -143,16 +161,21 @@
         self.okButton.hidden = YES;
     }
     
-    self.aFalseImageView.hidden = YES;
-    self.aTrueImageView.hidden = YES;
-    self.bFalseImageView.hidden = YES;
-    self.bTrueImageView.hidden = YES;
-    self.cFalseImageView.hidden = YES;
-    self.cTrueImageView.hidden = YES;
-    self.dFalseImageView.hidden = YES;
-    self.dTrueImageView.hidden = YES;
-    
-    self.selectButtons = [[NSMutableSet alloc] init];
+//    self.aFalseImageView.hidden = YES;
+//    self.aTrueImageView.hidden = YES;
+//    self.bFalseImageView.hidden = YES;
+//    self.bTrueImageView.hidden = YES;
+//    self.cFalseImageView.hidden = YES;
+//    self.cTrueImageView.hidden = YES;
+//    self.dFalseImageView.hidden = YES;
+//    self.dTrueImageView.hidden = YES;
+//    
+//    self.aButtonImageView.hidden = NO;
+//    self.bButtonImageView.hidden = NO;
+//    self.cButtonImageView.hidden = NO;
+//    self.dButtonImageView.hidden = NO;
+//    
+//    self.selectButtons = [[NSMutableSet alloc] init];
 }
 
 - (void)updateSelectedButtonFaultStatus
@@ -245,15 +268,19 @@
     switch (tag) {
         case 1:
             self.aTrueImageView.hidden = NO;
+            self.aButtonImageView.hidden = YES;
             break;
         case 2:
             self.bTrueImageView.hidden = NO;
+            self.bButtonImageView.hidden = YES;
             break;
         case 3:
             self.cTrueImageView.hidden = NO;
+            self.cButtonImageView.hidden = YES;
             break;
         case 4:
             self.dTrueImageView.hidden = NO;
+            self.dButtonImageView.hidden = YES;
             break;
         default:
             break;
@@ -265,15 +292,19 @@
     switch (tag) {
         case 1:
             self.aFalseImageView.hidden = NO;
+            self.aButtonImageView.hidden = YES;
             break;
         case 2:
             self.bFalseImageView.hidden = NO;
+            self.bButtonImageView.hidden = YES;
             break;
         case 3:
             self.cFalseImageView.hidden = NO;
+            self.cButtonImageView.hidden = YES;
             break;
         case 4:
             self.dFalseImageView.hidden = NO;
+            self.dButtonImageView.hidden = YES;
             break;
         default:
             break;

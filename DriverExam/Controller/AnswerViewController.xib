@@ -7,16 +7,20 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnswerViewController">
             <connections>
+                <outlet property="aButtonImageView" destination="DSu-co-TyX" id="x8N-BT-PKR"/>
                 <outlet property="aFalseImageView" destination="VJq-vk-JeA" id="fPn-x7-UzM"/>
                 <outlet property="aTrueImageView" destination="WUG-n5-8om" id="sLx-ZH-u2Z"/>
                 <outlet property="answerButonA" destination="RjX-l8-D6C" id="pYM-kX-UDJ"/>
                 <outlet property="answerButonB" destination="XLd-Dt-3o9" id="dtj-f1-XCB"/>
                 <outlet property="answerButonC" destination="Ryq-Wt-DHT" id="BdG-f9-Uwm"/>
                 <outlet property="answerButonD" destination="gPf-Sj-UD0" id="eV7-tf-Z7i"/>
+                <outlet property="bButtonImageView" destination="VQt-Ue-6i8" id="Ufd-d1-yaW"/>
                 <outlet property="bFalseImageView" destination="ouw-Yl-rd5" id="iEQ-Fc-Cjz"/>
                 <outlet property="bTrueImageView" destination="g2J-T2-MQd" id="nP1-ID-N4d"/>
+                <outlet property="cButtonImageView" destination="sc1-lj-C2m" id="S9c-lx-3DF"/>
                 <outlet property="cFalseImageView" destination="U6S-mj-nKL" id="h08-0d-t3A"/>
                 <outlet property="cTrueImageView" destination="etE-ei-d00" id="L5r-0o-2vd"/>
+                <outlet property="dButtonImageView" destination="lAJ-TV-u4Q" id="fDX-V1-XQt"/>
                 <outlet property="dFalseImageView" destination="5Oz-Zz-pOc" id="kRa-3S-iTI"/>
                 <outlet property="dTrueImageView" destination="tfh-wt-PlK" id="Z4y-ui-ZWP"/>
                 <outlet property="examTimeLabel" destination="wb5-lt-Ksw" id="rio-4X-7aB"/>

@@ -108,8 +108,11 @@
 
 - (void)showNextQuestion
 {
-    self.question = [[ReinforceQuestionStore reinforceStore] nextQuestion];
-    [self updateQuestionDisplay];
+    QuestionBase *question = [[ReinforceQuestionStore reinforceStore] nextQuestion];
+    if (question) {
+        self.question = question;
+        [self updateQuestionDisplay];
+    }
 }
 
 @end

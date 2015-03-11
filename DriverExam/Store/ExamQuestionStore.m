@@ -226,7 +226,7 @@ static ExamQuestionStore *examQuestionStore = nil;
 {
     NSInteger i = [USER_DEFAULTS integerForKey:EXAM_QUESTION_INDEX_KEY];
     QuestionBase *q = i >= self.questionList.count ? nil : [self.questionList objectAtIndex:i];
-    [USER_DEFAULTS setInteger:++i forKey:EXAM_QUESTION_INDEX_KEY];
+    [USER_DEFAULTS setInteger:i >= self.questionList.count ? i : ++i forKey:EXAM_QUESTION_INDEX_KEY];
     return q;
 }
 

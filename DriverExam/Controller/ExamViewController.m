@@ -132,9 +132,12 @@
 - (void)showNextQuestion
 {
     // 获取下一个练习题
-    self.question = [[ExamQuestionStore examQuestionStore] nextQuestion];
-    // 更新题目显示
-    [self updateQuestionDisplay];
+    QuestionBase *question = [[ExamQuestionStore examQuestionStore] nextQuestion];
+    if (question) {
+        self.question = question;
+        // 更新题目显示
+        [self updateQuestionDisplay];
+    }
 }
 
 - (void)procNextQuestionButtonPress

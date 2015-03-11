@@ -29,6 +29,10 @@
         self.questionScoreLabel.text = @"分值：每题 2 分";
         self.ExamTimeLabel.text = @"时间：30 分钟";
     }
+    
+    if (IS_Payed) {
+        self.limitLabel.hidden = YES;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

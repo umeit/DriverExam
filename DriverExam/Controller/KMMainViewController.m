@@ -191,9 +191,21 @@
 - (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
 {
     [self hideLodingView];
-    [USER_DEFAULTS setBool:YES forKey:@"IsPay"];
-    self.buyButton.hidden = YES;
-    self.rebuyButton.hidden = YES;
+    
+    NSArray *transactions = queue.transactions;
+    if (![transactions count]) {
+        [self showCustomTextAlert:@"您未购买过完整版，请购买"];
+        return;
+    }
+    
+    for (SKPaymentTransaction *transaction in transactions) {
+        if (transaction.transactionState == SKPaymentTransactionStateRestored) {
+            [USER_DEFAULTS setBool:YES forKey:@"IsPay"];
+            self.buyButton.hidden = YES;
+            self.rebuyButton.hidden = YES;
+            [self showCustomTextAlert:@"恢复购买成功"];
+        }
+    }
 }
 
 /** 恢复购买失败 */
@@ -278,7 +290,7 @@
 - (void)restoreTransaction:(SKPaymentTransaction *)transaction {
 //    [self hideLodingView];
     // 对于已购商品，处理恢复购买的逻辑
-    [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
+    [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 }
 
 - (void)getProductInfo

@@ -58,6 +58,10 @@
 
 - (IBAction)submitButtonPress:(id)sender
 {
+    [self.nameField resignFirstResponder];
+    [self.ageField resignFirstResponder];
+    [self.mobileField resignFirstResponder];
+    
     UserEntity *user = [self userInfo];
     if ([self checkUser:user]) {
         [self showLodingView];

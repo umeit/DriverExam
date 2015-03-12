@@ -5102,7 +5102,7 @@
 					"$(PROJECT_DIR)/DriverExam/Lib/UMAnalytics_Sdk_3.4.6",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "29e6315b-5696-49f4-a89a-6807a71295a6";
 			};
 			name = "ad hoc distribution";
 		};

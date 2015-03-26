@@ -451,6 +451,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="userRegItem" destination="9xD-Q6-HMx" id="6Ii-hH-HWd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k2M-88-lGx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -926,6 +929,6 @@
         <image name="ad.jpg" width="1242" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7sA-CI-qui"/>
+        <segue reference="IBh-eq-gXQ"/>
     </inferredMetricsTieBreakers>
 </document>

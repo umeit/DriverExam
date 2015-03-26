@@ -39,6 +39,13 @@
     
     self.schoolNameLabel.text = [USER_DEFAULTS stringForKey:@"schoolName"];
     
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                        message:@"您的个人信息与驾校信息仅用于驾校的信息统计，如果您无法提供，也可以正常使用该 App 的功能。"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"知道了"
+                                              otherButtonTitles: nil];
+    [alertView show];
+    
     [MobClick beginLogPageView:@"RegisterView"];
 }
 

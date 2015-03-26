@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DriverExamMainViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *userRegItem;
 @end

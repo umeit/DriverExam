@@ -20,6 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setBackButtonTitle:@"返回"];
+    
+    if ([USER_DEFAULTS dataForKey:CURRENT_USER]) {
+        self.navigationItem.leftBarButtonItem = nil;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -32,7 +36,9 @@
 //        UIViewController *registerVC = [storyboard instantiateViewControllerWithIdentifier:@"RegisterViewControllerNav"];
 //        [self.navigationController presentViewController:registerVC animated:YES completion:nil];
 //    }
-    
+    if ([USER_DEFAULTS dataForKey:CURRENT_USER]) {
+        self.navigationItem.leftBarButtonItem = nil;
+    }
     [MobClick beginLogPageView:@"DriverExamMainView"];
 }
 

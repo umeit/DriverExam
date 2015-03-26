@@ -83,6 +83,13 @@
 }
 
 
+- (IBAction)cancelButtonPress:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
 #pragma mark - Private
 
 - (BOOL)checkUser:(UserEntity *)user

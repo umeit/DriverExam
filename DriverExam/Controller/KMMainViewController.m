@@ -229,10 +229,8 @@
         // 验证购买凭证
         [self.payService checkReceipt:[self getReceipt] block:^(BOOL success){
             if (success) {
-                
-                // 第一次购买，记录用户的购买信息
-                if (!transaction.originalTransaction) {
-//                if (YES) {
+                // 第一次购买，记录用户的购买信息（当用户已注册时）
+                if (!transaction.originalTransaction && [self currentUser]) {
                     [self.payService markPaymentInfo:transaction.transactionIdentifier
                                             userInfo:[self currentUser]
                                                block:^(BOOL success){
@@ -251,12 +249,11 @@
                 }
                 else {
                     [self hideLodingView];
-                    // 设置为已购买
+                    // 设置为app状态为已购买
                     [USER_DEFAULTS setBool:YES forKey:@"IsPay"];
                     self.buyButton.hidden = YES;
                     self.rebuyButton.hidden = YES;
                 }
-                
             // 验证凭证失败
             } else {
                 [self hideLodingView];

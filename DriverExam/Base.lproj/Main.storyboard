@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3LX-oo-9pt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3LX-oo-9pt">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -231,9 +231,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="koJ-ls-BBu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1538" y="1712"/>
+            <point key="canvasLocation" x="-571" y="996"/>
         </scene>
-        <!--学员登录-->
+        <!--学员信息-->
         <scene sceneID="I2X-AB-2zA">
             <objects>
                 <viewController storyboardIdentifier="RegisterViewController" id="Ph7-ZW-HCm" customClass="RegisterViewController" sceneMemberID="viewController">
@@ -309,8 +309,14 @@
                         </subviews>
                         <color key="backgroundColor" white="0.95690528029999999" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="学员登录" id="XWv-Jg-mq7">
-                        <barButtonItem key="rightBarButtonItem" title="登录" id="KBg-aJ-WF3">
+                    <navigationItem key="navigationItem" title="学员信息" id="XWv-Jg-mq7">
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="SEu-BL-af9">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancelButtonPress:" destination="Ph7-ZW-HCm" id="oe6-cC-FRl"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="注册" style="done" id="KBg-aJ-WF3">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="submitButtonPress:" destination="Ph7-ZW-HCm" id="fZJ-sY-G1d"/>
@@ -328,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r8h-ad-boP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1158" y="1712"/>
+            <point key="canvasLocation" x="-985" y="996"/>
         </scene>
         <!--嘀嘀学车-->
         <scene sceneID="jQe-WP-HE3">
@@ -437,7 +443,13 @@
                             <constraint firstAttribute="trailing" secondItem="N4d-BL-8UG" secondAttribute="trailing" constant="41" id="tuD-rh-KU5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="嘀嘀学车" id="rFx-C1-8Q2"/>
+                    <navigationItem key="navigationItem" title="嘀嘀学车" id="rFx-C1-8Q2">
+                        <barButtonItem key="leftBarButtonItem" title="学员信息" id="9xD-Q6-HMx">
+                            <connections>
+                                <segue destination="5rI-r6-XdU" kind="modal" id="g3Y-0D-3md"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k2M-88-lGx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -640,7 +652,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tWf-Ah-bqR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325" y="946"/>
+            <point key="canvasLocation" x="325" y="996"/>
         </scene>
         <!--考试结束-->
         <scene sceneID="hOC-9N-tWT">
@@ -778,7 +790,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eES-TR-ZWu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="739" y="946"/>
+            <point key="canvasLocation" x="744" y="996"/>
         </scene>
         <!--难题强化-->
         <scene sceneID="lF0-C6-yyY">
@@ -914,6 +926,6 @@
         <image name="ad.jpg" width="1242" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IBh-eq-gXQ"/>
+        <segue reference="7sA-CI-qui"/>
     </inferredMetricsTieBreakers>
 </document>

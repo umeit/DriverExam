@@ -43,7 +43,7 @@
 }
 
 
-
+/** 保存用户信息到本地 */
 - (void)saveUser:(UserEntity *)user
 {
     [USER_DEFAULTS setObject:[NSKeyedArchiver archivedDataWithRootObject:user]
